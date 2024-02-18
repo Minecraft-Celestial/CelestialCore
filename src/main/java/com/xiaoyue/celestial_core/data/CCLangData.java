@@ -2,18 +2,18 @@ package com.xiaoyue.celestial_core.data;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import com.xiaoyue.celestial_core.register.COEffects;
+import com.xiaoyue.celestial_core.register.CCEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 
 import java.util.List;
 
-public class COLangData {
+public class CCLangData {
 
 	public static void addLang(RegistrateLangProvider pvd) {
 		List<Item> list = List.of(Items.POTION, Items.SPLASH_POTION, Items.LINGERING_POTION, Items.TIPPED_ARROW);
-		for (RegistryEntry<? extends Potion> ent : COEffects.POTION_LIST) {
+		for (RegistryEntry<? extends Potion> ent : CCEffects.POTION_LIST) {
 			for (Item item : list) {
 				String pref = item.getDescriptionId();
 				String[] prefs = pref.split("\\.");

@@ -1,5 +1,6 @@
 package com.xiaoyue.celestial_core.data;
 
+import com.xiaoyue.celestial_core.CelestialCore;
 import dev.xkmc.l2damagetracker.init.data.DamageTypeAndTagsGen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -17,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 import static com.xiaoyue.celestial_core.CelestialCore.MODID;
 import static net.minecraft.tags.DamageTypeTags.*;
 
-public class CODamageTypes extends DamageTypeAndTagsGen {
+public class CCDamageTypes extends DamageTypeAndTagsGen {
 
 	public static final ResourceKey<DamageType> IGNORE_ARMOR = createDamage("ignore_armor");
 	public static final ResourceKey<DamageType> IGNORE_INV_TIME = createDamage("ignore_inv_time");
@@ -26,7 +27,7 @@ public class CODamageTypes extends DamageTypeAndTagsGen {
 	public static final ResourceKey<DamageType> IGNORE_SHIELD = createDamage("ignore_shield");
 	public static final ResourceKey<DamageType> VIOLENT_DAMAGE = createDamage("violent_damage");
 
-	public CODamageTypes(PackOutput output, CompletableFuture<HolderLookup.Provider> pvd, ExistingFileHelper helper) {
+	public CCDamageTypes(PackOutput output, CompletableFuture<HolderLookup.Provider> pvd, ExistingFileHelper helper) {
 		super(output, pvd, helper, MODID);
 		//TODO clean up damage types
 		new DamageTypeHolder(IGNORE_ARMOR, new DamageType("ignore_armor", DamageScaling.NEVER, 0.1f))
@@ -50,7 +51,7 @@ public class CODamageTypes extends DamageTypeAndTagsGen {
 	}
 
 	private static ResourceKey<DamageType> createDamage(String id) {
-		return ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(MODID, id));
+		return ResourceKey.create(Registries.DAMAGE_TYPE, CelestialCore.loc(id));
 	}
 
 }

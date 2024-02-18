@@ -8,7 +8,7 @@ import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 
-public class COItems {
+public class CCItems {
 
 	// material
 	public static final ItemEntry<CTooltipItem> EARTH_CORE = material("earth_core",

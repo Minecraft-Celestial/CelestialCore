@@ -1,0 +1,7 @@
+{
+  "entries": [
+    "celestial_core:chests/end_city_treasure",
+    "celestial_core:chests/abandoned_mineshaft"
+  ],
+  "replace": false
+}

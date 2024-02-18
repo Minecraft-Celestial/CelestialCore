@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_core.events;
 
 import com.xiaoyue.celestial_artifacts.utils.CurioUtiks;
-import com.xiaoyue.celestial_core.register.COItems;
+import com.xiaoyue.celestial_core.register.CCItems;
 import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_core.utils.ModListUtils;
 import net.minecraft.nbt.CompoundTag;
@@ -44,13 +44,13 @@ public class MaterialEvents {
 
                 if (entity instanceof Husk husk) {
                     if (0.05 > Math.random()) {
-                        husk.spawnAtLocation(COItems.LIGHT_FRAGMENT.get());
+                        husk.spawnAtLocation(CCItems.LIGHT_FRAGMENT.get());
                     }
                 }
 
                 if (entity instanceof Stray stray) {
                     if (0.05 > Math.random()) {
-                        stray.spawnAtLocation(COItems.MIDNIGHT_FRAGMENT.get());
+                        stray.spawnAtLocation(CCItems.MIDNIGHT_FRAGMENT.get());
                     }
                 }
             }
@@ -61,31 +61,31 @@ public class MaterialEvents {
                 }
 
                 if (EntityUtils.getBeneficialEffect(player) > 12) {
-                    witherBoss.spawnAtLocation(COItems.PURE_NETHER_STAR.get());
+                    witherBoss.spawnAtLocation(CCItems.PURE_NETHER_STAR.get());
                 }
             }
 
             if (entity instanceof Blaze blaze) {
                 if (0.08 > Math.random()) {
-                    blaze.spawnAtLocation(COItems.FIRE_ESSENCE.get());
+                    blaze.spawnAtLocation(CCItems.FIRE_ESSENCE.get());
                 }
             }
 
             if (entity instanceof Guardian guardian) {
                 if (0.08 > Math.random()) {
-                    guardian.spawnAtLocation(COItems.OCEAN_ESSENCE.get());
+                    guardian.spawnAtLocation(CCItems.OCEAN_ESSENCE.get());
                 }
             }
 
             if (entity instanceof Phantom phantom) {
                 if (620 < phantom.getY()) {
-                    phantom.spawnAtLocation(COItems.SOARING_WINGS.get());
+                    phantom.spawnAtLocation(CCItems.SOARING_WINGS.get());
                 }
             }
 
             if (entity instanceof Warden warden) {
                 if (0.5 > Math.random()) {
-                    warden.spawnAtLocation(COItems.WARDEN_SCLERITE.get());
+                    warden.spawnAtLocation(CCItems.WARDEN_SCLERITE.get());
                 }
             }
 
@@ -93,7 +93,7 @@ public class MaterialEvents {
                 if (CurioUtiks.isCsOn(player)) {
                     if (entity instanceof Monster monster) {
                         if (0.02 > Math.random()) {
-                            monster.spawnAtLocation(COItems.THE_END_DUST.get());
+                            monster.spawnAtLocation(CCItems.THE_END_DUST.get());
                         }
                     }
                 }
@@ -103,7 +103,7 @@ public class MaterialEvents {
         if (entity instanceof Shulker shulker) {
             if (source.is(DamageTypeTags.IS_EXPLOSION)) {
                 if (0.5 > Math.random()) {
-                    shulker.spawnAtLocation(COItems.SHULKER_SCRAP.get());
+                    shulker.spawnAtLocation(CCItems.SHULKER_SCRAP.get());
                 }
             }
         }
@@ -111,7 +111,7 @@ public class MaterialEvents {
         if (entity.getMaxHealth() > 100) {
             if (source.is(DamageTypes.WITHER)) {
                 if (0.6 > Math.random()) {
-                    entity.spawnAtLocation(COItems.DEATH_ESSENCE.get());
+                    entity.spawnAtLocation(CCItems.DEATH_ESSENCE.get());
                 }
             }
         }
@@ -119,7 +119,7 @@ public class MaterialEvents {
         if (entity instanceof Pillager pillager) {
             if (attacker instanceof Creeper creeper) {
                 if (creeper.isPowered()) {
-                    pillager.spawnAtLocation(COItems.HEART_FRAGMENT.get());
+                    pillager.spawnAtLocation(CCItems.HEART_FRAGMENT.get());
                 }
             }
         }

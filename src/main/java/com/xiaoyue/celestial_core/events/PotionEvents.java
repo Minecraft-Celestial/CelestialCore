@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_core.events;
 
 import com.xiaoyue.celestial_core.content.event.LHurtAfterArmorEvent;
-import com.xiaoyue.celestial_core.register.COEffects;
+import com.xiaoyue.celestial_core.register.CCEffects;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,7 +20,7 @@ public class PotionEvents {
 		DamageSource source = event.getSource();
 		Entity attacker = source.getEntity();
 		if (attacker instanceof LivingEntity livingAttacker) {
-			if (livingAttacker.hasEffect(COEffects.VIOLENT.get())) {
+			if (livingAttacker.hasEffect(CCEffects.VIOLENT.get())) {
 				event.setCanceled(true);
 				event.setOriginalDamage();
 			}
@@ -33,14 +33,14 @@ public class PotionEvents {
 		Entity attacker = event.getSource().getEntity();
 		Entity directEntity = event.getSource().getDirectEntity();
 
-		if (entity.hasEffect(COEffects.SOUL_SHATTER.get())) {
-			int amplifier = entity.getEffect(COEffects.SOUL_SHATTER.get()).getAmplifier();
+		if (entity.hasEffect(CCEffects.SOUL_SHATTER.get())) {
+			int amplifier = entity.getEffect(CCEffects.SOUL_SHATTER.get()).getAmplifier();
 			event.setAmount(event.getAmount() * (1 + (amplifier * 0.2f)));
 		}
 
 		if (directEntity instanceof LivingEntity living) {
-			if (living.hasEffect(COEffects.BLADE_MODIFIER.get())) {
-				int amplifier = living.getEffect(COEffects.BLADE_MODIFIER.get()).getAmplifier();
+			if (living.hasEffect(CCEffects.BLADE_MODIFIER.get())) {
+				int amplifier = living.getEffect(CCEffects.BLADE_MODIFIER.get()).getAmplifier();
 				event.setAmount(event.getAmount() + amplifier * 4);
 			}
 		}
@@ -51,7 +51,7 @@ public class PotionEvents {
 		Entity entity = event.getEntity();
 
 		if (entity instanceof LivingEntity living) {
-			if (living.hasEffect(COEffects.ROTTEN_CURSE.get())) {
+			if (living.hasEffect(CCEffects.ROTTEN_CURSE.get())) {
 				event.setCanceled(true);
 			}
 		}

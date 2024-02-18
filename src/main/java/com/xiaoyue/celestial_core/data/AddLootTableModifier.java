@@ -17,8 +17,7 @@ import java.util.function.Supplier;
 
 import static net.minecraft.world.level.storage.loot.LootTable.createStackSplitter;
 
-public class AddLootTableModifier extends LootModifier
-{
+public class AddLootTableModifier extends LootModifier {
 	public static final Supplier<Codec<AddLootTableModifier>> CODEC = Suppliers.memoize(() ->
 			RecordCodecBuilder.create(inst -> codecStart(inst)
 					.and(ResourceLocation.CODEC.fieldOf("lootTable").forGetter((m) -> m.lootTable))
@@ -27,6 +26,11 @@ public class AddLootTableModifier extends LootModifier
 	private final ResourceLocation lootTable;
 
 	protected AddLootTableModifier(LootItemCondition[] conditionsIn, ResourceLocation lootTable) {
+		super(conditionsIn);
+		this.lootTable = lootTable;
+	}
+
+	protected AddLootTableModifier(ResourceLocation lootTable, LootItemCondition... conditionsIn) {
 		super(conditionsIn);
 		this.lootTable = lootTable;
 	}

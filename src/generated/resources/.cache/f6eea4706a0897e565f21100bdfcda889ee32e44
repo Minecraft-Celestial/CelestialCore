@@ -1,0 +1,4 @@
+// 1.20.1	2024-02-18T17:01:24.89959	Global Loot Modifiers : celestial_core
+3831e5fac0df7d02e15a1ccfd00d1e2559f284f7 data/celestial_core/loot_modifiers/chests/abandoned_mineshaft.json
+02419c6cbf98c7e0627ebbf5001a4dceb170c157 data/celestial_core/loot_modifiers/chests/end_city_treasure.json
+1263123d7c0b65aca182cabb43e610f414adf979 data/forge/loot_modifiers/global_loot_modifiers.json

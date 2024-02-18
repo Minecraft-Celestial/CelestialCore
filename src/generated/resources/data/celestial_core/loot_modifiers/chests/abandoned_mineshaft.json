@@ -6,5 +6,5 @@
       "loot_table_id": "minecraft:chests/abandoned_mineshaft"
     }
   ],
-  "lootTable": "celestial_core:chests/abandoned_mineshaft"
+  "lootTable": "celestial_core:abandoned_mineshaft"
 }

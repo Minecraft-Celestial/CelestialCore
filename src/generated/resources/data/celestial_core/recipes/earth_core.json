@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "FCF",
-    "AGE",
-    "DBD"
-  ],
+  "category": "misc",
   "key": {
     "A": {
       "item": "minecraft:deepslate"
@@ -28,7 +24,13 @@
       "item": "minecraft:stone"
     }
   },
+  "pattern": [
+    "FCF",
+    "AGE",
+    "DBD"
+  ],
   "result": {
     "item": "celestial_core:earth_core"
-  }
+  },
+  "show_notification": true
 }

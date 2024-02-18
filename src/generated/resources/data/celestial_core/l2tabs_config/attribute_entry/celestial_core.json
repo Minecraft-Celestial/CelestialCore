@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "id": "celestial_core:reply_power",
+      "id": "celestial_core:reply_effect",
       "intrinsic": 0.0,
       "order": 22000,
       "usePercent": true

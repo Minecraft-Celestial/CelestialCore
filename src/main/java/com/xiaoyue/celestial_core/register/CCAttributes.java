@@ -8,7 +8,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static com.xiaoyue.celestial_core.CelestialCore.MODID;
 
-public class COAttributes {
+public class CCAttributes {
 
     public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
 

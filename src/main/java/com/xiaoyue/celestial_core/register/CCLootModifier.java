@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static com.xiaoyue.celestial_core.CelestialCore.MODID;
 
-public class COLootModifier {
+public class CCLootModifier {
 
     public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =
     DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MODID);

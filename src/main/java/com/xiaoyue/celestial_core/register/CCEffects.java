@@ -15,12 +15,10 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Supplier;
 
-public class COEffects {
+public class CCEffects {
 
 	public static final List<RegistryEntry<? extends Potion>> POTION_LIST = new ArrayList<>();
 	private static final List<Runnable> TEMP = new ArrayList<>();

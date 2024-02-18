@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-18T15:42:58.195419	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-02-18T17:01:24.897588	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 efda70c534341d91dec323f310e539067d593fb9 assets/celestial_core/lang/en_ud.json
 be8425e5009b0a1ee8e877d881978eb1b38f8094 assets/celestial_core/lang/en_us.json
 b1ff4c6707402086648ff1eb4566ede1542848dd assets/celestial_core/models/item/curse_essence.json
@@ -19,3 +19,7 @@ f58b02b91edb3ffbc41274ea6e81b19c1217c999 assets/celestial_core/models/item/soari
 a8974f6db212c7de204bb2086692ba0ab3ba1b0e assets/celestial_core/models/item/treasure_fragment.json
 1e757dde4449021bd631a30f542a2a2d1027a2fe assets/celestial_core/models/item/void_essence.json
 04a54e9a766a895213dbcd56b28c288ef8cec815 assets/celestial_core/models/item/warden_sclerite.json
+b34755d9ed98cd0602e8762da6b273405de7b296 data/celestial_core/advancements/recipes/misc/earth_core.json
+ca93038ba07b8941e3b5c2826238f0a2c872ba52 data/celestial_core/loot_tables/abandoned_mineshaft.json
+af2affc4b174ead1e89d3654dd93fa9b851b0065 data/celestial_core/loot_tables/end_city_treasure.json
+691f90a569a9095073b2fec741e2944a74390e9a data/celestial_core/recipes/earth_core.json
