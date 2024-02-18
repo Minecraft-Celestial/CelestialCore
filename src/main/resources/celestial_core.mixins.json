@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.xiaoyue.celestial_core.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "celestial_forge.refmap.json",
+  "mixins": [
+    "EntityMixin",
+    "LivingEntityMixin"
+  ],
+  "minVersion": "0.8"
+}
