@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FCF",
+    "AGE",
+    "DBD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:deepslate"
+    },
+    "B": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "C": {
+      "item": "minecraft:polished_granite"
+    },
+    "D": {
+      "item": "minecraft:polished_blackstone"
+    },
+    "E": {
+      "item": "minecraft:polished_diorite"
+    },
+    "F": {
+      "item": "minecraft:mossy_cobblestone"
+    },
+    "G": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "celestial_core:earth_core"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "itemGroup.celestial_core.core": "星月核心",
+  
+  "item.celestial_core.earth_core": "大地核心",
+  "tooltip.item.celestial_core.earth_core": "§b在工作台合成获得",
+  
+  "item.celestial_core.void_essence": "虚空精华",
+  "tooltip.item.celestial_core.void_essence": "§b在末地城宝箱中概率开出",
+  
+  "item.celestial_core.death_essence": "死亡精华",
+  "tooltip.item.celestial_core.death_essence": "§b最大生命大于100点的生物被凋零伤害杀死概率掉落",
+  
+  "item.celestial_core.fire_essence": "火焰精华",
+  "tooltip.item.celestial_core.fire_essence": "§b杀死烈焰人小概率掉落",
+  
+  "item.celestial_core.ocean_essence": "海洋精华",
+  "tooltip.item.celestial_core.ocean_essence": "§b杀死守卫者小概率掉落",
+  
+  "item.celestial_core.light_fragment": "光明碎片",
+  "tooltip.item.celestial_core.light_fragment": "§b击败凋灵后，杀死尸壳小概率掉落",
+  
+  "item.celestial_core.midnight_fragment": "子夜碎片",
+  "tooltip.item.celestial_core.midnight_fragment": "§b击败凋灵后，杀死流浪者小概率掉落",
+  
+  "item.celestial_core.treasure_fragment": "宝藏碎片",
+  "tooltip.item.celestial_core.treasure_fragment": "§b在废弃矿井的宝箱中概率开出",
+  
+  "item.celestial_core.pure_nether_star": "纯净之星",
+  "tooltip.item.celestial_core.pure_nether_star": "§b玩家携带12种正面效果杀死凋灵掉落",
+  
+  "item.celestial_core.shulker_scrap": "潜影壳破片",
+  "tooltip.item.celestial_core.shulker_scrap": "§b潜影贝被爆炸伤害杀死掉落",
+  
+  "item.celestial_core.soaring_wings": "飞升之翼",
+  "tooltip.item.celestial_core.soaring_wings": "§b幻翼死于y轴大于621格掉落",
+  
+  "item.celestial_core.heart_fragment": "心之碎片",
+  "tooltip.item.celestial_core.heart_fragment": "§b掠夺者被闪电苦力怕杀死掉落",
+  
+  "item.celestial_core.the_end_dust": "终焉之尘",
+  "tooltip.item.celestial_core.the_end_dust": "§b携带灾厄之册[星月遗物]杀死怪物小概率掉落",
+  
+  "item.celestial_core.warden_sclerite": "监守者骨片",
+  "tooltip.item.celestial_core.warden_sclerite": "§b玩家杀死监守者概率掉落",
+  
+  "item.celestial_core.equipment_fragment": "装备精华板",
+  "tooltip.item.celestial_core.equipment_fragment": "§b暂无",
+    
+  "item.celestial_core.nebula_cube": "星云立方",
+  "tooltip.item.celestial_core.nebula_cube": "§b暂无",
+  
+  "item.celestial_core.ice_fragment": "极冰碎块",
+  "tooltip.item.celestial_core.ice_fragment": "§b暂无",
+  
+  "item.celestial_core.curse_essence": "诅咒精华",
+  "tooltip.item.celestial_core.curse_essence": "§b暂无",
+  
+  "item.minecraft.potion.effect.crit_rate_base": "暴击增幅药水",
+  "item.minecraft.splash_potion.effect.crit_rate_base": "喷溅型暴击增幅药水",
+  "item.minecraft.lingering_potion.effect.crit_rate_base": "滞留型暴击增幅药水",
+  
+  "item.minecraft.potion.effect.crit_rate_log": "暴击增幅药水",
+  "item.minecraft.splash_potion.effect.crit_rate_log": "喷溅型暴击增幅药水",
+  "item.minecraft.lingering_potion.effect.crit_rate_log": "滞留型暴击增幅药水",
+  
+  "item.minecraft.potion.effect.crit_damage_base": "爆伤增幅药水",
+  "item.minecraft.splash_potion.effect.crit_damage_base": "喷溅型爆伤增幅药水",
+  "item.minecraft.lingering_potion.effect.crit_damage_base": "滞留型爆伤增幅药水",
+  
+  "item.minecraft.potion.effect.crit_damage_log": "爆伤增幅药水",
+  "item.minecraft.splash_potion.effect.crit_damage_log": "喷溅型爆伤增幅药水",
+  "item.minecraft.lingering_potion.effect.crit_damage_log": "滞留型爆伤增幅药水",
+  
+  "item.minecraft.potion.effect.reply_power_base": "治疗增幅药水",
+  "item.minecraft.splash_potion.effect.reply_power_base": "喷溅型治疗增幅药水",
+  "item.minecraft.lingering_potion.effect.reply_power_base": "滞留型治疗增幅药水",
+  
+  "item.minecraft.potion.effect.reply_power_log": "治疗增幅药水",
+  "item.minecraft.splash_potion.effect.reply_power_log": "喷溅型治疗增幅药水",
+  "item.minecraft.lingering_potion.effect.reply_power_log": "滞留型治疗增幅药水",
+  
+  "tooltip.celestial_core.null": "",
+  
+  "effect.celestial_core.hidden": "隐匿",
+  "effect.celestial_core.rotten_curse": "腐败诅咒",
+  "effect.celestial_core.soul_shatter": "灵魂破裂",
+  "effect.celestial_core.crit_rate": "暴击提升",
+  "effect.celestial_core.blade_modifier": "强化刀刃",
+  "effect.celestial_core.crit_damage": "爆伤提升",
+  "effect.celestial_core.reply_power": "治疗提升",
+  "effect.celestial_core.arrow_damage": "箭矢增强",
+  
+  "attribute.celestial_core.crit_rate": "星月暴击",
+  "attribute.celestial_core.crit_damage": "星月暴伤",
+  "attribute.celestial_core.reply_power": "治疗力",
+  "attribute.celestial_core.arrow_knock": "箭矢击退",
+  "attribute.celestial_core.arrow_damage": "箭矢伤害",
+  "attribute.celestial_core.arrow_speed": "箭矢速度",
+  "attribute.celestial_core.damage_penetrate": "伤害穿透",
+  "attribute.celestial_core.damage_reduction": "伤害减免",
+  
+  "menu.celestial_core.attribute": "星月属性",
+  "menu.celestial_core.reply_power": "治疗力: %1$s",
+  "menu.celestial_core.crit_rate": "星月暴击: %1$s",
+  "menu.celestial_core.crit_damage": "星月爆伤: %1$s",
+  "menu.celestial_core.arrow_damage": "箭矢伤害: %1$s",
+  "menu.celestial_core.arrow_knock": "箭矢击退: %1$s",
+  "menu.celestial_core.damage_reduction": "伤害减免: %1$s"
+}

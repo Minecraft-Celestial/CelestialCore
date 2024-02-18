@@ -15,7 +15,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import static com.xiaoyue.celestial_core.celestial_core.MODID;
+import static com.xiaoyue.celestial_core.CelestialCore.MODID;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class AttributeEvents {

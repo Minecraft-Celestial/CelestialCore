@@ -1,0 +1,46 @@
+{
+  "list": [
+    {
+      "id": "celestial_core:reply_power",
+      "intrinsic": 0.0,
+      "order": 22000,
+      "usePercent": true
+    },
+    {
+      "id": "celestial_core:crit_rate",
+      "intrinsic": -0.95,
+      "order": 22100,
+      "usePercent": true
+    },
+    {
+      "id": "celestial_core:crit_damage",
+      "intrinsic": 0.5,
+      "order": 22200,
+      "usePercent": true
+    },
+    {
+      "id": "celestial_core:arrow_speed",
+      "intrinsic": 0.0,
+      "order": 22300,
+      "usePercent": true
+    },
+    {
+      "id": "celestial_core:arrow_damage",
+      "intrinsic": 0.0,
+      "order": 22400,
+      "usePercent": true
+    },
+    {
+      "id": "celestial_core:arrow_knock",
+      "intrinsic": 0.0,
+      "order": 22500,
+      "usePercent": true
+    },
+    {
+      "id": "celestial_core:damage_reduction",
+      "intrinsic": -1.0,
+      "order": 22600,
+      "usePercent": true
+    }
+  ]
+}
