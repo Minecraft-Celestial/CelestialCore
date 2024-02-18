@@ -105,5 +105,22 @@
   "menu.celestial_core.crit_damage": "星月爆伤: %1$s",
   "menu.celestial_core.arrow_damage": "箭矢伤害: %1$s",
   "menu.celestial_core.arrow_knock": "箭矢击退: %1$s",
-  "menu.celestial_core.damage_reduction": "伤害减免: %1$s"
+  "menu.celestial_core.damage_reduction": "伤害减免: %1$s",
+
+  "effect.celestial_core.arrow_damage.description": "",
+  "effect.celestial_core.blade_modifier.description": "",
+  "effect.celestial_core.crit_damage.description": "",
+  "effect.celestial_core.crit_rate.description": "",
+  "effect.celestial_core.hidden.description": "",
+  "effect.celestial_core.reply_power.description": "",
+  "effect.celestial_core.rotten_curse.description": "",
+  "effect.celestial_core.soul_shatter.description": "",
+  "effect.celestial_core.violent": "Violent",
+  "effect.celestial_core.violent.description": "",
+  "item.minecraft.tipped_arrow.effect.crit_damage_base": "Arrow of Crit Damage",
+  "item.minecraft.tipped_arrow.effect.crit_damage_log": "Arrow of Crit Damage",
+  "item.minecraft.tipped_arrow.effect.crit_rate_base": "Arrow of Crit Rate",
+  "item.minecraft.tipped_arrow.effect.crit_rate_log": "Arrow of Crit Rate",
+  "item.minecraft.tipped_arrow.effect.reply_power_base": "Arrow of Crit Damage",
+  "item.minecraft.tipped_arrow.effect.reply_power_log": "Arrow of Crit Damage"
 }

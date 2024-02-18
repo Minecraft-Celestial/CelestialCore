@@ -1,0 +1,10 @@
+{
+  "values": [
+    "celestial_core:ignore_armor",
+    "celestial_core:ignore_inv_time",
+    "celestial_core:ignore_effect",
+    "celestial_core:ignore_enchantment",
+    "celestial_core:ignore_shield",
+    "celestial_core:violent_damage"
+  ]
+}

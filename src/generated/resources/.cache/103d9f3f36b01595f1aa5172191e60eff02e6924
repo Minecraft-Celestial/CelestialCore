@@ -1,0 +1,7 @@
+// 1.20.1	2024-02-18T15:31:16.087504	Registries
+38756a214d51a220c20825d590a3d20d0a1ae893 data/celestial_core/damage_type/ignore_armor.json
+762d1ca7cf9788a4100cb2266ca83196d0488d4a data/celestial_core/damage_type/ignore_effect.json
+4fb1c2211f00b12075663054956b9040c4d1d36d data/celestial_core/damage_type/ignore_enchantment.json
+2efb334605006576ec4571f2c6e97e83a9fda6ed data/celestial_core/damage_type/ignore_inv_time.json
+a222c335f542ea3b119850318f07efc5cad3e14b data/celestial_core/damage_type/ignore_shield.json
+33267954e4ec6ce7b7fb4cc47b11a5cf57aeac20 data/celestial_core/damage_type/violent_damage.json

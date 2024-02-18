@@ -33,7 +33,7 @@ minecraft {
         configureEach {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.console.level', 'info'
             mods {
                 "${mod_id}" {
                     source sourceSets.main
@@ -133,6 +133,11 @@ dependencies {
     implementation fg.deobf(jarJar("dev.xkmc.l2screentracker:l2screentracker:0.1.4")) {
         transitive = false
         jarJar.ranged(it, "[0.1.4,)")
+    }
+
+    implementation fg.deobf(jarJar("dev.xkmc.l2damagetracker:l2damagetracker:0.2.7")) {
+        transitive = false
+        jarJar.ranged(it, "[0.2.7,)")
     }
 
     runtimeOnly fg.deobf(jarJar("dev.xkmc.l2itemselector:l2itemselector:0.1.7")) {

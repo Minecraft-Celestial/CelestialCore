@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_core;
 import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import com.xiaoyue.celestial_core.data.CDamageTypeTags;
+import com.xiaoyue.celestial_core.data.CODamageTypes;
 import com.xiaoyue.celestial_core.data.COLangData;
 import com.xiaoyue.celestial_core.register.COAttributes;
 import com.xiaoyue.celestial_core.register.COEffects;
@@ -71,7 +71,7 @@ public class CelestialCore {
 		ExistingFileHelper helper = event.getExistingFileHelper();
 		DataGenerator generator = event.getGenerator();
 		PackOutput output = generator.getPackOutput();
-		generator.addProvider(included, new CDamageTypeTags(output, provider, helper));
+		new CODamageTypes(output, provider, helper).generate(included, generator);
 	}
 
 }

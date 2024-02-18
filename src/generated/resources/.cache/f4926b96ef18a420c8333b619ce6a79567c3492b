@@ -1,0 +1,9 @@
+// 1.20.1	2024-02-18T15:31:16.083408	Tags for minecraft:damage_type mod id celestial_core
+88d0f5fbcb08adb775a5daad6339e725d55dafe4 data/minecraft/tags/damage_type/avoids_guardian_thorns.json
+a071049635c06c6b9af20d58290f34802378efbb data/minecraft/tags/damage_type/bypasses_armor.json
+54178f55f604b9288b521da43f1785e176bfe4ca data/minecraft/tags/damage_type/bypasses_cooldown.json
+2f9d2c5dc323cd7dbce72270e7d74121fb018ed1 data/minecraft/tags/damage_type/bypasses_effects.json
+626dd094771fa847963a83a408470d69107baafe data/minecraft/tags/damage_type/bypasses_enchantments.json
+88d0f5fbcb08adb775a5daad6339e725d55dafe4 data/minecraft/tags/damage_type/bypasses_invulnerability.json
+88d0f5fbcb08adb775a5daad6339e725d55dafe4 data/minecraft/tags/damage_type/bypasses_resistance.json
+338ae193ce2625398432219ac678977a88163120 data/minecraft/tags/damage_type/bypasses_shield.json

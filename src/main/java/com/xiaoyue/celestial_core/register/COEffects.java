@@ -23,7 +23,7 @@ import java.util.function.Supplier;
 public class COEffects {
 
 	public static final List<RegistryEntry<? extends Potion>> POTION_LIST = new ArrayList<>();
-	public static final Map<String, String> NAME_CACHE = new HashMap<>();
+	private static final List<Runnable> TEMP = new ArrayList<>();
 
 	public static final RegistryEntry<Violent> VIOLENT = genEffect("violent", Violent::new, "");
 	public static final RegistryEntry<Hidden> HIDDEN = genEffect("hidden", Hidden::new, "");
@@ -34,7 +34,6 @@ public class COEffects {
 	public static final RegistryEntry<CritDamage> CRIT_DAMAGE = genEffect("crit_damage", CritDamage::new, "");
 	public static final RegistryEntry<ReplyPower> REPLY_POWER = genEffect("reply_power", ReplyPower::new, "");
 	public static final RegistryEntry<ArrowDamage> ARROW_DAMAGE = genEffect("arrow_damage", ArrowDamage::new, "");
-
 
 	static {
 		regPotion2("crit_rate", CRIT_RATE::get, () -> Items.BLAZE_ROD, 6000, 9600);
@@ -54,8 +53,6 @@ public class COEffects {
 		POTION_LIST.add(ans);
 		return ans;
 	}
-
-	private static final List<Runnable> TEMP = new ArrayList<>();
 
 	public static void registerBrewingRecipe() {
 		TEMP.forEach(Runnable::run);
