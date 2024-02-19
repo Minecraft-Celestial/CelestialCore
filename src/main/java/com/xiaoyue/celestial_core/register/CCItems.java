@@ -36,7 +36,7 @@ public class CCItems {
 	public static final ItemEntry<CTooltipItem> HEART_FRAGMENT = material("heart_fragment",
 			p -> new CTooltipItem(new Item.Properties().rarity(Rarity.RARE), false), "Dropped when Pillager is killed by charged Creeper");
 	public static final ItemEntry<CTooltipItem> THE_END_DUST = material("the_end_dust",
-			p -> new CTooltipItem(new Item.Properties().rarity(Rarity.EPIC), false), "Rarely dropped when player equipped with Demon Curse kills mobs");
+			p -> new CTooltipItem(new Item.Properties().rarity(Rarity.EPIC), false), "Rarely dropped when player equipped with Catastrophe Scroll kills mobs");
 	public static final ItemEntry<CTooltipItem> WARDEN_SCLERITE = material("warden_sclerite",
 			p -> new CTooltipItem(new Item.Properties().rarity(Rarity.EPIC), false), "Rarely dropped from Warden");
 	public static final ItemEntry<CTooltipItem> NEBULA_CUBE = material("nebula_cube",

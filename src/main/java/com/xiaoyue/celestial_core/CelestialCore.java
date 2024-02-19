@@ -4,10 +4,8 @@ import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.xiaoyue.celestial_core.data.*;
-import com.xiaoyue.celestial_core.register.CCAttributes;
-import com.xiaoyue.celestial_core.register.CCEffects;
-import com.xiaoyue.celestial_core.register.CCItems;
-import com.xiaoyue.celestial_core.register.CCLootModifier;
+import com.xiaoyue.celestial_core.register.*;
+import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -42,6 +40,7 @@ public class CelestialCore {
 		CCEffects.register();
 		CCAttributes.ATTRIBUTES.register(modEventBus);
 		CCLootModifier.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
+		AttackEventHandler.register(3450, new CCAttackListener());
 
 		REGISTRATE.addDataGenerator(ProviderType.LANG, CCLangData::addLang);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, CCRecipeGen::onRecipeGen);
@@ -75,7 +74,7 @@ public class CelestialCore {
 		PackOutput output = generator.getPackOutput();
 		new CCDamageTypes(output, provider, helper).generate(included, generator);
 		generator.addProvider(included, new CCGLMProvider(output));
-		generator.addProvider(included,new CCL2ConfigGen(generator));
+		generator.addProvider(included, new CCL2ConfigGen(generator));
 	}
 
 	public static ResourceLocation loc(String id) {

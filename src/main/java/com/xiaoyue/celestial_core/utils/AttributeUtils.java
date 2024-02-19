@@ -1,28 +1,21 @@
 package com.xiaoyue.celestial_core.utils;
 
 import com.xiaoyue.celestial_core.register.CCAttributes;
+import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import net.minecraft.world.entity.player.Player;
 
 public class AttributeUtils {
 
-    public static double getCR(Player player) {
-        return player.getAttributeValue(CCAttributes.CRIT_RATE.get());
-    }
-
     public static double getNewCR(Player player) {
-        return getCR(player) - 0.95;
-    }
-
-    public static double getCD(Player player) {
-        return player.getAttributeValue(CCAttributes.CRIT_DAMAGE.get());
+        return L2DamageTracker.CRIT_RATE.get().getWrappedValue(player);
     }
 
     public static double getNewCD(Player player) {
-        return getCD(player) + 0.5;
+        return L2DamageTracker.CRIT_DMG.get().getWrappedValue(player);
     }
 
     public static double getAD(Player player) {
-        return player.getAttributeValue(CCAttributes.ARROW_DAMAGE.get());
+        return L2DamageTracker.BOW_STRENGTH.get().getWrappedValue(player);
     }
 
     public static double getAS(Player player) {

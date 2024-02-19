@@ -4,8 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "celestial_forge.refmap.json",
   "mixins": [
-    "EntityMixin",
-    "LivingEntityMixin"
+    "EntityMixin"
   ],
   "minVersion": "0.8"
 }

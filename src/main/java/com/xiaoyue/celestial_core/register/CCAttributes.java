@@ -12,17 +12,8 @@ public class CCAttributes {
 
     public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
 
-    public static final RegistryObject<Attribute> CRIT_RATE = ATTRIBUTES.register("crit_rate",
-            () -> new RangedAttribute("attribute.celestial_core.crit_rate", 0, 0, 10).setSyncable(true));
-
-    public static final RegistryObject<Attribute> CRIT_DAMAGE = ATTRIBUTES.register("crit_damage",
-            () -> new RangedAttribute("attribute.celestial_core.crit_damage", 0, 0, 1024).setSyncable(true));
-
     public static final RegistryObject<Attribute> REPLY_POWER = ATTRIBUTES.register("reply_effect",
             () -> new RangedAttribute("attribute.celestial_core.reply_power", 0, 0, 64).setSyncable(true));
-
-    public static final RegistryObject<Attribute> ARROW_DAMAGE = ATTRIBUTES.register("arrow_damage",
-            () -> new RangedAttribute("attribute.celestial_core.arrow_damage", 0, 0, 1024).setSyncable(true));
 
     public static final RegistryObject<Attribute> ARROW_SPEED = ATTRIBUTES.register("arrow_speed",
             () -> new RangedAttribute("attribute.celestial_core.arrow_speed", 0, 0, 1024).setSyncable(true));

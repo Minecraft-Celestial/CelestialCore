@@ -16,18 +16,6 @@ import static com.xiaoyue.celestial_core.CelestialCore.MODID;
 public class PotionEvents {
 
 	@SubscribeEvent
-	public static void onLivingHurtAfterArmor(LHurtAfterArmorEvent event) {
-		DamageSource source = event.getSource();
-		Entity attacker = source.getEntity();
-		if (attacker instanceof LivingEntity livingAttacker) {
-			if (livingAttacker.hasEffect(CCEffects.VIOLENT.get())) {
-				event.setCanceled(true);
-				event.setOriginalDamage();
-			}
-		}
-	}
-
-	@SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
 		LivingEntity entity = event.getEntity();
 		Entity attacker = event.getSource().getEntity();
