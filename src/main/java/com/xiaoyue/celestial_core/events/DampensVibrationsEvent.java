@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_core.content.event;
+package com.xiaoyue.celestial_core.events;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;

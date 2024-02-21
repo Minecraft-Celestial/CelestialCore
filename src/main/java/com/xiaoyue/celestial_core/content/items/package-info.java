@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package com.xiaoyue.celestial_core.content.event;
+package com.xiaoyue.celestial_core.content.items;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

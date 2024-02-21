@@ -1,6 +1,6 @@
 package com.xiaoyue.celestial_core.mixin;
 
-import com.xiaoyue.celestial_core.content.event.DampensVibrationsEvent;
+import com.xiaoyue.celestial_core.events.DampensVibrationsEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;

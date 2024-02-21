@@ -1,6 +1,6 @@
-// 1.20.1	2024-02-18T17:01:24.897588	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-efda70c534341d91dec323f310e539067d593fb9 assets/celestial_core/lang/en_ud.json
-be8425e5009b0a1ee8e877d881978eb1b38f8094 assets/celestial_core/lang/en_us.json
+// 1.20.1	2024-02-21T11:03:57.358258	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+773cd8621f759bb1837a34dc395536938e927455 assets/celestial_core/lang/en_ud.json
+88d053af71a17445063be4e00442c565ee27abd0 assets/celestial_core/lang/en_us.json
 b1ff4c6707402086648ff1eb4566ede1542848dd assets/celestial_core/models/item/curse_essence.json
 7f41b50a97308ba0064274589636f2485c882051 assets/celestial_core/models/item/death_essence.json
 6ce6ce8fedc4081566ef04489a46990f53b234c9 assets/celestial_core/models/item/earth_core.json

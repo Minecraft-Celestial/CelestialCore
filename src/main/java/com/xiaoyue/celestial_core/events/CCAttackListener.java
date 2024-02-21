@@ -1,5 +1,6 @@
-package com.xiaoyue.celestial_core.register;
+package com.xiaoyue.celestial_core.events;
 
+import com.xiaoyue.celestial_core.register.CCEffects;
 import dev.xkmc.l2damagetracker.contents.attack.AttackListener;
 import dev.xkmc.l2damagetracker.contents.attack.CreateSourceEvent;
 import dev.xkmc.l2damagetracker.contents.damage.DefaultDamageState;

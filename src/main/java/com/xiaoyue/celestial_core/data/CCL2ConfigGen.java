@@ -18,12 +18,8 @@ public class CCL2ConfigGen extends ConfigDataProvider {
 		collector.add(L2Tabs.ATTRIBUTE_ENTRY, CelestialCore.loc(CelestialCore.MODID),
 				new AttributeDisplayConfig()
 						.add(CCAttributes.REPLY_POWER.get(), true, 22000, 0)
-						.add(CCAttributes.CRIT_RATE.get(), true, 22100, -0.95)
-						.add(CCAttributes.CRIT_DAMAGE.get(), true, 22200, 0.5)
 						.add(CCAttributes.ARROW_SPEED.get(), true, 22300, 0)
-						.add(CCAttributes.ARROW_DAMAGE.get(), true, 22400, 0)
 						.add(CCAttributes.ARROW_KNOCK.get(), true, 22500, 0)
-						.add(CCAttributes.DAMAGE_REDUCTION.get(), true, 22600, -1)
 		);
 	}
 

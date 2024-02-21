@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.xiaoyue.celestial_core.data.*;
+import com.xiaoyue.celestial_core.events.CCAttackListener;
 import com.xiaoyue.celestial_core.register.*;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
@@ -56,13 +57,9 @@ public class CelestialCore {
 
 	@SubscribeEvent
 	public static void modifyAttribute(EntityAttributeModificationEvent event) {
-		event.add(EntityType.PLAYER, CCAttributes.CRIT_RATE.get(), 1.0);
-		event.add(EntityType.PLAYER, CCAttributes.CRIT_DAMAGE.get(), 1.0);
 		event.add(EntityType.PLAYER, CCAttributes.REPLY_POWER.get(), 1.0);
-		event.add(EntityType.PLAYER, CCAttributes.ARROW_DAMAGE.get(), 1.0);
 		event.add(EntityType.PLAYER, CCAttributes.ARROW_SPEED.get(), 1.0);
 		event.add(EntityType.PLAYER, CCAttributes.ARROW_KNOCK.get(), 1.0);
-		event.add(EntityType.PLAYER, CCAttributes.DAMAGE_REDUCTION.get(), 1.0);
 	}
 
 	@SubscribeEvent

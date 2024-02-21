@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_core.content.generic;
+package com.xiaoyue.celestial_core.content.items;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
@@ -10,11 +10,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CTooltipItem extends Item {
+public class CCTooltipItem extends Item {
 
     public boolean canHurt;
 
-    public CTooltipItem(Properties pProperties, boolean hurt) {
+    public CCTooltipItem(Properties pProperties, boolean hurt) {
         super(pProperties);
         canHurt = hurt;
     }

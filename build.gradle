@@ -125,9 +125,9 @@ dependencies {
         jarJar.ranged(it, "[1.2.2,)")
     }
 
-    implementation fg.deobf(jarJar("dev.xkmc.l2tabs:l2tabs:0.2.6")) {
+    implementation fg.deobf(jarJar("dev.xkmc.l2tabs:l2tabs:0.3.1")) {
         transitive = false
-        jarJar.ranged(it, "[0.2.6,)")
+        jarJar.ranged(it, "[0.3.1,)")
     }
 
     implementation fg.deobf(jarJar("dev.xkmc.l2screentracker:l2screentracker:0.1.4")) {
@@ -135,9 +135,9 @@ dependencies {
         jarJar.ranged(it, "[0.1.4,)")
     }
 
-    implementation fg.deobf(jarJar("dev.xkmc.l2damagetracker:l2damagetracker:0.2.7")) {
+    implementation fg.deobf(jarJar("dev.xkmc.l2damagetracker:l2damagetracker:0.2.8")) {
         transitive = false
-        jarJar.ranged(it, "[0.2.7,)")
+        jarJar.ranged(it, "[0.2.8,)")
     }
 
     runtimeOnly fg.deobf(jarJar("dev.xkmc.l2itemselector:l2itemselector:0.1.7")) {
@@ -160,8 +160,6 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:4587429")
     runtimeOnly fg.deobf("curse.maven:caelus-308989:4581481")
     runtimeOnly fg.deobf("curse.maven:elytra-slot-317716:4598379")
-
-    implementation fg.deobf("xiaoyue.celestial_artifacts:celestial_artifacts:1.0")
 
 }
 

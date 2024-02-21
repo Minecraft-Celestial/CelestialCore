@@ -21,6 +21,4 @@ public class CCAttributes {
     public static final RegistryObject<Attribute> ARROW_KNOCK = ATTRIBUTES.register("arrow_knock",
             () -> new RangedAttribute("attribute.celestial_core.arrow_knock", 0, 0, 64).setSyncable(true));
 
-    public static final RegistryObject<Attribute> DAMAGE_REDUCTION = ATTRIBUTES.register("damage_reduction",
-            () -> new RangedAttribute("attribute.celestial_core.damage_reduction", 0, 0, 10).setSyncable(true));
 }
