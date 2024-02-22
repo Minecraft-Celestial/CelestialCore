@@ -126,18 +126,6 @@ public class CCGeneralEventHandler {
 					warden.spawnAtLocation(CCItems.WARDEN_SCLERITE.get());
 				}
 			}
-
-            /*TODO
-            if (ModListUtils.isLoader("celestial_artifacts")) {
-                if (CurioUtiks.isCsOn(player)) {
-                    if (entity instanceof Monster monster) {
-                        if (0.02 > Math.random()) {
-                            monster.spawnAtLocation(CCItems.THE_END_DUST.get());
-                        }
-                    }
-                }
-            }*/
-
 		}
 
 		if (entity instanceof Shulker shulker) {
