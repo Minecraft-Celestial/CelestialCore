@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_core.register;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.xiaoyue.celestial_core.CelestialCore;
-import com.xiaoyue.celestial_core.content.items.CCTooltipItem;
+import com.xiaoyue.celestial_core.content.generic.CCTooltipItem;
 import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;

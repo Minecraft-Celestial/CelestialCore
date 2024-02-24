@@ -1,5 +1,6 @@
 package com.xiaoyue.celestial_core.events;
 
+import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
 import com.xiaoyue.celestial_core.register.CCAttributes;
 import com.xiaoyue.celestial_core.register.CCEffects;
 import com.xiaoyue.celestial_core.register.CCItems;
@@ -43,11 +44,11 @@ public class CCGeneralEventHandler {
 			if (arrow.getOwner() instanceof Player player) {
 				double as = player.getAttributeValue(CCAttributes.ARROW_SPEED.get());
 				double ak = player.getAttributeValue(CCAttributes.ARROW_KNOCK.get());
-				if (!arrow.getPersistentData().getBoolean("arrow_speed")) {
+				if (!arrow.getTags().contains("arrow_speed")) {
 					arrow.setDeltaMovement(arrow.getDeltaMovement().scale(as));
-					arrow.getPersistentData().putBoolean("arrow_speed", true);
+					arrow.addTag("arrow_speed");
 				}
-				arrow.setKnockback((int) (arrow.getKnockback() * ak));
+				arrow.setKnockback(arrow.getKnockback() + (int) ak);
 			}
 		}
 	}
@@ -65,37 +66,29 @@ public class CCGeneralEventHandler {
 	public static String NETHER_STAGE = "nether_stage";
 
 	@SubscribeEvent
-	public static void onPlayerClone(PlayerEvent.Clone event) {
-		if (event.getOriginal().getPersistentData().getBoolean(NETHER_STAGE)) {
-			event.getEntity().getPersistentData().putBoolean(NETHER_STAGE, true);
-		}
-	}
-
-	@SubscribeEvent
 	public static void onLivingDeath(LivingDeathEvent event) {
 		LivingEntity entity = event.getEntity();
 		DamageSource source = event.getSource();
 		Entity attacker = source.getEntity();
 		if (attacker instanceof Player player) {
-			CompoundTag data = player.getPersistentData();
-			if (data.getBoolean(NETHER_STAGE)) {
-
+			var data = PlayerFlagData.HOLDER.get(player);
+			if (data.hasFlag(NETHER_STAGE)) {
 				if (entity instanceof Husk husk) {
-					if (0.05 > Math.random()) {
+					if (0.05 > entity.getRandom().nextDouble()) {
 						husk.spawnAtLocation(CCItems.LIGHT_FRAGMENT.get());
 					}
 				}
 
 				if (entity instanceof Stray stray) {
-					if (0.05 > Math.random()) {
+					if (0.05 > entity.getRandom().nextDouble()) {
 						stray.spawnAtLocation(CCItems.MIDNIGHT_FRAGMENT.get());
 					}
 				}
 			}
 
 			if (entity instanceof WitherBoss witherBoss) {
-				if (!data.getBoolean(NETHER_STAGE)) {
-					data.putBoolean(NETHER_STAGE, true);
+				if (!data.hasFlag(NETHER_STAGE)) {
+					data.addFlag(NETHER_STAGE);
 				}
 
 				if (EntityUtils.getBeneficialEffect(player) > 12) {
@@ -104,13 +97,13 @@ public class CCGeneralEventHandler {
 			}
 
 			if (entity instanceof Blaze blaze) {
-				if (0.08 > Math.random()) {
+				if (0.08 > entity.getRandom().nextDouble()) {
 					blaze.spawnAtLocation(CCItems.FIRE_ESSENCE.get());
 				}
 			}
 
 			if (entity instanceof Guardian guardian) {
-				if (0.08 > Math.random()) {
+				if (0.08 > entity.getRandom().nextDouble()) {
 					guardian.spawnAtLocation(CCItems.OCEAN_ESSENCE.get());
 				}
 			}
@@ -122,7 +115,7 @@ public class CCGeneralEventHandler {
 			}
 
 			if (entity instanceof Warden warden) {
-				if (0.5 > Math.random()) {
+				if (0.5 > entity.getRandom().nextDouble()) {
 					warden.spawnAtLocation(CCItems.WARDEN_SCLERITE.get());
 				}
 			}
@@ -130,7 +123,7 @@ public class CCGeneralEventHandler {
 
 		if (entity instanceof Shulker shulker) {
 			if (source.is(DamageTypeTags.IS_EXPLOSION)) {
-				if (0.5 > Math.random()) {
+				if (0.5 > entity.getRandom().nextDouble()) {
 					shulker.spawnAtLocation(CCItems.SHULKER_SCRAP.get());
 				}
 			}
@@ -138,7 +131,7 @@ public class CCGeneralEventHandler {
 
 		if (entity.getMaxHealth() > 100) {
 			if (source.is(DamageTypes.WITHER)) {
-				if (0.6 > Math.random()) {
+				if (0.6 > entity.getRandom().nextDouble()) {
 					entity.spawnAtLocation(CCItems.DEATH_ESSENCE.get());
 				}
 			}

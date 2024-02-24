@@ -28,14 +28,6 @@ public class IAttackUtils {
         return (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
     }
 
-    public static boolean attackEntitySecondary(DamageSource source, float damage, LivingEntity target) {
-        int lastInvulnerableTime = target.invulnerableTime;
-        target.invulnerableTime = 0;
-        boolean hurt = target.hurt(source, damage);
-        target.invulnerableTime = lastInvulnerableTime;
-        return hurt;
-    }
-
     public static boolean isNotHaveInvTime(LivingEntity entity) {
         if (entity.invulnerableTime != 0) {
             entity.invulnerableTime = 0;

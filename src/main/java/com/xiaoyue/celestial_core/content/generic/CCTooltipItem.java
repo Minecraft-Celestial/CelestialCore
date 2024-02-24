@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_core.content.items;
+package com.xiaoyue.celestial_core.content.generic;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
