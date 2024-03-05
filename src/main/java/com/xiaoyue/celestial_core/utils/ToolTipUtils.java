@@ -11,18 +11,6 @@ import java.util.UUID;
 
 public class ToolTipUtils {
 
-    public static float getNoZeroValue(float value) {
-        return Math.max(value, 0);
-    }
-
-    public static double getNoZeroValue(double value) {
-        return Math.max(value, 0);
-    }
-
-    public static UUID getFUuid() {
-        return UUID.fromString("1-2-3-4-5");
-    }
-
     public static String NullTooltip = "tooltip.celestial_core.null";
 
     public static void addSTooltip(List<Component> list, String s, ChatFormatting chatFormatting, String v) {

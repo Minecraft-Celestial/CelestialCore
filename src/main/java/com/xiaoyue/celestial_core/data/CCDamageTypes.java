@@ -9,7 +9,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageScaling;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -32,12 +34,20 @@ public class CCDamageTypes extends DamageTypeAndTagsGen {
 						BYPASSES_EFFECTS, BYPASSES_ENCHANTMENTS, BYPASSES_RESISTANCE);
 	}
 
-	public static Holder.Reference<DamageType> getDamageSource(Level level, ResourceKey<DamageType> key) {
+	private static Holder.Reference<DamageType> getDamageSource(Level level, ResourceKey<DamageType> key) {
 		return level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(key);
 	}
 
 	private static ResourceKey<DamageType> createDamage(String id) {
 		return ResourceKey.create(Registries.DAMAGE_TYPE, CelestialCore.loc(id));
+	}
+
+	public static DamageSource magic(LivingEntity attacker) {
+		return new DamageSource(getDamageSource(attacker.level(), MAGIC), attacker);
+	}
+
+	public static DamageSource abyss(LivingEntity attacker) {
+		return new DamageSource(getDamageSource(attacker.level(), ABYSSAL_MAGIC), attacker);
 	}
 
 }

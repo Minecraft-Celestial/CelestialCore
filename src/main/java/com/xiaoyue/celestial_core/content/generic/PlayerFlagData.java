@@ -6,6 +6,8 @@ import dev.xkmc.l2library.capability.player.PlayerCapabilityNetworkHandler;
 import dev.xkmc.l2library.capability.player.PlayerCapabilityTemplate;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.CapabilityToken;
@@ -14,6 +16,22 @@ import java.util.TreeSet;
 
 @SerialClass
 public class PlayerFlagData extends PlayerCapabilityTemplate<PlayerFlagData> {
+
+	public static void addFlag(LivingEntity entity, String str) {
+		if (entity instanceof Player player) {
+			HOLDER.get(player).addFlag(str);
+		} else {
+			entity.addTag(str);
+		}
+	}
+
+	public static boolean hasFlag(LivingEntity entity, String str) {
+		if (entity instanceof Player player) {
+			return HOLDER.get(player).hasFlag(str);
+		} else {
+			return entity.getTags().contains(str);
+		}
+	}
 
 	public static final Capability<PlayerFlagData> CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {
 	});
@@ -31,8 +49,12 @@ public class PlayerFlagData extends PlayerCapabilityTemplate<PlayerFlagData> {
 			HOLDER.network.toClientSyncAll(sp);
 	}
 
-	public boolean hasFlag(String flag){
+	public boolean hasFlag(String flag) {
 		return flags.contains(flag);
+	}
+
+	public static void register() {
+
 	}
 
 }
