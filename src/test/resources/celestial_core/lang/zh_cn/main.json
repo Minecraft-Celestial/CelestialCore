@@ -1,0 +1,41 @@
+{
+  "itemGroup.celestial_core.core": "星月核心",
+  "effect.celestial_core": {
+	"hidden": "隐匿",
+	"hidden.description": "不会成为攻击对象",
+	"violent": "暴力",
+	"violent.description": "攻击穿透护甲",
+	"rotten_curse": "腐败诅咒",
+	"rotten_curse.description": "收到攻击后持续受到伤害，不能传送",
+	"soul_shatter": "灵魂破裂",
+	"soul_shatter.description": "降低最大生命值和移动速度",
+	"crit_rate": "暴击提升",
+	"crit_rate.description": "提升暴击率",
+	"reinforced_blade": "强化刀刃",
+	"reinforced_blade.description": "提升攻击伤害和暴击率",
+	"crit_damage": "爆伤提升",
+	"crit_damage.description": "提升暴击伤害",
+	"regen_rate": "治疗提升",
+	"regen_rate.description": "提升治疗效果",
+	"arrow_damage": "箭矢增强",
+	"arrow_damage.description": "提升投掷物伤害"
+  },
+  "attribute.celestial_core": {
+	"regen_rate": "治疗力",
+	"arrow_knock": "箭矢击退",
+	"arrow_speed": "箭矢速度"
+  },
+  "celestial_core": {
+	"tooltip": {
+	  "after_wither_drop": "击败%1$s后，玩家杀死%3$s时%2$s概率掉落",
+	  "death_essence": "最大生命大于%2$s点的生物被凋零伤害杀死时%1$s概率掉落",
+	  "heart_fragment": "%s被闪电苦力怕杀死掉落",
+	  "pure_nether_star": "玩家携带%2$s种正面效果杀死%1$s掉落",
+	  "shulker_scrap": "%2$s被炸死时%1$s概率掉落",
+	  "simple_drop": "玩家杀死%2$s时%1$s概率掉落",
+	  "soaring_wings": "%s死于y轴大于%s格掉落",
+	  "treasure_fragment": "在废弃矿井的宝箱中概率开出",
+	  "void_essence": "在末地城宝箱中概率开出"
+	}
+  }
+}

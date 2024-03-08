@@ -23,20 +23,20 @@ public class CCEffects {
 	public static final List<RegistryEntry<? extends Potion>> POTION_LIST = new ArrayList<>();
 	private static final List<Runnable> TEMP = new ArrayList<>();
 
-	public static final RegistryEntry<Violent> VIOLENT = genEffect("violent", Violent::new, "");
-	public static final RegistryEntry<Hidden> HIDDEN = genEffect("hidden", Hidden::new, "");
-	public static final RegistryEntry<RottenCurse> ROTTEN_CURSE = genEffect("rotten_curse", RottenCurse::new, "");
-	public static final RegistryEntry<BladeModifier> BLADE_MODIFIER = genEffect("blade_modifier", BladeModifier::new, "");
-	public static final RegistryEntry<SoulShatter> SOUL_SHATTER = genEffect("soul_shatter", SoulShatter::new, "");
-	public static final RegistryEntry<CritRate> CRIT_RATE = genEffect("crit_rate", CritRate::new, "");
-	public static final RegistryEntry<CritDamage> CRIT_DAMAGE = genEffect("crit_damage", CritDamage::new, "");
-	public static final RegistryEntry<ReplyPower> REPLY_POWER = genEffect("regen_rate", ReplyPower::new, "");
-	public static final RegistryEntry<ArrowDamage> ARROW_DAMAGE = genEffect("arrow_damage", ArrowDamage::new, "");
+	public static final RegistryEntry<Violent> VIOLENT = genEffect("violent", Violent::new, "Melee damage bypass armor");
+	public static final RegistryEntry<Hidden> HIDDEN = genEffect("hidden", Hidden::new, "Cannot be seen as enemy. Removed on attack");
+	public static final RegistryEntry<RottenCurse> ROTTEN_CURSE = genEffect("rotten_curse", RottenCurse::new, "Inflict damage after being attacked, prevents teleport");
+	public static final RegistryEntry<BladeModifier> BLADE_MODIFIER = genEffect("reinforced_blade", BladeModifier::new, "Increase attack damage and crit rate");
+	public static final RegistryEntry<SoulShatter> SOUL_SHATTER = genEffect("soul_shatter", SoulShatter::new, "Reduce max health and movement speed");
+	public static final RegistryEntry<CritRate> CRIT_RATE = genEffect("crit_rate", CritRate::new, "Increase crit rate");
+	public static final RegistryEntry<CritDamage> CRIT_DAMAGE = genEffect("crit_damage", CritDamage::new, "Increase crit damage");
+	public static final RegistryEntry<ReplyPower> REPLY_POWER = genEffect("regen_rate", ReplyPower::new, "Increase regeneration rate");
+	public static final RegistryEntry<ArrowDamage> ARROW_DAMAGE = genEffect("arrow_damage", ArrowDamage::new, "Increase arrow damage");
 
 	static {
 		regPotion2("crit_rate", CRIT_RATE::get, () -> Items.BLAZE_ROD, 6000, 9600);
 		regPotion2("crit_damage", CRIT_DAMAGE::get, () -> Items.AMETHYST_SHARD, 6000, 9600);
-		regPotion2("reply_power", CRIT_DAMAGE::get, () -> Items.HONEY_BOTTLE, 6000, 9600);
+		regPotion2("regen_rate", REPLY_POWER::get, () -> Items.HONEY_BOTTLE, 6000, 9600);
 	}
 
 	private static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
@@ -57,8 +57,8 @@ public class CCEffects {
 	}
 
 	private static void regPotion2(String id, Supplier<MobEffect> sup, Supplier<Item> item, int dur, int durLong) {
-		var potion = genPotion(id + "_base", () -> new Potion(new MobEffectInstance(sup.get(), dur)));
-		var longPotion = genPotion(id + "_log", () -> new Potion(new MobEffectInstance(sup.get(), durLong)));
+		var potion = genPotion(id, () -> new Potion(new MobEffectInstance(sup.get(), dur)));
+		var longPotion = genPotion("long_" + id, () -> new Potion(new MobEffectInstance(sup.get(), durLong)));
 		TEMP.add(() -> {
 			PotionBrewing.addMix(Potions.AWKWARD, item.get(), potion.get());
 			PotionBrewing.addMix(potion.get(), Items.REDSTONE, longPotion.get());

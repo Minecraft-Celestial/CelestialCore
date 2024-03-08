@@ -17,7 +17,7 @@ public class RottenCurse extends MobEffect {
     }
 
     @Override
-    public boolean isDurationEffectTick(int Duration, int amplifier) {
-        return Duration > 20;
+    public boolean isDurationEffectTick(int tick, int amplifier) {
+        return tick % 20 == 0;
     };
 }

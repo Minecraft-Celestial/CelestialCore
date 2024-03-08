@@ -13,6 +13,5 @@ public class SoulShatter extends MobEffect {
 		String uuid = MathHelper.getUUIDFromString("celestial_core:soul_shatter").toString();
 		this.addAttributeModifier(Attributes.MAX_HEALTH, uuid, -10, AttributeModifier.Operation.ADDITION);
 		this.addAttributeModifier(Attributes.MOVEMENT_SPEED, uuid, -0.1, AttributeModifier.Operation.MULTIPLY_BASE);
-		this.addAttributeModifier(L2DamageTracker.REDUCTION.get(), uuid, 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL);
 	}
 }
