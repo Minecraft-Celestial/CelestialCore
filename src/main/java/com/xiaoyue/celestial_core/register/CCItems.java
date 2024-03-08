@@ -43,11 +43,12 @@ public class CCItems {
 					)));
 	public static final ItemEntry<CCTooltipItem> PURE_NETHER_STAR = material("pure_nether_star",
 			p -> new CCTooltipItem(new Item.Properties().rarity(Rarity.UNCOMMON), false,
-					() -> CCLangData.PURE_NETHER_STAR.get(CCLangData.num(CCModConfig.COMMON.pureNetherStarEffectCount.get()))));
+					() -> CCLangData.PURE_NETHER_STAR.get(CCLangData.entity(EntityType.WITHER),
+							CCLangData.num(CCModConfig.COMMON.pureNetherStarEffectCount.get()))));
 	public static final ItemEntry<CCTooltipItem> SHULKER_SCRAP = material("shulker_scrap",
 			p -> new CCTooltipItem(new Item.Properties().rarity(Rarity.EPIC), false,
-					() -> CCLangData.SHULKER_SCRAP.get(CCLangData.entity(EntityType.SHULKER),
-							CCLangData.chance(CCModConfig.COMMON.shulkerScrapChance.get()))));
+					() -> CCLangData.SHULKER_SCRAP.get(CCLangData.chance(CCModConfig.COMMON.shulkerScrapChance.get()),
+							CCLangData.entity(EntityType.SHULKER))));
 	public static final ItemEntry<CCTooltipItem> SOARING_WINGS = material("soaring_wings",
 			p -> new CCTooltipItem(new Item.Properties().rarity(Rarity.RARE), false,
 					() -> CCLangData.SOARING_WINGS.get(CCLangData.entity(EntityType.PHANTOM), CCLangData.num(620))));

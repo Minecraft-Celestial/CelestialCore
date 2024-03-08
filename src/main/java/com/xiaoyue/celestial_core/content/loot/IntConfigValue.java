@@ -20,8 +20,8 @@ public record IntConfigValue(String path, List<String> line) {
 
 	public int get() {
 		ModConfig file = ConfigTracker.INSTANCE.fileMap().get(this.path);
-		if (file != null && file.getConfigData().get(this.line()) instanceof Integer val) {
-			return val;
+		if (file != null && file.getConfigData().get(this.line()) instanceof Number val) {
+			return val.intValue();
 		}
 		return 0;
 	}

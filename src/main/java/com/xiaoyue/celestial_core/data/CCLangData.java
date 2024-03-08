@@ -53,16 +53,16 @@ public enum CCLangData {
 		return Component.literal(((int) Math.round(v * 100)) + "%").withStyle(ChatFormatting.AQUA);
 	}
 
-	public static MutableComponent num(double v) {
+	public static MutableComponent num(int v) {
 		return Component.literal(v + "").withStyle(ChatFormatting.AQUA);
 	}
 
-	public static MutableComponent entity(EntityType<?> type){
+	public static MutableComponent entity(EntityType<?> type) {
 		return type.getDescription().copy().withStyle(ChatFormatting.AQUA);
 	}
 
 	public static MutableComponent simpleDrop(EntityType<?> type, double v) {
-		return SIMPLE_DROP.get(type.getDescription().copy().withStyle(ChatFormatting.AQUA), chance(v));
+		return SIMPLE_DROP.get(chance(v), type.getDescription().copy().withStyle(ChatFormatting.AQUA));
 	}
 
 	public static MutableComponent witherDrop(EntityType<?> type, double v) {
@@ -70,7 +70,7 @@ public enum CCLangData {
 		boolean cleared = player != null && PlayerFlagData.HOLDER.get(player).hasFlag(CCGeneralEventHandler.NETHER_STAGE);
 		return AFTER_WITHER_DROP.get(
 				EntityType.WITHER.getDescription().copy().withStyle(cleared ? ChatFormatting.AQUA : ChatFormatting.RED),
-				type.getDescription().copy().withStyle(ChatFormatting.AQUA), chance(v)
+				chance(v), type.getDescription().copy().withStyle(ChatFormatting.AQUA)
 		);
 	}
 

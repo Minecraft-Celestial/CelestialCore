@@ -20,8 +20,8 @@ public record DoubleConfigValue(String path, List<String> line) {
 
 	public double get() {
 		ModConfig file = ConfigTracker.INSTANCE.fileMap().get(this.path);
-		if (file != null && file.getConfigData().get(this.line()) instanceof Double val) {
-			return val;
+		if (file != null && file.getConfigData().get(this.line()) instanceof Number val) {
+			return val.doubleValue();
 		}
 		return 0;
 	}

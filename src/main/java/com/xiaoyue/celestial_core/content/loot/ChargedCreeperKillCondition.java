@@ -17,7 +17,7 @@ public class ChargedCreeperKillCondition implements LootItemCondition {
 
 	@Override
 	public LootItemConditionType getType() {
-		return CCLootModifier.PLAYER_FLAG.get();
+		return CCLootModifier.CHARGED_CREEPER.get();
 	}
 
 	@Override

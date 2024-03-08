@@ -3,7 +3,7 @@
   "chance": "celestial_configs/celestial_core-common.toml/materials.deathEssenceChance",
   "conditions": [
     {
-      "condition": "celestial_core:player_flag",
+      "condition": "celestial_core:entity_health",
       "min": "celestial_configs/celestial_core-common.toml/materials.deathEssenceMinHealth"
     }
   ],

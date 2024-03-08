@@ -25,7 +25,7 @@ public class EntityHealthCondition implements LootItemCondition {
 
 	@Override
 	public LootItemConditionType getType() {
-		return CCLootModifier.PLAYER_FLAG.get();
+		return CCLootModifier.ENTITY_HEALTH.get();
 	}
 
 	@Override
