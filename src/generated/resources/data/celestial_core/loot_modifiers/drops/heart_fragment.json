@@ -1,0 +1,16 @@
+{
+  "type": "celestial_core:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "minecraft:pillager"
+      }
+    },
+    {
+      "condition": "celestial_core:player_flag"
+    }
+  ],
+  "item": "celestial_core:heart_fragment"
+}

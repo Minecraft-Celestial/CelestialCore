@@ -43,6 +43,7 @@ public class CelestialCore {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		CCItems.register();
 		CCEffects.register();
+		CCModConfig.init();
 		PlayerFlagData.register();
 		CCAttributes.ATTRIBUTES.register(modEventBus);
 		CCLootModifier.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
@@ -62,9 +63,9 @@ public class CelestialCore {
 
 	@SubscribeEvent
 	public static void modifyAttribute(EntityAttributeModificationEvent event) {
-		event.add(EntityType.PLAYER, CCAttributes.REPLY_POWER.get(), 1.0);
-		event.add(EntityType.PLAYER, CCAttributes.ARROW_SPEED.get(), 1.0);
-		event.add(EntityType.PLAYER, CCAttributes.ARROW_KNOCK.get(), 1.0);
+		event.add(EntityType.PLAYER, CCAttributes.REPLY_POWER.get(), 1);
+		event.add(EntityType.PLAYER, CCAttributes.ARROW_SPEED.get(), 1);
+		event.add(EntityType.PLAYER, CCAttributes.ARROW_KNOCK.get(), 0);
 	}
 
 	@SubscribeEvent

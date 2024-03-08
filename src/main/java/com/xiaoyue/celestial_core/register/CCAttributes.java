@@ -1,24 +1,26 @@
 package com.xiaoyue.celestial_core.register;
 
+import com.tterrag.registrate.util.entry.RegistryEntry;
+import com.xiaoyue.celestial_core.CelestialCore;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 import static com.xiaoyue.celestial_core.CelestialCore.MODID;
 
 public class CCAttributes {
 
-    public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
+	public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
 
-    public static final RegistryObject<Attribute> REPLY_POWER = ATTRIBUTES.register("reply_effect",
-            () -> new RangedAttribute("attribute.celestial_core.reply_power", 0, 0, 64).setSyncable(true));
+	public static final RegistryEntry<Attribute> REPLY_POWER = reg("regen_rate", 1, 64, "Regeneration Rate");
+	public static final RegistryEntry<Attribute> ARROW_SPEED = reg("arrow_speed", 1, 1024, "Arrow Speed");
+	public static final RegistryEntry<Attribute> ARROW_KNOCK = reg("arrow_knock", 0, 64, "Arrow Knock Back");
 
-    public static final RegistryObject<Attribute> ARROW_SPEED = ATTRIBUTES.register("arrow_speed",
-            () -> new RangedAttribute("attribute.celestial_core.arrow_speed", 0, 0, 1024).setSyncable(true));
-
-    public static final RegistryObject<Attribute> ARROW_KNOCK = ATTRIBUTES.register("arrow_knock",
-            () -> new RangedAttribute("attribute.celestial_core.arrow_knock", 0, 0, 64).setSyncable(true));
+	private static RegistryEntry<Attribute> reg(String id, double def, double max, String name) {
+		CelestialCore.REGISTRATE.addRawLang("attribute." + MODID + "." + id, name);
+		return CelestialCore.REGISTRATE.simple(id, ForgeRegistries.ATTRIBUTES.getRegistryKey(), () ->
+				new RangedAttribute("attribute.name." + id, def, 0.0, max).setSyncable(true));
+	}
 
 }

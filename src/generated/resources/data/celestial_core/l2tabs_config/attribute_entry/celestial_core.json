@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "id": "celestial_core:reply_effect",
+      "id": "celestial_core:regen_rate",
       "intrinsic": 0.0,
       "order": 22000,
       "usePercent": true
@@ -16,7 +16,7 @@
       "id": "celestial_core:arrow_knock",
       "intrinsic": 0.0,
       "order": 22500,
-      "usePercent": true
+      "usePercent": false
     }
   ]
 }

@@ -19,7 +19,7 @@ public class CCL2ConfigGen extends ConfigDataProvider {
 				new AttributeDisplayConfig()
 						.add(CCAttributes.REPLY_POWER.get(), true, 22000, 0)
 						.add(CCAttributes.ARROW_SPEED.get(), true, 22300, 0)
-						.add(CCAttributes.ARROW_KNOCK.get(), true, 22500, 0)
+						.add(CCAttributes.ARROW_KNOCK.get(), false, 22500, 0)
 		);
 	}
 

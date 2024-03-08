@@ -1,6 +1,6 @@
 {
   "values": [
-    "celestial_core:ignore_armor",
-    "celestial_core:violent_damage"
+    "celestial_core:magic",
+    "celestial_core:abyssal_magic"
   ]
 }

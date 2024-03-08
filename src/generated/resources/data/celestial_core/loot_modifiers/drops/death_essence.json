@@ -1,0 +1,11 @@
+{
+  "type": "celestial_core:add_item",
+  "chance": "celestial_configs/celestial_core-common.toml/materials.deathEssenceChance",
+  "conditions": [
+    {
+      "condition": "celestial_core:player_flag",
+      "min": "celestial_configs/celestial_core-common.toml/materials.deathEssenceMinHealth"
+    }
+  ],
+  "item": "celestial_core:death_essence"
+}

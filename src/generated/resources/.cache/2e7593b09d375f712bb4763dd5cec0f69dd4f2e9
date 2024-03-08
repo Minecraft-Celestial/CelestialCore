@@ -1,21 +1,16 @@
-// 1.20.1	2024-02-21T11:03:57.358258	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-773cd8621f759bb1837a34dc395536938e927455 assets/celestial_core/lang/en_ud.json
-88d053af71a17445063be4e00442c565ee27abd0 assets/celestial_core/lang/en_us.json
-b1ff4c6707402086648ff1eb4566ede1542848dd assets/celestial_core/models/item/curse_essence.json
+// 1.20.1	2024-03-08T11:29:01.729946	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+727a624389e09c70a3589a9f3f7c4497051943cc assets/celestial_core/lang/en_ud.json
+5277c15e235e0315bd55268ffb3301c5236b945f assets/celestial_core/lang/en_us.json
 7f41b50a97308ba0064274589636f2485c882051 assets/celestial_core/models/item/death_essence.json
 6ce6ce8fedc4081566ef04489a46990f53b234c9 assets/celestial_core/models/item/earth_core.json
-d78a19ff4c0161fd45e4f11ee71359ed58349c1a assets/celestial_core/models/item/equipment_fragment.json
 abf506542f876d075555a681bdadce4d5b2a0136 assets/celestial_core/models/item/fire_essence.json
 d042fab684c789bc3b28099e9164a34b8cd7c17e assets/celestial_core/models/item/heart_fragment.json
-3a23b2afb33935789ec5d03e8d208a8eb9e82941 assets/celestial_core/models/item/ice_fragment.json
 f62a074909ca896c8a6a3ecea49ed62413f62b33 assets/celestial_core/models/item/light_fragment.json
 810e2bc75aaa17af586554fa84c6d896f90ae6b9 assets/celestial_core/models/item/midnight_fragment.json
-22316dda09aedd452cd57170faa649196cb95740 assets/celestial_core/models/item/nebula_cube.json
 f69a2ea990244ed061f9712f84fe878312112c85 assets/celestial_core/models/item/ocean_essence.json
 82784870e0144b1beb6c473231555cbcb4a1d835 assets/celestial_core/models/item/pure_nether_star.json
 b52bde53638ce43c6abc7e43d02a7479e0d04ff5 assets/celestial_core/models/item/shulker_scrap.json
 f58b02b91edb3ffbc41274ea6e81b19c1217c999 assets/celestial_core/models/item/soaring_wings.json
-485b7f6528d8db8c6351b207e2e3f8bedd8f3ee5 assets/celestial_core/models/item/the_end_dust.json
 a8974f6db212c7de204bb2086692ba0ab3ba1b0e assets/celestial_core/models/item/treasure_fragment.json
 1e757dde4449021bd631a30f542a2a2d1027a2fe assets/celestial_core/models/item/void_essence.json
 04a54e9a766a895213dbcd56b28c288ef8cec815 assets/celestial_core/models/item/warden_sclerite.json

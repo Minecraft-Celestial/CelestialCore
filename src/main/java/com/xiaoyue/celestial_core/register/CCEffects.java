@@ -30,7 +30,7 @@ public class CCEffects {
 	public static final RegistryEntry<SoulShatter> SOUL_SHATTER = genEffect("soul_shatter", SoulShatter::new, "");
 	public static final RegistryEntry<CritRate> CRIT_RATE = genEffect("crit_rate", CritRate::new, "");
 	public static final RegistryEntry<CritDamage> CRIT_DAMAGE = genEffect("crit_damage", CritDamage::new, "");
-	public static final RegistryEntry<ReplyPower> REPLY_POWER = genEffect("reply_power", ReplyPower::new, "");
+	public static final RegistryEntry<ReplyPower> REPLY_POWER = genEffect("regen_rate", ReplyPower::new, "");
 	public static final RegistryEntry<ArrowDamage> ARROW_DAMAGE = genEffect("arrow_damage", ArrowDamage::new, "");
 
 	static {

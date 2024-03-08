@@ -70,18 +70,16 @@ public class EntityUtils {
 		return !livingEntity.getItemBySlot(EquipmentSlot.HEAD).isEmpty() || !livingEntity.getItemBySlot(EquipmentSlot.CHEST).isEmpty() || !livingEntity.getItemBySlot(EquipmentSlot.LEGS).isEmpty() || !livingEntity.getItemBySlot(EquipmentSlot.FEET).isEmpty();
 	}
 
+	public static int getEffectCount(LivingEntity entity, MobEffectCategory category) {
+		return (int) entity.getActiveEffects().stream().filter(e -> e.getEffect().getCategory() == category).count();
+	}
+
 	public static int getHarmfulEffect(LivingEntity entity) {
-		int he = 0;
-		he += (int) entity.getActiveEffects().stream().filter(
-				EffectInstance -> EffectInstance.getEffect().getCategory() == MobEffectCategory.HARMFUL).count();
-		return he;
+		return getEffectCount(entity, MobEffectCategory.HARMFUL);
 	}
 
 	public static int getBeneficialEffect(LivingEntity entity) {
-		int be = 0;
-		be += (int) entity.getActiveEffects().stream().filter(
-				EffectInstance -> EffectInstance.getEffect().getCategory() == MobEffectCategory.BENEFICIAL).count();
-		return be;
+		return getEffectCount(entity, MobEffectCategory.BENEFICIAL);
 	}
 
 	public static void addEct(LivingEntity entity, MobEffect effect, int time, int level) {

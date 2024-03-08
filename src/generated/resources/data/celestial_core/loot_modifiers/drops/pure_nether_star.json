@@ -1,0 +1,18 @@
+{
+  "type": "celestial_core:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "minecraft:wither"
+      }
+    },
+    {
+      "category": "BENEFICIAL",
+      "condition": "celestial_core:player_effect",
+      "count": "celestial_configs/celestial_core-common.toml/materials.pureNetherStarEffectCount"
+    }
+  ],
+  "item": "celestial_core:pure_nether_star"
+}

@@ -1,6 +1,5 @@
-package com.xiaoyue.celestial_core.data;
+package com.xiaoyue.celestial_core.content.loot;
 
-import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -13,15 +12,13 @@ import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 
 import javax.annotation.Nonnull;
-import java.util.function.Supplier;
 
 import static net.minecraft.world.level.storage.loot.LootTable.createStackSplitter;
 
 public class AddLootTableModifier extends LootModifier {
-	public static final Supplier<Codec<AddLootTableModifier>> CODEC = Suppliers.memoize(() ->
-			RecordCodecBuilder.create(inst -> codecStart(inst)
-					.and(ResourceLocation.CODEC.fieldOf("lootTable").forGetter((m) -> m.lootTable))
-					.apply(inst, AddLootTableModifier::new)));
+	public static final Codec<AddLootTableModifier> CODEC = RecordCodecBuilder.create(inst -> codecStart(inst)
+			.and(ResourceLocation.CODEC.fieldOf("lootTable").forGetter((m) -> m.lootTable))
+			.apply(inst, AddLootTableModifier::new));
 
 	private final ResourceLocation lootTable;
 
@@ -30,7 +27,7 @@ public class AddLootTableModifier extends LootModifier {
 		this.lootTable = lootTable;
 	}
 
-	protected AddLootTableModifier(ResourceLocation lootTable, LootItemCondition... conditionsIn) {
+	public AddLootTableModifier(ResourceLocation lootTable, LootItemCondition... conditionsIn) {
 		super(conditionsIn);
 		this.lootTable = lootTable;
 	}
@@ -45,6 +42,6 @@ public class AddLootTableModifier extends LootModifier {
 
 	@Override
 	public Codec<? extends IGlobalLootModifier> codec() {
-		return CODEC.get();
+		return CODEC;
 	}
 }
