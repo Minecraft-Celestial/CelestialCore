@@ -9,15 +9,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static com.xiaoyue.celestial_core.CelestialCore.MODID;
-
 public class CCLootModifier {
-
-	public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =
-			DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MODID);
 
 	public static final RegistryEntry<Codec<AddItemModifier>> ADD_ITEM;
 	public static final RegistryEntry<Codec<AddLootTableModifier>> ADD_LOOT_TABLE;
@@ -33,7 +27,6 @@ public class CCLootModifier {
 		PLAYER_EFFECT = reg("player_effect", PlayerEffectCondition.class);
 		CHARGED_CREEPER = reg("charged_creeper_kill", ChargedCreeperKillCondition.class);
 
-
 	}
 
 	private static <T extends IGlobalLootModifier> RegistryEntry<Codec<T>> reg(String str, NonNullSupplier<Codec<T>> codec) {
@@ -43,6 +36,10 @@ public class CCLootModifier {
 	private static <T extends LootItemCondition> RegistryEntry<LootItemConditionType> reg(String str, Class<T> codec) {
 		return CelestialCore.REGISTRATE.simple(str, Registries.LOOT_CONDITION_TYPE, () ->
 				new LootItemConditionType(new CCConditionSerializer<>(codec)));
+	}
+
+	public static void register() {
+
 	}
 
 }

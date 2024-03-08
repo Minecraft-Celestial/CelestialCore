@@ -20,11 +20,9 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 @Mod(CelestialCore.MODID)
@@ -40,13 +38,12 @@ public class CelestialCore {
 					e -> e.icon(CCItems.FIRE_ESSENCE::asStack));
 
 	public CelestialCore() {
-		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		CCItems.register();
 		CCEffects.register();
+		CCLootModifier.register();
+		CCAttributes.register();
 		CCModConfig.init();
 		PlayerFlagData.register();
-		CCAttributes.ATTRIBUTES.register(modEventBus);
-		CCLootModifier.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
 		AttackEventHandler.register(3450, new CCAttackListener());
 
 		REGISTRATE.addDataGenerator(ProviderType.LANG, CCLangData::addLang);

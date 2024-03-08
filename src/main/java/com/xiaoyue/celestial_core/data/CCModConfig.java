@@ -67,13 +67,14 @@ public class CCModConfig {
 	 */
 	public static void init() {
 		register(ModConfig.Type.CLIENT, CLIENT_SPEC);
-		register(ModConfig.Type.COMMON, COMMON_SPEC);
+		COMMON_PATH = register(ModConfig.Type.COMMON, COMMON_SPEC);
 	}
 
-	private static void register(ModConfig.Type type, IConfigSpec<?> spec) {
+	private static String register(ModConfig.Type type, IConfigSpec<?> spec) {
 		var mod = ModLoadingContext.get().getActiveContainer();
-		COMMON_PATH = "celestial_configs/" + mod.getModId() + "-" + type.extension() + ".toml";
-		ModLoadingContext.get().registerConfig(type, spec, COMMON_PATH);
+		String path = "celestial_configs/" + mod.getModId() + "-" + type.extension() + ".toml";
+		ModLoadingContext.get().registerConfig(type, spec, path);
+		return path;
 	}
 
 }
