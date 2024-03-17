@@ -6,6 +6,7 @@ import com.xiaoyue.celestial_core.CelestialCore;
 import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
 import com.xiaoyue.celestial_core.events.CCGeneralEventHandler;
 import com.xiaoyue.celestial_core.register.CCEffects;
+import dev.xkmc.l2library.util.Proxy;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -66,7 +67,7 @@ public enum CCLangData {
 	}
 
 	public static MutableComponent witherDrop(EntityType<?> type, double v) {
-		Player player = Minecraft.getInstance().player;
+		Player player = Proxy.getPlayer();
 		boolean cleared = player != null && PlayerFlagData.HOLDER.get(player).hasFlag(CCGeneralEventHandler.NETHER_STAGE);
 		return AFTER_WITHER_DROP.get(
 				EntityType.WITHER.getDescription().copy().withStyle(cleared ? ChatFormatting.AQUA : ChatFormatting.RED),
