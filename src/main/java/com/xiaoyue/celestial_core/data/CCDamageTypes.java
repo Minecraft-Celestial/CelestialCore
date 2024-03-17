@@ -28,10 +28,10 @@ public class CCDamageTypes extends DamageTypeAndTagsGen {
 	public CCDamageTypes(PackOutput output, CompletableFuture<HolderLookup.Provider> pvd, ExistingFileHelper helper) {
 		super(output, pvd, helper, MODID);
 		new DamageTypeHolder(MAGIC, new DamageType("magic", DamageScaling.NEVER, 0.1f))
-				.add(BYPASSES_ARMOR, BYPASSES_COOLDOWN, AVOIDS_GUARDIAN_THORNS, L2DamageTypes.MAGIC);
+				.add(BYPASSES_ARMOR, BYPASSES_COOLDOWN, AVOIDS_GUARDIAN_THORNS, L2DamageTypes.MAGIC, L2DamageTypes.NO_SCALE);
 		new DamageTypeHolder(ABYSSAL_MAGIC, new DamageType("magic", DamageScaling.NEVER, 0.1f))
-				.add(BYPASSES_ARMOR, BYPASSES_COOLDOWN, AVOIDS_GUARDIAN_THORNS, L2DamageTypes.MAGIC,
-						BYPASSES_EFFECTS, BYPASSES_ENCHANTMENTS, BYPASSES_RESISTANCE);
+				.add(BYPASSES_ARMOR, BYPASSES_COOLDOWN, AVOIDS_GUARDIAN_THORNS, L2DamageTypes.MAGIC, L2DamageTypes.NO_SCALE)
+				.add(L2DamageTypes.BYPASS_MAGIC);
 	}
 
 	private static Holder.Reference<DamageType> getDamageSource(Level level, ResourceKey<DamageType> key) {

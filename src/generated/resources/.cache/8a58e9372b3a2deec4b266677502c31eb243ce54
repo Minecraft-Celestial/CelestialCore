@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-08T18:12:42.01345	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2024-03-16T23:27:50.089306	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (attributes)]
 db0812e96630ab6e925d3f54f28f62ee04494c54 assets/celestial_core/lang/en_ud.json
 1a10c989026ac3bf053954fd89f183b225c633cc assets/celestial_core/lang/en_us.json
 7f41b50a97308ba0064274589636f2485c882051 assets/celestial_core/models/item/death_essence.json
@@ -18,3 +18,4 @@ b34755d9ed98cd0602e8762da6b273405de7b296 data/celestial_core/advancements/recipe
 ca93038ba07b8941e3b5c2826238f0a2c872ba52 data/celestial_core/loot_tables/abandoned_mineshaft.json
 af2affc4b174ead1e89d3654dd93fa9b851b0065 data/celestial_core/loot_tables/end_city_treasure.json
 691f90a569a9095073b2fec741e2944a74390e9a data/celestial_core/recipes/earth_core.json
+b25b408fcef40ad182171b4ca1eeb4d990d9a7d6 data/l2damagetracker/tags/attribute/percentage.json
