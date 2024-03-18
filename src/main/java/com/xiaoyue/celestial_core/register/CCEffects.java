@@ -34,9 +34,9 @@ public class CCEffects {
 	public static final RegistryEntry<ArrowDamage> ARROW_DAMAGE = genEffect("arrow_damage", ArrowDamage::new, "Increase arrow damage");
 
 	static {
-		regPotion2("crit_rate", CRIT_RATE::get, () -> Items.BLAZE_ROD, 6000, 9600);
-		regPotion2("crit_damage", CRIT_DAMAGE::get, () -> Items.AMETHYST_SHARD, 6000, 9600);
-		regPotion2("regen_rate", REPLY_POWER::get, () -> Items.HONEY_BOTTLE, 6000, 9600);
+		regPotion2("crit_rate", CRIT_RATE::get, CCItems.OCEAN_ESSENCE::get, 6000, 9600);
+		regPotion2("crit_damage", CRIT_DAMAGE::get, CCItems.FIRE_ESSENCE::get, 6000, 9600);
+		regPotion2("regen_rate", REPLY_POWER::get, CCItems.LIGHT_FRAGMENT::get, 6000, 9600);
 	}
 
 	private static <T extends MobEffect> RegistryEntry<T> genEffect(String name, NonNullSupplier<T> sup, String desc) {
