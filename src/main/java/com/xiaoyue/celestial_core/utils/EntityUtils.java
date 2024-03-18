@@ -7,15 +7,17 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Endermite;
-import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Predicate;
 
+@SuppressWarnings("unused")
 public class EntityUtils {
 
 	public static void spawnThunder(Entity target) {
@@ -27,28 +29,29 @@ public class EntityUtils {
 	}
 
 	public static AABB getAABB(LivingEntity center, float radius, float height) {
-		return new AABB(center.blockPosition().getX() - radius, center.blockPosition().getY() - height, center.blockPosition().getZ() - radius,
-				center.blockPosition().getX() + radius, center.blockPosition().getY() + height, center.blockPosition().getZ() + radius);
+		return center.getBoundingBox().inflate(radius, height, radius);
 	}
 
 	public static List<LivingEntity> getExceptForCentralEntity(LivingEntity center, float radius, float height, Predicate<LivingEntity> predicate) {
-		List<LivingEntity> entities = center.level().getEntitiesOfClass(LivingEntity.class, EntityUtils.getAABB(center, radius, height), predicate);
+		List<LivingEntity> entities = center.level().getEntitiesOfClass(LivingEntity.class,
+				EntityUtils.getAABB(center, radius, height), predicate);
 		entities.remove(center);
 		return entities;
 	}
 
 	public static List<LivingEntity> getExceptForCentralEntity(LivingEntity center, float radius, float height) {
-		List<LivingEntity> entities = center.level().getEntitiesOfClass(LivingEntity.class, EntityUtils.getAABB(center, radius, height));
+		List<LivingEntity> entities = center.level().getEntitiesOfClass(LivingEntity.class,
+				EntityUtils.getAABB(center, radius, height));
 		entities.remove(center);
 		return entities;
 	}
 
 	public static List<LivingEntity> getDelimitedMonster(LivingEntity center, int range) {
-		List<LivingEntity> monster = center.level().getEntitiesOfClass(LivingEntity.class, center.getBoundingBox().inflate(range), entities -> entities instanceof Monster);
-		return monster;
+		return center.level().getEntitiesOfClass(LivingEntity.class,
+				center.getBoundingBox().inflate(range), entities -> entities instanceof Enemy);
 	}
 
-	public static boolean isLookingBehindTarget(LivingEntity target, Vec3 attackerLocation) {
+	public static boolean isLookingBehindTarget(LivingEntity target, @Nullable Vec3 attackerLocation) {
 		if (attackerLocation != null) {
 			Vec3 lookingVector = target.getViewVector(1.0F);
 			Vec3 attackAngleVector = attackerLocation.subtract(target.position()).normalize();
@@ -63,11 +66,17 @@ public class EntityUtils {
 	}
 
 	public static boolean isEndEntity(LivingEntity entity) {
-		return entity instanceof EnderMan || entity instanceof EnderDragon || entity instanceof Shulker || entity instanceof Endermite;
+		return entity instanceof EnderMan ||
+				entity instanceof EnderDragon ||
+				entity instanceof Shulker ||
+				entity instanceof Endermite;
 	}
 
-	public static boolean hasArmor(LivingEntity livingEntity) {
-		return !livingEntity.getItemBySlot(EquipmentSlot.HEAD).isEmpty() || !livingEntity.getItemBySlot(EquipmentSlot.CHEST).isEmpty() || !livingEntity.getItemBySlot(EquipmentSlot.LEGS).isEmpty() || !livingEntity.getItemBySlot(EquipmentSlot.FEET).isEmpty();
+	public static boolean hasArmor(LivingEntity le) {
+		return !le.getItemBySlot(EquipmentSlot.HEAD).isEmpty() ||
+				!le.getItemBySlot(EquipmentSlot.CHEST).isEmpty() ||
+				!le.getItemBySlot(EquipmentSlot.LEGS).isEmpty() ||
+				!le.getItemBySlot(EquipmentSlot.FEET).isEmpty();
 	}
 
 	public static int getEffectCount(LivingEntity entity, MobEffectCategory category) {

@@ -19,10 +19,11 @@ public class CCAttackListener implements AttackListener {
 	}
 
 	@Override
-	public void onAttack(AttackCache cache, ItemStack weapon) {
+	public void onDamageFinalized(AttackCache cache, ItemStack weapon) {
 		var attacker = cache.getAttacker();
 		if (attacker != null && attacker.hasEffect(CCEffects.HIDDEN.get())) {
 			attacker.removeEffect(CCEffects.HIDDEN.get());
 		}
 	}
+
 }
