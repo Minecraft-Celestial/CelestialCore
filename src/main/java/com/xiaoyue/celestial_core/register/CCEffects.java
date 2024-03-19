@@ -65,10 +65,6 @@ public class CCEffects {
 		});
 	}
 
-	private static void addMix(Potion in, Item item, Potion out) {
-
-	}
-
 	public static void register() {
 
 	}

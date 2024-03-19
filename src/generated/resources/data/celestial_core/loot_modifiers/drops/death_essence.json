@@ -3,6 +3,17 @@
   "chance": "celestial_configs/celestial_core-common.toml/materials.deathEssenceChance",
   "conditions": [
     {
+      "condition": "minecraft:damage_source_properties",
+      "predicate": {
+        "tags": [
+          {
+            "expected": true,
+            "id": "celestial_core:wither"
+          }
+        ]
+      }
+    },
+    {
       "condition": "celestial_core:entity_health",
       "min": "celestial_configs/celestial_core-common.toml/materials.deathEssenceMinHealth"
     }

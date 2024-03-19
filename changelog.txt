@@ -1,6 +1,3 @@
-TODO list
-- Damage Type clean up
-- migrate damage event to L2DT
-- Config for numbers
-- Lang gen
-- Attribute Merge
+1.3.2
+- Fix Death Essence drop being incorrect
+- Fix Warden Sclarite drop being incorrect

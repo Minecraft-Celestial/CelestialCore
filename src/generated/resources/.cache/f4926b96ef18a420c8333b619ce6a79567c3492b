@@ -1,4 +1,5 @@
-// 1.20.1	2024-03-16T23:22:13.325534	Tags for minecraft:damage_type mod id celestial_core
+// 1.20.1	2024-03-19T12:01:33.283799	Tags for minecraft:damage_type mod id celestial_core
+cd007431ce060f73a9df05d9977f345ad7ba77c6 data/celestial_core/tags/damage_type/wither.json
 ab7f3063669ede23408290bee27b6dd14b50f9a2 data/forge/tags/damage_type/ignore_scaling.json
 ab7f3063669ede23408290bee27b6dd14b50f9a2 data/forge/tags/damage_type/is_magic.json
 ab7f3063669ede23408290bee27b6dd14b50f9a2 data/minecraft/tags/damage_type/avoids_guardian_thorns.json

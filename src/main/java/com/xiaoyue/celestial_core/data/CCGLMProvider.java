@@ -10,6 +10,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -41,10 +42,11 @@ public class CCGLMProvider extends GlobalLootModifierProvider {
 				entityType(EntityType.GUARDIAN), LootTableTemplate.byPlayer().build()));
 		add("drops/death_essence", new AddItemModifier(CCItems.DEATH_ESSENCE.get(),
 				DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.deathEssenceChance),
+				damage(CCDamageTypes.WITHER),
 				new EntityHealthCondition(IntConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.deathEssenceMinHealth))));
 		add("drops/warden_sclerite", new AddItemModifier(CCItems.WARDEN_SCLERITE.get(),
 				DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.wardenScleriteChance),
-				entityType(EntityType.GUARDIAN), LootTableTemplate.byPlayer().build()));
+				entityType(EntityType.WARDEN), LootTableTemplate.byPlayer().build()));
 		add("drops/shulker_scrap", new AddItemModifier(CCItems.SHULKER_SCRAP.get(),
 				DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.shulkerScrapChance),
 				entityType(EntityType.SHULKER), damage(DamageTypeTags.IS_EXPLOSION)));

@@ -1,7 +1,7 @@
-// 1.20.1	2024-03-08T20:33:30.329789	Global Loot Modifiers : celestial_core
+// 1.20.1	2024-03-19T12:01:33.286211	Global Loot Modifiers : celestial_core
 3831e5fac0df7d02e15a1ccfd00d1e2559f284f7 data/celestial_core/loot_modifiers/chests/abandoned_mineshaft.json
 02419c6cbf98c7e0627ebbf5001a4dceb170c157 data/celestial_core/loot_modifiers/chests/end_city_treasure.json
-48da0162603e47c728cb622931093b4d3214113b data/celestial_core/loot_modifiers/drops/death_essence.json
+3d18d26e877aae8f3509e11e48f408cef8e65dee data/celestial_core/loot_modifiers/drops/death_essence.json
 3615d0b5cd90efe517e7cf550e53fa80454108ed data/celestial_core/loot_modifiers/drops/fire_essence.json
 4228b6bcdd801e844062b64bb0d235898d6d63c6 data/celestial_core/loot_modifiers/drops/heart_fragment.json
 3e50a2ea61c076d201165946907210d5b97e9cd1 data/celestial_core/loot_modifiers/drops/light_fragment.json
@@ -10,5 +10,5 @@ dd2a61dce89c5859dbed2598a6cd2e4d94fd2ab6 data/celestial_core/loot_modifiers/drop
 ae7dee914b977314afcdeac17122d81d29e86590 data/celestial_core/loot_modifiers/drops/pure_nether_star.json
 df7801fc4a1934bb410475022848c03fcc9bdac3 data/celestial_core/loot_modifiers/drops/shulker_scrap.json
 a00c357ee69cec27519b67743d446faa25016e4d data/celestial_core/loot_modifiers/drops/soaring_wings.json
-fe3451a7301488738c6018c2075bd9ba56d88b69 data/celestial_core/loot_modifiers/drops/warden_sclerite.json
+5a6be3999374a762303c91384738fd5ea2405350 data/celestial_core/loot_modifiers/drops/warden_sclerite.json
 98e1a1e6044d388c0a2715edce13e1512cd3bb7d data/forge/loot_modifiers/global_loot_modifiers.json
