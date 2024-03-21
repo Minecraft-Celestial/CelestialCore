@@ -58,6 +58,8 @@ public class AddItemModifier extends LootModifier {
 		}
 		if (chance == null || context.getRandom().nextDouble() <= chance.get()) {
 			generatedLoot.add(new ItemStack(item));
+		} else {
+			generatedLoot.add(new ItemStack(fail));
 		}
 		return generatedLoot;
 	}

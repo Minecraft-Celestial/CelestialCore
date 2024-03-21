@@ -6,6 +6,8 @@ import com.xiaoyue.celestial_core.register.CCItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
@@ -15,14 +17,16 @@ public class CCRecipeGen {
 
 	public static void onRecipeGen(RegistrateRecipeProvider pvd) {
 		unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CCItems.EARTH_CORE, 1)::unlockedBy, Items.CRYING_OBSIDIAN)
-				.pattern("FCF").pattern("AGE").pattern("DBD")
-				.define('A', Items.DEEPSLATE)
+				.pattern("ABC").pattern("DEF").pattern("GHI")
+				.define('A', Items.AMETHYST_BLOCK)
 				.define('B', Items.CRYING_OBSIDIAN)
-				.define('C', Items.POLISHED_GRANITE)
-				.define('D', Items.POLISHED_BLACKSTONE)
-				.define('E', Items.POLISHED_DIORITE)
-				.define('F', Items.MOSSY_COBBLESTONE)
-				.define('G', Items.STONE)
+				.define('C', Items.QUARTZ_BLOCK)
+				.define('D', ItemTags.DIAMOND_ORES)
+				.define('E', Items.END_STONE)
+				.define('F', ItemTags.EMERALD_ORES)
+				.define('G', Items.LAPIS_BLOCK)
+				.define('H', Items.GILDED_BLACKSTONE)
+				.define('I', Items.REDSTONE_BLOCK)
 				.save(pvd);
 	}
 

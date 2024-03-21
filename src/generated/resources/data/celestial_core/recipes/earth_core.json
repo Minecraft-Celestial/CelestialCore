@@ -3,31 +3,37 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "minecraft:deepslate"
+      "item": "minecraft:amethyst_block"
     },
     "B": {
       "item": "minecraft:crying_obsidian"
     },
     "C": {
-      "item": "minecraft:polished_granite"
+      "item": "minecraft:quartz_block"
     },
     "D": {
-      "item": "minecraft:polished_blackstone"
+      "tag": "minecraft:diamond_ores"
     },
     "E": {
-      "item": "minecraft:polished_diorite"
+      "item": "minecraft:end_stone"
     },
     "F": {
-      "item": "minecraft:mossy_cobblestone"
+      "tag": "minecraft:emerald_ores"
     },
     "G": {
-      "item": "minecraft:stone"
+      "item": "minecraft:lapis_block"
+    },
+    "H": {
+      "item": "minecraft:gilded_blackstone"
+    },
+    "I": {
+      "item": "minecraft:redstone_block"
     }
   },
   "pattern": [
-    "FCF",
-    "AGE",
-    "DBD"
+    "ABC",
+    "DEF",
+    "GHI"
   ],
   "result": {
     "item": "celestial_core:earth_core"
