@@ -1,3 +1,6 @@
+1.3.4
+- Essence Texture replacement
+
 1.3.3
 - Fix alternate item drop (Nebula Cube in Celestial Artifacts)
 - Change Earth Core recipe
