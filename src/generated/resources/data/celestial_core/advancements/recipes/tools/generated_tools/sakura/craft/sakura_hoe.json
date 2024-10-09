@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sakura_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "celestial_core:sakura_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "celestial_core:generated_tools/sakura/craft/sakura_hoe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sakura_hoe",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "celestial_core:generated_tools/sakura/craft/sakura_hoe"
+    ]
+  },
+  "sends_telemetry_event": false
+}

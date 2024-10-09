@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "celestial_core:guardian_ocean_ingot"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "A A",
+    "A A"
+  ],
+  "result": {
+    "item": "celestial_core:ocean_leggings"
+  },
+  "show_notification": true
+}

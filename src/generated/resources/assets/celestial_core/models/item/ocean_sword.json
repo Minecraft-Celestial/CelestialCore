@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "celestial_core:item/generated/ocean/sword"
+  }
+}

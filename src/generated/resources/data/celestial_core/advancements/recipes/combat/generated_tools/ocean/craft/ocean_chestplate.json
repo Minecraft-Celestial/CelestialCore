@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ocean_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "celestial_core:ocean_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "celestial_core:generated_tools/ocean/craft/ocean_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ocean_chestplate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "celestial_core:generated_tools/ocean/craft/ocean_chestplate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

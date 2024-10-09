@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "celestial_core:guardian_ocean_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "celestial_core:ocean_nugget"
+  }
+}

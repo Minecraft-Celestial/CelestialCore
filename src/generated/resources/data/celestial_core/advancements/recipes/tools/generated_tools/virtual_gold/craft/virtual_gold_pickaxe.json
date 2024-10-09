@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "celestial_core:generated_tools/virtual_gold/craft/virtual_gold_pickaxe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_virtual_gold_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "celestial_core:virtual_gold_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_virtual_gold_pickaxe",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "celestial_core:generated_tools/virtual_gold/craft/virtual_gold_pickaxe"
+    ]
+  },
+  "sends_telemetry_event": false
+}

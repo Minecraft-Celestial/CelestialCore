@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "celestial_core:sakura_steel"
+    },
+    "B": {
+      "item": "celestial_core:sakura_steel"
+    }
+  },
+  "pattern": [
+    "AAA",
+    " B ",
+    " B "
+  ],
+  "result": {
+    "item": "celestial_core:sakura_pickaxe"
+  },
+  "show_notification": true
+}

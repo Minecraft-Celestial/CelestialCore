@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sakura_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "celestial_core:sakura_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "celestial_core:generated_tools/sakura/craft/sakura_boots"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sakura_boots",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "celestial_core:generated_tools/sakura/craft/sakura_boots"
+    ]
+  },
+  "sends_telemetry_event": false
+}

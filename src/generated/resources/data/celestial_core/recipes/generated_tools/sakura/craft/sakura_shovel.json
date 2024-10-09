@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "celestial_core:sakura_steel"
+    },
+    "B": {
+      "item": "celestial_core:sakura_steel"
+    }
+  },
+  "pattern": [
+    "A",
+    "B",
+    "B"
+  ],
+  "result": {
+    "item": "celestial_core:sakura_shovel"
+  },
+  "show_notification": true
+}

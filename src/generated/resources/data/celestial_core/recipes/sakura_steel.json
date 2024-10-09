@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "celestial_core:sakura_fragment"
+    },
+    {
+      "item": "celestial_core:sakura_fragment"
+    }
+  ],
+  "result": {
+    "item": "celestial_core:sakura_steel"
+  }
+}

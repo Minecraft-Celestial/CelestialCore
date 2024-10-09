@@ -1,17 +1,20 @@
 {
   "entries": [
-    "celestial_core:drops/pure_nether_star",
+    "celestial_core:drops/sakura_fragment",
     "celestial_core:drops/ocean_essence",
+    "celestial_core:drops/soaring_wings",
+    "celestial_core:drops/guardian_spike",
+    "celestial_core:drops/fire_essence",
+    "celestial_core:drops/midnight_fragment",
+    "celestial_core:drops/warden_sclerite",
+    "celestial_core:drops/heart_fragment",
+    "celestial_core:drops/elder_guardian_spike",
+    "celestial_core:drops/pure_nether_star",
     "celestial_core:chests/end_city_treasure",
     "celestial_core:chests/abandoned_mineshaft",
     "celestial_core:drops/shulker_scrap",
     "celestial_core:drops/death_essence",
-    "celestial_core:drops/soaring_wings",
-    "celestial_core:drops/fire_essence",
-    "celestial_core:drops/light_fragment",
-    "celestial_core:drops/midnight_fragment",
-    "celestial_core:drops/warden_sclerite",
-    "celestial_core:drops/heart_fragment"
+    "celestial_core:drops/light_fragment"
   ],
   "replace": false
 }

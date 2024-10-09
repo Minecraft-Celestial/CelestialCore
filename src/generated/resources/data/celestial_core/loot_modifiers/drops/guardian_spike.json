@@ -1,0 +1,14 @@
+{
+  "type": "celestial_core:add_item",
+  "chance": "celestial_configs/celestial_core-common.toml/materials.guardianSpikeChance",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "minecraft:guardian"
+      }
+    }
+  ],
+  "item": "celestial_core:guardian_spike"
+}
