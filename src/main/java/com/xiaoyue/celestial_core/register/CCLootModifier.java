@@ -14,12 +14,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class CCLootModifier {
 
 	public static final RegistryEntry<Codec<AddItemModifier>> ADD_ITEM;
+	public static final RegistryEntry<Codec<ExtraDropModifier>> EXTRA_DROP;
 	public static final RegistryEntry<Codec<AddLootTableModifier>> ADD_LOOT_TABLE;
 
 	public static final RegistryEntry<LootItemConditionType> PLAYER_FLAG, ENTITY_HEALTH, PLAYER_EFFECT, CHARGED_CREEPER;
 
 	static {
 		ADD_ITEM = reg("add_item", () -> AddItemModifier.CODEC);
+		EXTRA_DROP = reg("extra_drop", () -> ExtraDropModifier.CODEC);
 		ADD_LOOT_TABLE = reg("add_loot_table", () -> AddLootTableModifier.CODEC);
 
 		PLAYER_FLAG = reg("player_flag", PlayerFlagCondition.class);

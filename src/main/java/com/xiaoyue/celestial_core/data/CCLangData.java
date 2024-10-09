@@ -8,9 +8,9 @@ import com.xiaoyue.celestial_core.events.CCGeneralEventHandler;
 import com.xiaoyue.celestial_core.register.CCEffects;
 import dev.xkmc.l2library.util.Proxy;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -30,7 +30,13 @@ public enum CCLangData {
 	SHULKER_SCRAP("%s chance to drop when %s is killed by explosion", 2),
 	SOARING_WINGS("Dropped when %s is killed above y=%s", 2),
 	HEART_FRAGMENT("Dropped when %s is killed by charged Creeper", 1),
-	;
+	SAKURA_FRAGMENT("%s chance to drop from breaking cherry blossom leaves", 1),
+	SAKURA_STEEL("Metal that symbolizes life", 0),
+	VIRTUAL_GOLD_NUGGET("%s chance to drop from ignited mobs with enchanted gold armors", 1),
+	OCEAN_TOOL("Cancel underwater dig speed penalty", 0),
+	OCEAN_ARMOR("Full set effect: %s", 1),
+	SAKURA_SERIES("Restore 1 durability every %s seconds", 1),
+	VIRTUAL_GOLD_TOOL("Increases attack damage and dig speed by %s for every enchantment it has", 1);
 
 	final String id;
 	final String def;
@@ -60,6 +66,10 @@ public enum CCLangData {
 
 	public static MutableComponent entity(EntityType<?> type) {
 		return type.getDescription().copy().withStyle(ChatFormatting.AQUA);
+	}
+
+	public static MutableComponent eff(MobEffect eff) {
+		return eff.getDisplayName().copy().withStyle(eff.getCategory().getTooltipFormatting());
 	}
 
 	public static MutableComponent simpleDrop(EntityType<?> type, double v) {

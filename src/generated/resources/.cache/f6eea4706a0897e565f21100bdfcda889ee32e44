@@ -1,4 +1,4 @@
-// 1.20.1	2024-09-28T15:52:43.3059954	Global Loot Modifiers : celestial_core
+// 1.20.1	2024-10-10T02:26:37.92677	Global Loot Modifiers : celestial_core
 3831e5fac0df7d02e15a1ccfd00d1e2559f284f7 data/celestial_core/loot_modifiers/chests/abandoned_mineshaft.json
 02419c6cbf98c7e0627ebbf5001a4dceb170c157 data/celestial_core/loot_modifiers/chests/end_city_treasure.json
 3d18d26e877aae8f3509e11e48f408cef8e65dee data/celestial_core/loot_modifiers/drops/death_essence.json
@@ -10,8 +10,12 @@
 dd2a61dce89c5859dbed2598a6cd2e4d94fd2ab6 data/celestial_core/loot_modifiers/drops/midnight_fragment.json
 04603655e9eb91055e072f28cb2de24b39836680 data/celestial_core/loot_modifiers/drops/ocean_essence.json
 ae7dee914b977314afcdeac17122d81d29e86590 data/celestial_core/loot_modifiers/drops/pure_nether_star.json
-5537d26985692a9a618584da943cba2ca6f0a41b data/celestial_core/loot_modifiers/drops/sakura_fragment.json
+f782827a429a522564babb9dd0eca03abb8223a3 data/celestial_core/loot_modifiers/drops/sakura_fragment.json
 df7801fc4a1934bb410475022848c03fcc9bdac3 data/celestial_core/loot_modifiers/drops/shulker_scrap.json
 a00c357ee69cec27519b67743d446faa25016e4d data/celestial_core/loot_modifiers/drops/soaring_wings.json
+a93d1d9d159a7bb0c46db2c82888bd04898a1b67 data/celestial_core/loot_modifiers/drops/virtual_gold_chest.json
+0c4254254b75af7ed2de2eb157ddb7e1f8477d93 data/celestial_core/loot_modifiers/drops/virtual_gold_feet.json
+269e362988dd01a6f06ada95d7f7393a9cbfb26c data/celestial_core/loot_modifiers/drops/virtual_gold_head.json
+e0ead34011ffd201ee632df6154c7fb414493310 data/celestial_core/loot_modifiers/drops/virtual_gold_legs.json
 5a6be3999374a762303c91384738fd5ea2405350 data/celestial_core/loot_modifiers/drops/warden_sclerite.json
-4d14470efcda7a794c9f84a85b4bce2a0197cd62 data/forge/loot_modifiers/global_loot_modifiers.json
+d18d7be23897173c31a24ed9dc4cc957a13fe597 data/forge/loot_modifiers/global_loot_modifiers.json

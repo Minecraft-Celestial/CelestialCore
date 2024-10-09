@@ -6,16 +6,15 @@ import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
 import com.xiaoyue.celestial_core.data.*;
 import com.xiaoyue.celestial_core.events.CCAttackListener;
-import com.xiaoyue.celestial_core.register.CCAttributes;
-import com.xiaoyue.celestial_core.register.CCEffects;
-import com.xiaoyue.celestial_core.register.CCItems;
-import com.xiaoyue.celestial_core.register.CCLootModifier;
+import com.xiaoyue.celestial_core.register.*;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
+import dev.xkmc.l2damagetracker.contents.materials.vanilla.GenItemVanillaType;
 import dev.xkmc.l2library.base.L2Registrate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -32,10 +31,15 @@ public class CelestialCore {
 	public static final String MODID = "celestial_core";
 	public static final Logger LOGGER = LogUtils.getLogger();
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
+	public static final GenItemVanillaType MATS = new GenItemVanillaType(MODID, REGISTRATE);
 
 	public static final RegistryEntry<CreativeModeTab> TAB =
-			REGISTRATE.buildModCreativeTab("core", "Celestial Core",
-					e -> e.icon(CCItems.FIRE_ESSENCE::asStack));
+			REGISTRATE.buildModCreativeTab("materials", "Celestial Core Materials",
+					e -> e.icon(CCItems.SAKURA_STEEL::asStack));
+
+	public static final RegistryEntry<CreativeModeTab> TOOL_TAB =
+			REGISTRATE.buildModCreativeTab("tools", "Celestial Core Tools",
+					e -> e.icon(() -> CCMaterials.VIRTUAL_GOLD.getArmor(EquipmentSlot.CHEST).getDefaultInstance()));
 
 	public CelestialCore() {
 		CCItems.register();
@@ -53,9 +57,7 @@ public class CelestialCore {
 
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> {
-			CCEffects.registerBrewingRecipe();
-		});
+		event.enqueueWork(CCEffects::registerBrewingRecipe);
 	}
 
 	@SubscribeEvent

@@ -4,18 +4,21 @@ import com.xiaoyue.celestial_core.CelestialCore;
 import com.xiaoyue.celestial_core.content.loot.*;
 import com.xiaoyue.celestial_core.events.CCGeneralEventHandler;
 import com.xiaoyue.celestial_core.register.CCItems;
+import com.xiaoyue.celestial_core.register.CCMaterials;
 import dev.xkmc.l2library.util.data.LootTableTemplate;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
@@ -64,10 +67,42 @@ public class CCGLMProvider extends GlobalLootModifierProvider {
 				IntConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.pureNetherStarEffectCount))));
 		add("drops/heart_fragment", new AddItemModifier(CCItems.HEART_FRAGMENT.get(), null,
 				entityType(EntityType.PILLAGER), new ChargedCreeperKillCondition()));
+		add("drops/guardian_spike", new AddItemModifier(CCItems.GUARDIAN_SPIKE.get(),
+				DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.guardianSpikeChance),
+				entityType(EntityType.GUARDIAN)));
+		add("drops/elder_guardian_spike", new AddItemModifier(CCItems.GUARDIAN_SPIKE.get(),
+				DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.guardianSpikeChance),
+				entityType(EntityType.ELDER_GUARDIAN)));
+
+		add("drops/sakura_fragment", new ExtraDropModifier(CCItems.SAKURA_FRAGMENT.get(),
+				DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.sakuraFragmentChance),
+				block(Blocks.CHERRY_LEAVES)));
+
+		{
+			var ench = new EnchantmentPredicate(null, MinMaxBounds.Ints.atLeast(1));
+			var pred = ItemPredicate.Builder.item().hasEnchantment(ench).build();
+			DoubleConfigValue chance = DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.virtualGoldNuggetChance);
+			var item = CCMaterials.VIRTUAL_GOLD.getNugget();
+			add("drops/virtual_gold_head", new AddItemModifier(item, chance,
+					virtualGold(EntityEquipmentPredicate.Builder.equipment().head(pred))));
+			add("drops/virtual_gold_chest", new AddItemModifier(item, chance,
+					virtualGold(EntityEquipmentPredicate.Builder.equipment().chest(pred))));
+			add("drops/virtual_gold_legs", new AddItemModifier(item, chance,
+					virtualGold(EntityEquipmentPredicate.Builder.equipment().legs(pred))));
+			add("drops/virtual_gold_feet", new AddItemModifier(item, chance,
+					virtualGold(EntityEquipmentPredicate.Builder.equipment().feet(pred))));
+		}
 	}
 
 	public static LootItemCondition entity(EntityPredicate.Builder builder) {
 		return LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, builder).build();
+	}
+
+	public static LootItemCondition virtualGold(EntityEquipmentPredicate.Builder builder) {
+		return LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
+				EntityPredicate.Builder.entity()
+						.flags(EntityFlagsPredicate.Builder.flags().setOnFire(true).build())
+						.equipment(builder.build())).build();
 	}
 
 	public static LootItemCondition entityType(EntityType<?> type) {
@@ -81,6 +116,10 @@ public class CCGLMProvider extends GlobalLootModifierProvider {
 	public static LootItemCondition damage(TagKey<DamageType> tag) {
 		return DamageSourceCondition.hasDamageSource(DamageSourcePredicate.Builder.damageType()
 				.tag(TagPredicate.is(tag))).build();
+	}
+
+	public static LootItemCondition block(Block block) {
+		return LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).build();
 	}
 
 }

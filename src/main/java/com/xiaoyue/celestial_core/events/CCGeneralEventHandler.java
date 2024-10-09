@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_core.events;
 
 import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
+import com.xiaoyue.celestial_core.utils.ScheduleProxy;
 import com.xiaoyue.celestial_core.register.CCAttributes;
 import com.xiaoyue.celestial_core.register.CCEffects;
 import net.minecraft.world.damagesource.DamageSource;
@@ -9,6 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -21,6 +23,13 @@ import static com.xiaoyue.celestial_core.CelestialCore.MODID;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CCGeneralEventHandler {
+
+	@SubscribeEvent
+	public static void onServerTick(TickEvent.ServerTickEvent event) {
+		if (event.phase == TickEvent.Phase.END) {
+			ScheduleProxy.serverTick();
+		}
+	}
 
 	@SubscribeEvent
 	public static void onLivingHeal(LivingHealEvent event) {

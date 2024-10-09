@@ -4,7 +4,11 @@ import com.tterrag.registrate.builders.NoConfigBuilder;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import com.xiaoyue.celestial_core.CelestialCore;
-import com.xiaoyue.celestial_core.content.effects.*;
+import com.xiaoyue.celestial_core.content.effects.misc.ArrowDamage;
+import com.xiaoyue.celestial_core.content.effects.misc.CritDamage;
+import com.xiaoyue.celestial_core.content.effects.misc.CritRate;
+import com.xiaoyue.celestial_core.content.effects.misc.RegenRate;
+import com.xiaoyue.celestial_core.content.effects.special.*;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.Item;
@@ -26,12 +30,13 @@ public class CCEffects {
 	public static final RegistryEntry<Violent> VIOLENT = genEffect("violent", Violent::new, "Melee damage bypass armor");
 	public static final RegistryEntry<Hidden> HIDDEN = genEffect("hidden", Hidden::new, "Cannot be seen as enemy. Removed on attack");
 	public static final RegistryEntry<RottenCurse> ROTTEN_CURSE = genEffect("rotten_curse", RottenCurse::new, "Inflict damage after being attacked, prevents teleport");
-	public static final RegistryEntry<BladeModifier> BLADE_MODIFIER = genEffect("reinforced_blade", BladeModifier::new, "Increase attack damage and crit rate");
+	public static final RegistryEntry<ReinforcedBlade> BLADE_MODIFIER = genEffect("reinforced_blade", ReinforcedBlade::new, "Increase attack damage and crit rate");
 	public static final RegistryEntry<SoulShatter> SOUL_SHATTER = genEffect("soul_shatter", SoulShatter::new, "Reduce max health and movement speed");
 	public static final RegistryEntry<CritRate> CRIT_RATE = genEffect("crit_rate", CritRate::new, "Increase crit rate");
 	public static final RegistryEntry<CritDamage> CRIT_DAMAGE = genEffect("crit_damage", CritDamage::new, "Increase crit damage");
-	public static final RegistryEntry<ReplyPower> REPLY_POWER = genEffect("regen_rate", ReplyPower::new, "Increase regeneration rate");
+	public static final RegistryEntry<RegenRate> REPLY_POWER = genEffect("regen_rate", RegenRate::new, "Increase regeneration rate");
 	public static final RegistryEntry<ArrowDamage> ARROW_DAMAGE = genEffect("arrow_damage", ArrowDamage::new, "Increase arrow damage");
+	public static final RegistryEntry<FearCurse> FEAR_CURSE = genEffect("fear_curse", FearCurse::new, "You will get hurt when you attack");
 
 	static {
 		regPotion2("crit_rate", CRIT_RATE::get, CCItems.OCEAN_ESSENCE::get, 6000, 9600);

@@ -1,6 +1,6 @@
 {
-  "type": "celestial_core:add_item",
-  "chance": "celestial_configs/celestial_core-common.toml/materials.skuraFragmentChance",
+  "type": "celestial_core:extra_drop",
+  "chance": "celestial_configs/celestial_core-common.toml/materials.sakuraFragmentChance",
   "conditions": [
     {
       "block": "minecraft:cherry_leaves",

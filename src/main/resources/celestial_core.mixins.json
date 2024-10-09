@@ -4,8 +4,12 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "celestial_core.refmap.json",
   "mixins": [
-	"EntityMixin",
-	"LivingEntityMixin"
+    "EntityMixin",
+    "ItemStackMixin",
+    "LivingEntityMixin"
   ],
-  "minVersion": "0.8"
+  "minVersion": "0.8",
+  "client": [
+    "GameRenderMixin"
+  ]
 }

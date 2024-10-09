@@ -25,7 +25,12 @@ public class CCModConfig {
 		public final ForgeConfigSpec.DoubleValue shulkerScrapChance;
 		public final ForgeConfigSpec.DoubleValue lightFragmentChance;
 		public final ForgeConfigSpec.DoubleValue midnightFragmentChance;
+		public final ForgeConfigSpec.DoubleValue sakuraFragmentChance;
+		public final ForgeConfigSpec.DoubleValue virtualGoldNuggetChance;
 		public final ForgeConfigSpec.IntValue pureNetherStarEffectCount;
+		public final ForgeConfigSpec.DoubleValue guardianSpikeChance;
+		public final ForgeConfigSpec.IntValue sakuraToolRecoveryTime;
+		public final ForgeConfigSpec.DoubleValue virtualGoldToolPerAdd;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			builder.push("materials");
@@ -37,7 +42,12 @@ public class CCModConfig {
 			shulkerScrapChance = builder.defineInRange("shulkerScrapChance", 0.5, 0, 1);
 			lightFragmentChance = builder.defineInRange("lightFragmentChance", 0.05, 0, 1);
 			midnightFragmentChance = builder.defineInRange("midnightFragmentChance", 0.05, 0, 1);
+			sakuraFragmentChance = builder.defineInRange("sakuraFragmentChance", 0.1, 0, 1);
+			virtualGoldNuggetChance = builder.defineInRange("virtualGoldNuggetChance", 0.5, 0, 1);
 			pureNetherStarEffectCount = builder.defineInRange("pureNetherStarEffectCount", 12, 0, 100);
+			guardianSpikeChance = builder.defineInRange("guardianSpikeChance", 0.2, 0, 1);
+			sakuraToolRecoveryTime = builder.defineInRange("sakuraToolRecoveryTime", 5, 0, 100);
+			virtualGoldToolPerAdd = builder.defineInRange("virtualGoldToolPerAdd", 0.05, 0.01, 1);
 			builder.pop();
 		}
 

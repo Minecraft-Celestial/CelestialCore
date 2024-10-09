@@ -1,49 +1,78 @@
 {
-  "item.celestial_core": {
-	"earth_core": "大地核心",
-	"void_essence": "虚空精华",
-	"death_essence": "死亡精华",
-	"fire_essence": "火焰精华",
-	"ocean_essence": "海洋精华",
-	"light_fragment": "光明碎片",
-	"midnight_fragment": "子夜碎片",
-	"treasure_fragment": "宝藏碎片",
-	"pure_nether_star": "纯净之星",
-	"shulker_scrap": "潜影壳破片",
-	"soaring_wings": "飞升之翼",
-	"heart_fragment": "心之碎片",
-	"warden_sclerite": "监守者骨片"
-  },
-  "item.minecraft.tipped_arrow.effect": {
-	"crit_rate": "暴击增幅箭",
-	"long_crit_rate": "暴击增幅箭",
-	"crit_damage": "爆伤增幅箭",
-	"long_crit_damage": "爆伤增幅箭",
-	"regen_rate": "治疗增幅箭",
-	"long_regen_rate": "治疗增幅箭"
-  },
-  "-cartesian": {
-	"potion": {
-	  "path": "item.minecraft",
-	  "use_dot": true,
-	  "list": [
-		{
-		  "potion": "",
-		  "splash_potion": "喷溅型",
-		  "lingering_potion": "滞留型"
+	"item.celestial_core": {
+		"earth_core": "大地核心",
+		"void_essence": "虚空精华",
+		"death_essence": "死亡精华",
+		"fire_essence": "火焰精华",
+		"ocean_essence": "海洋精华",
+		"light_fragment": "光明碎片",
+		"midnight_fragment": "子夜碎片",
+		"treasure_fragment": "宝藏碎片",
+		"pure_nether_star": "纯净之星",
+		"shulker_scrap": "潜影壳破片",
+		"soaring_wings": "飞升之翼",
+		"heart_fragment": "心之碎片",
+		"sakura_fragment": "樱花碎片",
+		"warden_sclerite": "监守者骨片",
+		"guardian_ocean_ingot": "守护者锭",
+		"guardian_spike": "守护者尖刺",
+		"ocean_ingot": "海洋锭",
+		"ocean_nugget": "海洋粒",
+		"sakura_steel": "樱花钢",
+		"virtual_gold_ingot": "虚金锭",
+		"virtual_gold_nugget": "虚金残骸"
+	},
+	"item.minecraft.tipped_arrow.effect": {
+		"crit_rate": "暴击增幅箭",
+		"long_crit_rate": "暴击增幅箭",
+		"crit_damage": "爆伤增幅箭",
+		"long_crit_damage": "爆伤增幅箭",
+		"regen_rate": "治疗增幅箭",
+		"long_regen_rate": "治疗增幅箭"
+	},
+	"-cartesian": {
+		"potion": {
+			"path": "item.minecraft",
+			"use_dot": true,
+			"list": [
+				{
+					"potion": "",
+					"splash_potion": "喷溅型",
+					"lingering_potion": "滞留型"
+				},
+				{
+					"effect": ""
+				},
+				{
+					"crit_rate": "暴击增幅药水",
+					"long_crit_rate": "暴击增幅药水",
+					"crit_damage": "爆伤增幅药水",
+					"long_crit_damage": "爆伤增幅药水",
+					"regen_rate": "治疗增幅药水",
+					"long_regen_rate": "治疗增幅药水"
+				}
+			]
 		},
-		{
-		  "effect": ""
-		},
-		{
-		  "crit_rate": "暴击增幅药水",
-		  "long_crit_rate": "暴击增幅药水",
-		  "crit_damage": "爆伤增幅药水",
-		  "long_crit_damage": "爆伤增幅药水",
-		  "regen_rate": "治疗增幅药水",
-		  "long_regen_rate": "治疗增幅药水"
+		"mats": {
+			"path": "item.celestial_core",
+			"list": [
+				{
+					"ocean": "海洋",
+					"sakura": "樱花",
+					"virtual_gold": "虚金"
+				},
+				{
+					"helmet": "头盔",
+					"chestplate": "胸甲",
+					"leggings": "护腿",
+					"boots": "靴子",
+					"sword": "剑",
+					"axe": "斧",
+					"shovel": "锹",
+					"pickaxe": "镐",
+					"hoe": "锄"
+				}
+			]
 		}
-	  ]
 	}
-  }
 }

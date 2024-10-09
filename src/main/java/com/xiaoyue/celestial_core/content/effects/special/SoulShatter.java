@@ -1,6 +1,5 @@
-package com.xiaoyue.celestial_core.content.effects;
+package com.xiaoyue.celestial_core.content.effects.special;
 
-import dev.xkmc.l2damagetracker.init.L2DamageTracker;
 import dev.xkmc.l2library.util.math.MathHelper;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
