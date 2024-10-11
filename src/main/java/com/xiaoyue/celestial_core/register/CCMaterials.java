@@ -2,8 +2,7 @@ package com.xiaoyue.celestial_core.register;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.xiaoyue.celestial_core.CelestialCore;
-import com.xiaoyue.celestial_core.content.items.series.VirtualGoldArmorItem;
-import com.xiaoyue.celestial_core.content.items.series.*;
+import com.xiaoyue.celestial_core.content.series.*;
 import dev.xkmc.l2damagetracker.contents.materials.api.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraArmorConfig;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
@@ -13,6 +12,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
@@ -26,17 +26,17 @@ public enum CCMaterials implements IMatVanillaType {
 			new ToolStats(1200, 8, 3, 1, 12),
 			new ArmorStats(30, new int[]{3, 6, 8, 3}, 2, 0, 12),
 			GenItemVanillaType.TOOL_GEN, GenItemVanillaType.ARMOR_GEN,
-			new OceanTool().setStick(e -> CCItems.GUARDIAN_OCEAN_INGOT.get(), true), new OceanArmor()),
+			new OceanTool().setStick(e -> CCItems.GUARDIAN_SPIKE.get(), false), new OceanArmor()),
 	SAKURA("sakura", 2, SoundEvents.ARMOR_EQUIP_GOLD,
 			new ToolStats(260, 8, 2, 1, 15),
 			new ArmorStats(15, new int[]{2, 5, 6, 2}, 0, 0, 15),
 			GenItemVanillaType.TOOL_GEN, GenItemVanillaType.ARMOR_GEN,
-			new SakuraTool().setStick(e -> CCItems.SAKURA_STEEL.get(), true), new SakuraArmor()),
+			new SakuraTool().setStick(e -> Items.CHERRY_LOG, false), new SakuraArmor()),
 	VIRTUAL_GOLD("virtual_gold", 3, SoundEvents.ARMOR_EQUIP_GOLD,
 			new ToolStats(1200, 12, 2, 1, 30),
 			new ArmorStats(22, new int[]{3, 6, 8, 3}, 2, 0, 30),
 			GenItemVanillaType.TOOL_GEN, VirtualGoldArmorItem.ARMOR_GEN,
-			new VirtualGoldTool().setStick(e -> CCItems.VIRTUAL_GOLD_INGOT.get(), true), new VirtualGoldArmor()),
+			new VirtualGoldTool().setStick(e -> CCItems.FIRE_ESSENCE.get(), false), new VirtualGoldArmor()),
 	;
 
 	final String id;

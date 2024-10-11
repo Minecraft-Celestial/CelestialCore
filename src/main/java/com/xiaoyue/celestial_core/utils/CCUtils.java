@@ -3,7 +3,6 @@ package com.xiaoyue.celestial_core.utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,8 +21,25 @@ import java.util.Optional;
 
 public class CCUtils {
 
-	public static RandomSource getRandom() {
-		return RandomSource.create();
+	public static float getMoonFactor(Level level) {
+		int moonPhase = ((int) (level.getDayTime() / 24000 % 8));
+		float moonPhaseFactor;
+		if (moonPhase == 0) {
+			moonPhaseFactor = 1.0f;
+		} else if (moonPhase == 1 || moonPhase == 7) {
+			moonPhaseFactor = 0.75f;
+		} else if (moonPhase == 2 || moonPhase == 6) {
+			moonPhaseFactor = 0.5f;
+		} else if (moonPhase == 3 || moonPhase == 5) {
+			moonPhaseFactor = 0.25f;
+		} else {
+			moonPhaseFactor = 0.0F;
+		}
+		return moonPhaseFactor;
+	}
+
+	public static boolean isFullMoon(Level level) {
+		return getMoonFactor(level) == 1;
 	}
 
 	public static void meltingDropsInEvent(LivingDropsEvent event) {

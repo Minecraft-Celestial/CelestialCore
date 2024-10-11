@@ -1,9 +1,9 @@
 package com.xiaoyue.celestial_core.events;
 
 import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
-import com.xiaoyue.celestial_core.utils.ScheduleProxy;
 import com.xiaoyue.celestial_core.register.CCAttributes;
 import com.xiaoyue.celestial_core.register.CCEffects;
+import com.xiaoyue.celestial_core.utils.ScheduleProxy;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;

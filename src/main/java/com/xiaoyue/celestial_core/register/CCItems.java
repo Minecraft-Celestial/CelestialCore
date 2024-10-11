@@ -29,7 +29,7 @@ public class CCItems {
 	public static final ItemEntry<CCTooltipItem> SOARING_WINGS;
 	public static final ItemEntry<CCTooltipItem> HEART_FRAGMENT;
 	public static final ItemEntry<CCTooltipItem> SAKURA_FRAGMENT;
-	public static final ItemEntry<CCTooltipItem> SAKURA_STEEL;
+	public static final ItemEntry<Item> SAKURA_STEEL;
 	public static final ItemEntry<Item> OCEAN_INGOT;
 	public static final ItemEntry<Item> GUARDIAN_OCEAN_INGOT;
 	public static final ItemEntry<Item> OCEAN_NUGGET;
@@ -82,7 +82,7 @@ public class CCItems {
 				p -> new CCTooltipItem(new Item.Properties().rarity(IRarityUtils.PINK), true,
 						() -> CCLangData.SAKURA_FRAGMENT.get(CCLangData.chance(CCModConfig.COMMON.sakuraFragmentChance.get()))));
 		SAKURA_STEEL = material("sakura_steel",
-				p -> new CCTooltipItem(new Item.Properties().rarity(IRarityUtils.PINK), false, CCLangData.SAKURA_STEEL::get));
+				p -> new Item(new Item.Properties().rarity(IRarityUtils.PINK)));
 		OCEAN_INGOT = material("ocean_ingot",
 				p -> new Item(new Item.Properties().rarity(IRarityUtils.BLUE)));
 		GUARDIAN_OCEAN_INGOT = material("guardian_ocean_ingot",

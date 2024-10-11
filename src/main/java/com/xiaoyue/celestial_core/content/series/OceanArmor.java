@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_core.content.items.series;
+package com.xiaoyue.celestial_core.content.series;
 
 import com.xiaoyue.celestial_core.data.CCLangData;
 import com.xiaoyue.celestial_core.register.CCMaterials;
@@ -25,7 +25,8 @@ public class OceanArmor extends ExtraArmorConfig {
 
 	@Override
 	public void addTooltip(ItemStack stack, List<Component> list) {
-		list.add(CCLangData.OCEAN_ARMOR.get(CCLangData.eff(MobEffects.WATER_BREATHING)).withStyle(ChatFormatting.GRAY));
+		list.add(CCLangData.FULL_SET.get(CCLangData.eff(MobEffects.WATER_BREATHING)).withStyle(ChatFormatting.GRAY));
 		super.addTooltip(stack, list);
 	}
+
 }

@@ -39,13 +39,13 @@
 			"soaring_wings": "%s死于y轴大于%s格掉落",
 			"treasure_fragment": "在废弃矿井的宝箱中概率开出",
 			"void_essence": "在末地城宝箱中概率开出",
-			"ocean_armor": "套装效果: %s",
+			"full_set": "套装效果: %s",
 			"ocean_tool": "取消水下挖掘惩罚",
 			"sakura_fragment": "破坏樱花叶时%s概率掉落",
 			"sakura_series": "每%s秒回复1点耐久",
-			"sakura_steel": "象征生命的金属",
 			"virtual_gold_nugget": "击杀着火的穿戴附魔金盔甲的生物时%s概率掉落",
-			"virtual_gold_tool": "每个附魔增加%s攻击伤害和挖掘速度"
+			"virtual_gold_tool": "每个附魔增加%s攻击伤害和挖掘速度",
+			"virtual_gold_general": "极高附魔亲和度"
 		}
 	}
 }

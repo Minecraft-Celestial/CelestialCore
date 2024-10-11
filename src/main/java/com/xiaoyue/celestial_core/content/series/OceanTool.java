@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_core.content.items.series;
+package com.xiaoyue.celestial_core.content.series;
 
 import com.xiaoyue.celestial_core.data.CCLangData;
 import com.xiaoyue.celestial_core.utils.ItemUtils;

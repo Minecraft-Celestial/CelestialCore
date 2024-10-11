@@ -1,7 +1,7 @@
-package com.xiaoyue.celestial_core.content.items.series;
+package com.xiaoyue.celestial_core.content.series;
 
-import com.xiaoyue.celestial_core.content.client.CCModelLayers;
 import com.xiaoyue.celestial_core.content.client.AVirtualGoldModel;
+import com.xiaoyue.celestial_core.content.client.CCModelLayers;
 import dev.xkmc.l2damagetracker.contents.materials.api.ArmorConfig;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraArmorConfig;
 import dev.xkmc.l2damagetracker.contents.materials.generic.GenericArmorItem;

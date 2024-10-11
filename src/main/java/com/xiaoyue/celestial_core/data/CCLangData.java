@@ -31,12 +31,12 @@ public enum CCLangData {
 	SOARING_WINGS("Dropped when %s is killed above y=%s", 2),
 	HEART_FRAGMENT("Dropped when %s is killed by charged Creeper", 1),
 	SAKURA_FRAGMENT("%s chance to drop from breaking cherry blossom leaves", 1),
-	SAKURA_STEEL("Metal that symbolizes life", 0),
 	VIRTUAL_GOLD_NUGGET("%s chance to drop from ignited mobs with enchanted gold armors", 1),
 	OCEAN_TOOL("Cancel underwater dig speed penalty", 0),
-	OCEAN_ARMOR("Full set effect: %s", 1),
+	FULL_SET("Full set effect: %s", 1),
 	SAKURA_SERIES("Restore 1 durability every %s seconds", 1),
-	VIRTUAL_GOLD_TOOL("Increases attack damage and dig speed by %s for every enchantment it has", 1);
+	VIRTUAL_GOLD_TOOL("Increases attack damage and dig speed by %s for every enchantment it has", 1),
+	VIRTUAL_GOLD_GENERAL("High enchantment affinity", 0);
 
 	final String id;
 	final String def;

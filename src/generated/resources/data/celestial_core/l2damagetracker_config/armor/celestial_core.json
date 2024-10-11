@@ -1,0 +1,13 @@
+{
+  "immune": {
+    "celestial_core:ocean": [
+      "minecraft:mining_fatigue"
+    ],
+    "celestial_core:sakura": [
+      "minecraft:poison"
+    ],
+    "celestial_core:virtual_gold": [
+      "minecraft:wither"
+    ]
+  }
+}

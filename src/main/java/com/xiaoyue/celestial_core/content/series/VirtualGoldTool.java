@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_core.content.items.series;
+package com.xiaoyue.celestial_core.content.series;
 
 import com.xiaoyue.celestial_core.data.CCLangData;
 import com.xiaoyue.celestial_core.data.CCModConfig;
@@ -34,7 +34,8 @@ public class VirtualGoldTool extends ExtraToolConfig {
 
 	@Override
 	public void addTooltip(ItemStack stack, List<Component> list) {
+		list.add(CCLangData.VIRTUAL_GOLD_GENERAL.get().withStyle(ChatFormatting.GRAY));
 		list.add(CCLangData.VIRTUAL_GOLD_TOOL.get(CCLangData.chance(add())).withStyle(ChatFormatting.GRAY));
-		super.addTooltip(stack, list);
 	}
+
 }

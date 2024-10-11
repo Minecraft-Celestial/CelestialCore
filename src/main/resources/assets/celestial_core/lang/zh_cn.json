@@ -105,11 +105,11 @@
   "celestial_core.tooltip.soaring_wings": "%s死于y轴大于%s格掉落",
   "celestial_core.tooltip.treasure_fragment": "在废弃矿井的宝箱中概率开出",
   "celestial_core.tooltip.void_essence": "在末地城宝箱中概率开出",
-  "celestial_core.tooltip.ocean_armor": "套装效果: %s",
+  "celestial_core.tooltip.full_set": "套装效果: %s",
   "celestial_core.tooltip.ocean_tool": "取消水下挖掘惩罚",
   "celestial_core.tooltip.sakura_fragment": "破坏樱花叶时%s概率掉落",
   "celestial_core.tooltip.sakura_series": "每%s秒回复1点耐久",
-  "celestial_core.tooltip.sakura_steel": "象征生命的金属",
   "celestial_core.tooltip.virtual_gold_nugget": "击杀着火的穿戴附魔金盔甲的生物时%s概率掉落",
-  "celestial_core.tooltip.virtual_gold_tool": "每个附魔增加%s攻击伤害和挖掘速度"
+  "celestial_core.tooltip.virtual_gold_tool": "每个附魔增加%s攻击伤害和挖掘速度",
+  "celestial_core.tooltip.virtual_gold_general": "极高附魔亲和度"
 }
