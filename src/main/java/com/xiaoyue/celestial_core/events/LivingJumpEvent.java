@@ -3,9 +3,10 @@ package com.xiaoyue.celestial_core.events;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.Cancelable;
+import net.minecraftforge.eventbus.api.Event;
 
 @Cancelable
-public class LivingJumpEvent extends CelestialHooks {
+public class LivingJumpEvent extends Event {
 
 	private final LivingEntity entity;
 	private float jumpPower;

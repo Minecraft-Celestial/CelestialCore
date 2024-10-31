@@ -3,24 +3,9 @@
   "chance": "celestial_configs/celestial_core-common.toml/materials.virtualGoldNuggetChance",
   "conditions": [
     {
-      "condition": "minecraft:entity_properties",
-      "entity": "this",
-      "predicate": {
-        "equipment": {
-          "head": {
-            "enchantments": [
-              {
-                "levels": {
-                  "min": 1
-                }
-              }
-            ]
-          }
-        },
-        "flags": {
-          "is_on_fire": true
-        }
-      }
+      "armor": "minecraft:golden_helmet",
+      "condition": "celestial_core:equip_ench",
+      "onFire": true
     }
   ],
   "item": "celestial_core:virtual_gold_nugget"

@@ -1,10 +1,10 @@
 package com.xiaoyue.celestial_core.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.xiaoyue.celestial_core.events.CelestialHooks;
 import com.xiaoyue.celestial_core.events.LivingJumpEvent;
 import com.xiaoyue.celestial_core.register.CCEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraftforge.common.MinecraftForge;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -25,7 +25,7 @@ public abstract class LivingEntityMixin {
 	public float celestial_core$getJumpPower(float original) {
 		LivingEntity self = (LivingEntity) (Object) this;
 		var event = new LivingJumpEvent(self, original);
-		CelestialHooks.post(event);
+		MinecraftForge.EVENT_BUS.post(event);
 		if (event.isCanceled()) {
 			return 0;
 		}

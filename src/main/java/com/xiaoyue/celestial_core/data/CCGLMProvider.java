@@ -13,6 +13,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -79,30 +80,21 @@ public class CCGLMProvider extends GlobalLootModifierProvider {
 				block(Blocks.CHERRY_LEAVES)));
 
 		{
-			var ench = new EnchantmentPredicate(null, MinMaxBounds.Ints.atLeast(1));
-			var pred = ItemPredicate.Builder.item().hasEnchantment(ench).build();
-			DoubleConfigValue chance = DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.virtualGoldNuggetChance);
 			var item = CCMaterials.VIRTUAL_GOLD.getNugget();
+			DoubleConfigValue chance = DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.virtualGoldNuggetChance);
 			add("drops/virtual_gold_head", new AddItemModifier(item, chance,
-					virtualGold(EntityEquipmentPredicate.Builder.equipment().head(pred))));
+					new EquipEnchCondition(Items.GOLDEN_HELMET, true)));
 			add("drops/virtual_gold_chest", new AddItemModifier(item, chance,
-					virtualGold(EntityEquipmentPredicate.Builder.equipment().chest(pred))));
+					new EquipEnchCondition(Items.GOLDEN_CHESTPLATE, true)));
 			add("drops/virtual_gold_legs", new AddItemModifier(item, chance,
-					virtualGold(EntityEquipmentPredicate.Builder.equipment().legs(pred))));
+					new EquipEnchCondition(Items.GOLDEN_LEGGINGS, true)));
 			add("drops/virtual_gold_feet", new AddItemModifier(item, chance,
-					virtualGold(EntityEquipmentPredicate.Builder.equipment().feet(pred))));
+					new EquipEnchCondition(Items.GOLDEN_BOOTS, true)));
 		}
 	}
 
 	public static LootItemCondition entity(EntityPredicate.Builder builder) {
 		return LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, builder).build();
-	}
-
-	public static LootItemCondition virtualGold(EntityEquipmentPredicate.Builder builder) {
-		return LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
-				EntityPredicate.Builder.entity()
-						.flags(EntityFlagsPredicate.Builder.flags().setOnFire(true).build())
-						.equipment(builder.build())).build();
 	}
 
 	public static LootItemCondition entityType(EntityType<?> type) {

@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScheduleProxy {
+public class ScheduleUtils {
 
 	private static final List<Cache> tasks = new ArrayList<>();
 
@@ -14,7 +14,7 @@ public class ScheduleProxy {
 	private final Runnable action;
 	public boolean running;
 
-	public ScheduleProxy(String id, int requiredTick, Runnable action) {
+	public ScheduleUtils(String id, int requiredTick, Runnable action) {
 		this.id = id;
 		currentTick = 0;
 		this.requiredTick = requiredTick;
@@ -46,7 +46,7 @@ public class ScheduleProxy {
 	}
 
 	@Nullable
-	public static ScheduleProxy getProxyFromId(String id) {
+	public static ScheduleUtils getProxyFromId(String id) {
 		if (tasks.isEmpty()) {
 			return null;
 		}
@@ -61,7 +61,7 @@ public class ScheduleProxy {
 	public static void serverTick() {
 		if (tasks.isEmpty()) return;
 		for (Cache cache : tasks) {
-			ScheduleProxy proxy = cache.getProxy();
+			ScheduleUtils proxy = cache.getProxy();
 			if (proxy.currentTick >= proxy.requiredTick) {
 				proxy.action.run();
 				proxy.running = false;
@@ -75,20 +75,20 @@ public class ScheduleProxy {
 	}
 
 	public static void scheduleInTick(String id, int requiredTick, Runnable action) {
-		ScheduleProxy proxy = new ScheduleProxy(id, requiredTick, action);
+		ScheduleUtils proxy = new ScheduleUtils(id, requiredTick, action);
 		tasks.add(new Cache(proxy, false));
 	}
 
 	private static class Cache {
-		private final ScheduleProxy proxy;
+		private final ScheduleUtils proxy;
 		private boolean used;
 
-		public Cache(ScheduleProxy proxy, boolean used) {
+		public Cache(ScheduleUtils proxy, boolean used) {
 			this.proxy = proxy;
 			this.used = used;
 		}
 
-		public ScheduleProxy getProxy() {
+		public ScheduleUtils getProxy() {
 			return proxy;
 		}
 

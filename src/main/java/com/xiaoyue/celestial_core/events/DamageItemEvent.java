@@ -2,8 +2,9 @@ package com.xiaoyue.celestial_core.events;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.eventbus.api.Event;
 
-public class DamageItemEvent extends CelestialHooks {
+public class DamageItemEvent extends Event {
 
 	private final LivingEntity entity;
 	private final ItemStack stack;

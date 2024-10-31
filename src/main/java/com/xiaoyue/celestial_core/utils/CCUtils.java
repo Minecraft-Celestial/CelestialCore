@@ -3,21 +3,16 @@ package com.xiaoyue.celestial_core.utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.Event;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class CCUtils {
 
@@ -42,19 +37,9 @@ public class CCUtils {
 		return getMoonFactor(level) == 1;
 	}
 
-	public static void meltingDropsInEvent(LivingDropsEvent event) {
-		for (ItemEntity drop : new ArrayList<>(event.getDrops())) {
-			ItemStack stack = drop.getItem();
-			Level level = drop.level();
-			Optional<SmeltingRecipe> optional = level.getRecipeManager().getRecipeFor(
-					RecipeType.SMELTING, new SimpleContainer(stack), level);
-			optional.ifPresent(recipe -> {
-				ItemStack result = recipe.getResultItem(level.registryAccess());
-				ItemStack copy = result.copyWithCount(stack.getCount() * result.getCount());
-				event.getDrops().remove(drop);
-				event.getDrops().add(EntityUtils.getItemEntity(copy, event.getEntity()));
-			});
-		}
+	public static <E extends Event> E fireEvent(E event) {
+		MinecraftForge.EVENT_BUS.post(event);
+		return event;
 	}
 
 	public static void addFlySpeed(LivingEntity entity, float speed) {

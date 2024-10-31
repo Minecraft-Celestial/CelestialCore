@@ -3,7 +3,7 @@ package com.xiaoyue.celestial_core.events;
 import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
 import com.xiaoyue.celestial_core.register.CCAttributes;
 import com.xiaoyue.celestial_core.register.CCEffects;
-import com.xiaoyue.celestial_core.utils.ScheduleProxy;
+import com.xiaoyue.celestial_core.utils.ScheduleUtils;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,7 +27,7 @@ public class CCGeneralEventHandler {
 	@SubscribeEvent
 	public static void onServerTick(TickEvent.ServerTickEvent event) {
 		if (event.phase == TickEvent.Phase.END) {
-			ScheduleProxy.serverTick();
+			ScheduleUtils.serverTick();
 		}
 	}
 

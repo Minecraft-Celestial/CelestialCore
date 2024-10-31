@@ -1,0 +1,11 @@
+{
+  "attribute.l2damagetracker.bow_strength": "Projectile Strength",
+  "attribute.l2damagetracker.crit_damage": "Weapon Crit Damage",
+  "attribute.l2damagetracker.crit_rate": "Weapon Crit Rate",
+  "attribute.l2damagetracker.damage_absorption": "Damage Absorption",
+  "attribute.l2damagetracker.damage_reduction": "Damage after Reduction",
+  "attribute.l2damagetracker.explosion_damage": "Explosion Damage",
+  "attribute.l2damagetracker.fire_damage": "Fire Damage",
+  "attribute.l2damagetracker.magic_damage": "Magic Damage",
+  "l2damagetracker.tooltip.tool.immune": "Immune to: "
+}

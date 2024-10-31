@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_core.mixin;
 
-import com.xiaoyue.celestial_core.events.CelestialHooks;
 import com.xiaoyue.celestial_core.events.VibrationEvent;
+import com.xiaoyue.celestial_core.utils.CCUtils;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +17,7 @@ public abstract class EntityMixin {
 		Entity entity = (Entity) (Object) this;
 		if (entity instanceof LivingEntity livingEntity) {
 			var event = new VibrationEvent(livingEntity, livingEntity.level());
-			if (CelestialHooks.fire(event).isCanceled()) {
+			if (CCUtils.fireEvent(event).isCanceled()) {
 				cir.setReturnValue(true);
 			}
 		}
