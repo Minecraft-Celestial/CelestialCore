@@ -1,3 +1,9 @@
+1.4.3
+- Add broken totem, loot boxes
+
+1.4.2
+- Fix Virtual Gold set drop and stat
+
 1.4.1
 - Add more effects to new equipments, change recipe
 

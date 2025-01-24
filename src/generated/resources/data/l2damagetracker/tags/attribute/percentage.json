@@ -1,6 +1,11 @@
 {
   "values": [
-    "celestial_core:regen_rate",
-    "celestial_core:arrow_speed"
+    "l2damagetracker:crit_rate",
+    "l2damagetracker:crit_damage",
+    "l2damagetracker:bow_strength",
+    "l2damagetracker:explosion_damage",
+    "l2damagetracker:fire_damage",
+    "l2damagetracker:magic_damage",
+    "l2damagetracker:damage_reduction"
   ]
 }

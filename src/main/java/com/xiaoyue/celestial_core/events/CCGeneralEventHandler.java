@@ -1,10 +1,16 @@
 package com.xiaoyue.celestial_core.events;
 
+import com.xiaoyue.celestial_core.content.generic.CelestialEffect;
 import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
+import com.xiaoyue.celestial_core.data.CCDamageTypes;
+import com.xiaoyue.celestial_core.data.CCModConfig;
 import com.xiaoyue.celestial_core.register.CCAttributes;
 import com.xiaoyue.celestial_core.register.CCEffects;
+import com.xiaoyue.celestial_core.register.CCItems;
+import com.xiaoyue.celestial_core.register.CelestialFlags;
+import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_core.utils.ScheduleUtils;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
@@ -13,8 +19,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityTeleportEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,61 +29,92 @@ import static com.xiaoyue.celestial_core.CelestialCore.MODID;
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CCGeneralEventHandler {
 
-	@SubscribeEvent
-	public static void onServerTick(TickEvent.ServerTickEvent event) {
-		if (event.phase == TickEvent.Phase.END) {
-			ScheduleUtils.serverTick();
-		}
-	}
+    @SubscribeEvent
+    public static void onUseTotem(LivingUseTotemEvent event) {
+        if (!(event.getEntity() instanceof Player player)) return;
+        if (player.getRandom().nextDouble() <= CCModConfig.COMMON.brokenTotemChance.get()) {
+            player.addItem(CCItems.BROKEN_TOTEM.asStack());
+        }
+    }
 
-	@SubscribeEvent
-	public static void onLivingHeal(LivingHealEvent event) {
-		Entity entity = event.getEntity();
-		if (entity instanceof Player player) {
-			double re = player.getAttributeValue(CCAttributes.REPLY_POWER.get());
-			event.setAmount((float) (event.getAmount() * re));
-		}
-	}
+    @SubscribeEvent
+    public static void onEffectRemove(MobEffectEvent.Remove event) {
+        MobEffectInstance instance = event.getEffectInstance();
+        if (instance == null) return;
+        if (event.getEffect() instanceof CelestialEffect effect) {
+            if (!effect.beRemove(instance, event.getEntity())) {
+                event.setCanceled(true);
+            }
+        }
+    }
 
-	@SubscribeEvent
-	public static void onEntityJoin(EntityJoinLevelEvent event) {
-		if (event.getEntity() instanceof AbstractArrow arrow) {
-			if (arrow.getOwner() instanceof Player player) {
-				double as = player.getAttributeValue(CCAttributes.ARROW_SPEED.get());
-				double ak = player.getAttributeValue(CCAttributes.ARROW_KNOCK.get());
-				if (!arrow.getTags().contains("arrow_speed")) {
-					arrow.setDeltaMovement(arrow.getDeltaMovement().scale(as));
-					arrow.addTag("arrow_speed");
-				}
-				arrow.setKnockback(arrow.getKnockback() + (int) ak);
-			}
-		}
-	}
+    @SubscribeEvent
+    public static void onServerTick(TickEvent.ServerTickEvent event) {
+        if (event.phase.equals(TickEvent.Phase.END)) {
+            ScheduleUtils.serverTick();
+        }
+    }
 
-	@SubscribeEvent
-	public static void onLivingTeleport(EntityTeleportEvent event) {
-		Entity entity = event.getEntity();
-		if (entity instanceof LivingEntity living) {
-			if (living.hasEffect(CCEffects.ROTTEN_CURSE.get())) {
-				event.setCanceled(true);
-			}
-		}
-	}
+    @SubscribeEvent
+    public static void onLivingTick(LivingEvent.LivingTickEvent event) {
+        LivingEntity entity = event.getEntity();
+        if (EntityUtils.onBlackFlame(entity)) {
+            int time = EntityUtils.getBlackFlameTime(entity);
+            EntityUtils.setBlackFlameTime(entity, time - 1);
+            if (entity.tickCount % 10 == 0) {
+                entity.hurt(CCDamageTypes.abyss(entity.level()), entity.getMaxHealth() * 0.01f);
+            }
+        }
+    }
 
-	public static String NETHER_STAGE = "nether_stage";
+    @SubscribeEvent
+    public static void onLivingHeal(LivingHealEvent event) {
+        Entity entity = event.getEntity();
+        if (entity instanceof Player player) {
+            double re = player.getAttributeValue(CCAttributes.REPLY_POWER.get());
+            event.setAmount((float) (event.getAmount() * re));
+        }
+    }
 
-	@SubscribeEvent(priority = EventPriority.HIGHEST)
-	public static void onLivingDeath(LivingDeathEvent event) {
-		LivingEntity entity = event.getEntity();
-		DamageSource source = event.getSource();
-		Entity attacker = source.getEntity();
-		if (attacker instanceof Player player) {
-			var data = PlayerFlagData.HOLDER.get(player);
-			if (entity instanceof WitherBoss) {
-				if (!data.hasFlag(NETHER_STAGE)) {
-					data.addFlag(NETHER_STAGE);
-				}
-			}
-		}
-	}
+    @SubscribeEvent
+    public static void onEntityJoin(EntityJoinLevelEvent event) {
+        if (event.getEntity() instanceof AbstractArrow arrow && arrow.getOwner() instanceof Player player) {
+            double as = player.getAttributeValue(CCAttributes.ARROW_SPEED.get());
+            double ak = player.getAttributeValue(CCAttributes.ARROW_KNOCK.get());
+            if (!arrow.getTags().contains(CelestialFlags.ARROW_SPEED)) {
+                arrow.setDeltaMovement(arrow.getDeltaMovement().scale(as));
+                arrow.addTag(CelestialFlags.ARROW_SPEED);
+            }
+            if (!arrow.getTags().contains(CelestialFlags.ARROW_KNOCK)) {
+                arrow.setKnockback(arrow.getKnockback() + (int) ak);
+                arrow.addTag(CelestialFlags.ARROW_KNOCK);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingTeleport(EntityTeleportEvent event) {
+        Entity entity = event.getEntity();
+        if (entity instanceof LivingEntity le && le.hasEffect(CCEffects.ROTTEN_CURSE.get())) {
+            event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void onLivingDeath(LivingDeathEvent event) {
+        LivingEntity entity = event.getEntity();
+        Entity attacker = event.getSource().getEntity();
+        if (entity.hasEffect(CCEffects.UNYIELDING.get())) {
+            event.setCanceled(true);
+            entity.setHealth(1f);
+        }
+        if (attacker instanceof Player player) {
+            var data = PlayerFlagData.HOLDER.get(player);
+            if (entity instanceof WitherBoss) {
+                if (!data.hasFlag(CelestialFlags.NETHER_STAGE)) {
+                    data.addFlag(CelestialFlags.NETHER_STAGE);
+                }
+            }
+        }
+    }
 }

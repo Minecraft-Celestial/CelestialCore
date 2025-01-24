@@ -17,44 +17,44 @@ import java.util.TreeSet;
 @SerialClass
 public class PlayerFlagData extends PlayerCapabilityTemplate<PlayerFlagData> {
 
-	public static void addFlag(LivingEntity entity, String str) {
-		if (entity instanceof Player player) {
-			HOLDER.get(player).addFlag(str);
-		} else {
-			entity.addTag(str);
-		}
-	}
+    public static void addFlag(LivingEntity entity, String str) {
+        if (entity instanceof Player player) {
+            HOLDER.get(player).addFlag(str);
+        } else {
+            entity.addTag(str);
+        }
+    }
 
-	public static boolean hasFlag(LivingEntity entity, String str) {
-		if (entity instanceof Player player) {
-			return HOLDER.get(player).hasFlag(str);
-		} else {
-			return entity.getTags().contains(str);
-		}
-	}
+    public static boolean hasFlag(LivingEntity entity, String str) {
+        if (entity instanceof Player player) {
+            return HOLDER.get(player).hasFlag(str);
+        } else {
+            return entity.getTags().contains(str);
+        }
+    }
 
-	public static final Capability<PlayerFlagData> CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {
-	});
+    public static final Capability<PlayerFlagData> CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {
+    });
 
-	public static final PlayerCapabilityHolder<PlayerFlagData> HOLDER = new PlayerCapabilityHolder<>(
-			CelestialCore.loc("flags"), CAPABILITY, PlayerFlagData.class, PlayerFlagData::new,
-			PlayerCapabilityNetworkHandler::new);
+    public static final PlayerCapabilityHolder<PlayerFlagData> HOLDER = new PlayerCapabilityHolder<>(
+            CelestialCore.loc("flags"), CAPABILITY, PlayerFlagData.class, PlayerFlagData::new,
+            PlayerCapabilityNetworkHandler::new);
 
-	@SerialClass.SerialField
-	private final TreeSet<String> flags = new TreeSet<>();
+    @SerialClass.SerialField
+    private final TreeSet<String> flags = new TreeSet<>();
 
-	public void addFlag(String str) {
-		flags.add(str);
-		if (player instanceof ServerPlayer sp)
-			HOLDER.network.toClientSyncAll(sp);
-	}
+    public void addFlag(String str) {
+        flags.add(str);
+        if (player instanceof ServerPlayer sp)
+            HOLDER.network.toClientSyncAll(sp);
+    }
 
-	public boolean hasFlag(String flag) {
-		return flags.contains(flag);
-	}
+    public boolean hasFlag(String flag) {
+        return flags.contains(flag);
+    }
 
-	public static void register() {
+    public static void register() {
 
-	}
+    }
 
 }

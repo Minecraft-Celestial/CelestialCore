@@ -11,30 +11,30 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 @SerialClass
 public class EntityHealthCondition implements LootItemCondition {
 
-	@SerialClass.SerialField
-	public String min;
+    @SerialClass.SerialField
+    public String min;
 
-	@Deprecated
-	public EntityHealthCondition() {
+    @Deprecated
+    public EntityHealthCondition() {
 
-	}
+    }
 
-	public EntityHealthCondition(IntConfigValue min) {
-		this.min = min.toData();
-	}
+    public EntityHealthCondition(IntConfigValue min) {
+        this.min = min.toData();
+    }
 
-	@Override
-	public LootItemConditionType getType() {
-		return CCLootModifier.ENTITY_HEALTH.get();
-	}
+    @Override
+    public LootItemConditionType getType() {
+        return CCLootModifier.ENTITY_HEALTH.get();
+    }
 
-	@Override
-	public boolean test(LootContext ctx) {
-		if (!ctx.hasParam(LootContextParams.THIS_ENTITY)) return false;
-		var self = ctx.getParam(LootContextParams.THIS_ENTITY);
-		if (!(self instanceof LivingEntity le)) return false;
-		float hp = le.getMaxHealth();
-		return IntConfigValue.of(min).get() <= hp;
-	}
+    @Override
+    public boolean test(LootContext ctx) {
+        if (!ctx.hasParam(LootContextParams.THIS_ENTITY)) return false;
+        var self = ctx.getParam(LootContextParams.THIS_ENTITY);
+        if (!(self instanceof LivingEntity le)) return false;
+        float hp = le.getMaxHealth();
+        return IntConfigValue.of(min).get() <= hp;
+    }
 
 }

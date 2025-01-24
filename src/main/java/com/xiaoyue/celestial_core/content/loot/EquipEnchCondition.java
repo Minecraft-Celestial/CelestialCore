@@ -8,13 +8,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
-
-import java.util.List;
 
 @SerialClass
 public class EquipEnchCondition implements LootItemCondition {
@@ -46,7 +43,7 @@ public class EquipEnchCondition implements LootItemCondition {
         if (entity instanceof ArmorStand) return false;
         if (entity instanceof LivingEntity liv) {
             for (ItemStack stack : liv.getArmorSlots()) {
-                if (stack.is(armor) && EnchUtils.getTotalEnch(stack) > 0) {
+                if (stack.is(armor) && EnchUtils.getEnchSize(stack) > 0) {
                     return !onFire || entity.isOnFire();
                 }
             }

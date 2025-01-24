@@ -15,27 +15,26 @@ import java.util.List;
 
 public class VirtualGoldTool extends ExtraToolConfig {
 
-	private double add() {
-		return CCModConfig.COMMON.virtualGoldToolPerAdd.get();
-	}
+    private double bonus() {
+        return CCModConfig.COMMON.virtualGoldToolPerAdd.get();
+    }
 
-	@Override
-	public float getDestroySpeed(ItemStack stack, BlockState state, float old) {
-		int totalEnch = EnchUtils.getTotalEnch(stack);
-		return (float) (old * (1 + add() * totalEnch));
-	}
+    @Override
+    public float getDestroySpeed(ItemStack stack, BlockState state, float old) {
+        int totalEnch = EnchUtils.getEnchSize(stack);
+        return (float) (old * (1 + bonus() * totalEnch));
+    }
 
-	@Override
-	public void onDamage(AttackCache cache, ItemStack stack) {
-		int totalEnch = EnchUtils.getTotalEnch(stack);
-		cache.addHurtModifier(DamageModifier.multBase((float) (add() * totalEnch)));
-		super.onDamage(cache, stack);
-	}
+    @Override
+    public void onDamage(AttackCache cache, ItemStack stack) {
+        int totalEnch = EnchUtils.getEnchSize(stack);
+        cache.addHurtModifier(DamageModifier.multBase((float) (bonus() * totalEnch)));
+        super.onDamage(cache, stack);
+    }
 
-	@Override
-	public void addTooltip(ItemStack stack, List<Component> list) {
-		list.add(CCLangData.VIRTUAL_GOLD_GENERAL.get().withStyle(ChatFormatting.GRAY));
-		list.add(CCLangData.VIRTUAL_GOLD_TOOL.get(CCLangData.chance(add())).withStyle(ChatFormatting.GRAY));
-	}
-
+    @Override
+    public void addTooltip(ItemStack stack, List<Component> list) {
+        list.add(CCLangData.VIRTUAL_GOLD_GENERAL.get().withStyle(ChatFormatting.GRAY));
+        list.add(CCLangData.VIRTUAL_GOLD_TOOL.get(CCLangData.chance(bonus())).withStyle(ChatFormatting.GRAY));
+    }
 }

@@ -15,18 +15,18 @@ import java.util.List;
 
 public class OceanArmor extends ExtraArmorConfig {
 
-	@Override
-	public void onArmorTick(ItemStack stack, Level world, Player player) {
-		if (EntityUtils.getSeriesArmorAmount(player, CCMaterials.OCEAN) == 4) {
-			EntityUtils.addEct(player, MobEffects.WATER_BREATHING, 40);
-		}
-		super.onArmorTick(stack, world, player);
-	}
+    @Override
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
+        if (EntityUtils.getSeriesArmorAmount(player, CCMaterials.OCEAN) == 4) {
+            EntityUtils.addEct(player, MobEffects.WATER_BREATHING, 40);
+        }
+        super.onArmorTick(stack, world, player);
+    }
 
-	@Override
-	public void addTooltip(ItemStack stack, List<Component> list) {
-		list.add(CCLangData.FULL_SET.get(CCLangData.eff(MobEffects.WATER_BREATHING)).withStyle(ChatFormatting.GRAY));
-		super.addTooltip(stack, list);
-	}
+    @Override
+    public void addTooltip(ItemStack stack, List<Component> list) {
+        list.add(CCLangData.FULL_SET.get(CCLangData.eff(MobEffects.WATER_BREATHING)).withStyle(ChatFormatting.GRAY));
+        super.addTooltip(stack, list);
+    }
 
 }

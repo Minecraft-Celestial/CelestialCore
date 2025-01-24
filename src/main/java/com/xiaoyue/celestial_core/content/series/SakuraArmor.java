@@ -14,21 +14,21 @@ import java.util.List;
 
 public class SakuraArmor extends ExtraArmorConfig {
 
-	private int time() {
-		return CCModConfig.COMMON.sakuraToolRecoveryTime.get();
-	}
+    private int time() {
+        return CCModConfig.COMMON.sakuraToolRecoveryTime.get();
+    }
 
-	@Override
-	public void onArmorTick(ItemStack stack, Level world, Player player) {
-		if (player.tickCount % (time() * 20) == 0) {
-			ItemUtils.repairStack(stack);
-		}
-		super.onArmorTick(stack, world, player);
-	}
+    @Override
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
+        if (player.tickCount % (time() * 20) == 0) {
+            ItemUtils.repairStack(stack);
+        }
+        super.onArmorTick(stack, world, player);
+    }
 
-	@Override
-	public void addTooltip(ItemStack stack, List<Component> list) {
-		list.add(CCLangData.SAKURA_SERIES.get(CCLangData.num(time())).withStyle(ChatFormatting.GRAY));
-		super.addTooltip(stack, list);
-	}
+    @Override
+    public void addTooltip(ItemStack stack, List<Component> list) {
+        list.add(CCLangData.SAKURA_SERIES.get(CCLangData.num(time())).withStyle(ChatFormatting.GRAY));
+        super.addTooltip(stack, list);
+    }
 }

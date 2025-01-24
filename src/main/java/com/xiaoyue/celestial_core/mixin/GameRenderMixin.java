@@ -8,10 +8,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(GameRenderer.class)
-public class GameRenderMixin {
+public abstract class GameRenderMixin {
 
-	@WrapOperation(method = "getNightVisionScale", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/effect/MobEffectInstance;endsWithin(I)Z"))
-	private static boolean celestial_core$endsWithin$ambient(MobEffectInstance instance, int pDuration, Operation<Boolean> original) {
-		return !instance.isAmbient() && original.call(instance, pDuration);
-	}
+    @WrapOperation(method = "getNightVisionScale", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/effect/MobEffectInstance;endsWithin(I)Z"))
+    private static boolean celestial_core$endsWithin$ambient(MobEffectInstance instance, int pDuration, Operation<Boolean> original) {
+        return !instance.isAmbient() && original.call(instance, pDuration);
+    }
 }

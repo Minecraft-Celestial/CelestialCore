@@ -10,16 +10,16 @@ import java.util.Objects;
 
 public record CCConditionSerializer<T>(Class<T> cls) implements Serializer<T> {
 
-	public CCConditionSerializer(Class<T> cls) {
-		this.cls = cls;
-	}
+    public CCConditionSerializer(Class<T> cls) {
+        this.cls = cls;
+    }
 
-	public void serialize(JsonObject json, T conditions, JsonSerializationContext ctx) {
-		JsonCodec.toJsonObject(conditions, json);
-	}
+    public void serialize(JsonObject json, T conditions, JsonSerializationContext ctx) {
+        JsonCodec.toJsonObject(conditions, json);
+    }
 
-	public T deserialize(JsonObject json, JsonDeserializationContext ctx) {
-		return Objects.requireNonNull(JsonCodec.from(json, this.cls, null));
-	}
+    public T deserialize(JsonObject json, JsonDeserializationContext ctx) {
+        return Objects.requireNonNull(JsonCodec.from(json, this.cls, null));
+    }
 
 }

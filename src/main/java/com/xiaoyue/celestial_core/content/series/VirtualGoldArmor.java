@@ -15,19 +15,19 @@ import java.util.List;
 
 public class VirtualGoldArmor extends ExtraArmorConfig {
 
-	@Override
-	public void onArmorTick(ItemStack stack, Level world, Player player) {
-		if (EntityUtils.getSeriesArmorAmount(player, CCMaterials.VIRTUAL_GOLD) == 4) {
-			EntityUtils.addEct(player, MobEffects.FIRE_RESISTANCE, 40);
-		}
-		super.onArmorTick(stack, world, player);
-	}
+    @Override
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
+        if (EntityUtils.getSeriesArmorAmount(player, CCMaterials.VIRTUAL_GOLD) == 4) {
+            EntityUtils.addEct(player, MobEffects.FIRE_RESISTANCE, 40);
+        }
+        super.onArmorTick(stack, world, player);
+    }
 
-	@Override
-	public void addTooltip(ItemStack stack, List<Component> list) {
-		list.add(CCLangData.VIRTUAL_GOLD_GENERAL.get().withStyle(ChatFormatting.GRAY));
-		list.add(CCLangData.FULL_SET.get(CCLangData.eff(MobEffects.FIRE_RESISTANCE)).withStyle(ChatFormatting.GRAY));
-		super.addTooltip(stack, list);
-	}
+    @Override
+    public void addTooltip(ItemStack stack, List<Component> list) {
+        list.add(CCLangData.VIRTUAL_GOLD_GENERAL.get().withStyle(ChatFormatting.GRAY));
+        list.add(CCLangData.FULL_SET.get(CCLangData.eff(MobEffects.FIRE_RESISTANCE)).withStyle(ChatFormatting.GRAY));
+        super.addTooltip(stack, list);
+    }
 
 }

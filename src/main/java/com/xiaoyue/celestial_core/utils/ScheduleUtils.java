@@ -1,103 +1,74 @@
 package com.xiaoyue.celestial_core.utils;
 
+import com.xiaoyue.celestial_core.CelestialCore;
+import net.minecraft.resources.ResourceLocation;
+
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ScheduleUtils {
 
-	private static final List<Cache> tasks = new ArrayList<>();
+    private static final Map<ResourceLocation, ScheduleUtils> MAP = new HashMap<>();
 
-	private final String id;
-	private int currentTick;
-	private final int requiredTick;
-	private final Runnable action;
-	public boolean running;
+    public int runTick;
+    public int runCount;
+    public int needRunTick;
+    public int needRunCount;
+    public final Runnable action;
+    public boolean isEnd;
 
-	public ScheduleUtils(String id, int requiredTick, Runnable action) {
-		this.id = id;
-		currentTick = 0;
-		this.requiredTick = requiredTick;
-		this.action = action;
-	}
+    public ScheduleUtils(int singleRunTick, Runnable action) {
+        this.runTick = 0;
+        this.runCount = 0;
+        this.needRunTick = singleRunTick;
+        this.needRunCount = 1;
+        this.action = action;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public ScheduleUtils(int needRunTick, int needRunCount, Runnable action) {
+        this.runTick = 0;
+        this.runCount = 0;
+        this.needRunTick = needRunTick;
+        this.needRunCount = needRunCount;
+        this.action = action;
+    }
 
-	public Runnable getAction() {
-		return action;
-	}
+    @Nullable
+    public static ScheduleUtils getUtils(ResourceLocation id) {
+        if (!MAP.isEmpty()) return MAP.get(id);
+        return null;
+    }
 
-	public int getRequiredTick() {
-		return requiredTick;
-	}
+    public static void serverTick() {
+        if (MAP.isEmpty()) return;
+        MAP.forEach((key, utils) -> {
+            if (utils.runTick >= utils.needRunTick) {
+                utils.action.run();
+                utils.runCount++;
+                if (utils.runCount >= utils.needRunCount) {
+                    utils.isEnd = true;
+                    CelestialCore.LOGGER.info("{}: schedule end", key.toString());
+                } else {
+                    utils.runTick = 0;
+                    utils.isEnd = false;
+                    CelestialCore.LOGGER.info("{}: {} time schedule completion", key.toString(), utils.runCount);
+                }
+            } else {
+                utils.runTick++;
+                utils.isEnd = false;
+            }
+        });
+        MAP.entrySet().removeIf(entry -> entry.getValue().isEnd);
+    }
 
-	public int getCurrentTick() {
-		return currentTick;
-	}
+    public static void schedule(ResourceLocation id, int needRunTick, Runnable action) {
+        ScheduleUtils utils = new ScheduleUtils(needRunTick, action);
+        MAP.put(id, utils);
+    }
 
-	public void setCurrentTick(int currentTick) {
-		this.currentTick = currentTick;
-	}
-
-	public boolean isRunning() {
-		return running;
-	}
-
-	@Nullable
-	public static ScheduleUtils getProxyFromId(String id) {
-		if (tasks.isEmpty()) {
-			return null;
-		}
-		for (Cache cache : tasks) {
-			if (cache.proxy.getId().equals(id)) {
-				return cache.proxy;
-			}
-		}
-		return null;
-	}
-
-	public static void serverTick() {
-		if (tasks.isEmpty()) return;
-		for (Cache cache : tasks) {
-			ScheduleUtils proxy = cache.getProxy();
-			if (proxy.currentTick >= proxy.requiredTick) {
-				proxy.action.run();
-				proxy.running = false;
-				cache.setUsed(true);
-			} else {
-				proxy.currentTick++;
-				proxy.running = true;
-			}
-		}
-		tasks.removeIf(Cache::isUsed);
-	}
-
-	public static void scheduleInTick(String id, int requiredTick, Runnable action) {
-		ScheduleUtils proxy = new ScheduleUtils(id, requiredTick, action);
-		tasks.add(new Cache(proxy, false));
-	}
-
-	private static class Cache {
-		private final ScheduleUtils proxy;
-		private boolean used;
-
-		public Cache(ScheduleUtils proxy, boolean used) {
-			this.proxy = proxy;
-			this.used = used;
-		}
-
-		public ScheduleUtils getProxy() {
-			return proxy;
-		}
-
-		public boolean isUsed() {
-			return used;
-		}
-
-		public void setUsed(boolean isUsed) {
-			this.used = isUsed;
-		}
-	}
+    public static void schedule(ResourceLocation id, int needRunTick, int needRunCount, Runnable action) {
+        ScheduleUtils utils = new ScheduleUtils(needRunTick, needRunCount, action);
+        MAP.put(id, utils);
+    }
 }

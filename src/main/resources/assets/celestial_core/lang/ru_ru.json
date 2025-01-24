@@ -66,5 +66,5 @@
   "item.minecraft.tipped_arrow.effect.long_crit_rate": "Стрела шанса критического урона",
   "item.minecraft.tipped_arrow.effect.long_regen_rate": "Стрела скорости регенерации",
   "item.minecraft.tipped_arrow.effect.regen_rate": "Стрела скорости регенерации",
-  "itemGroup.celestial_core.core": "Неземное ядро"
+  "itemGroup.celestial_core.main": "Неземное ядро"
 }

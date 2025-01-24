@@ -12,32 +12,32 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 @SerialClass
 public class PlayerEffectCondition implements LootItemCondition {
 
-	@SerialClass.SerialField
-	public MobEffectCategory category;
+    @SerialClass.SerialField
+    public MobEffectCategory category;
 
-	@SerialClass.SerialField
-	public String count;
+    @SerialClass.SerialField
+    public String count;
 
-	@Deprecated
-	public PlayerEffectCondition() {
+    @Deprecated
+    public PlayerEffectCondition() {
 
-	}
+    }
 
-	public PlayerEffectCondition(MobEffectCategory category, IntConfigValue count) {
-		this.category = category;
-		this.count = count.toData();
-	}
+    public PlayerEffectCondition(MobEffectCategory category, IntConfigValue count) {
+        this.category = category;
+        this.count = count.toData();
+    }
 
-	@Override
-	public LootItemConditionType getType() {
-		return CCLootModifier.PLAYER_EFFECT.get();
-	}
+    @Override
+    public LootItemConditionType getType() {
+        return CCLootModifier.PLAYER_EFFECT.get();
+    }
 
-	@Override
-	public boolean test(LootContext ctx) {
-		if (!ctx.hasParam(LootContextParams.LAST_DAMAGE_PLAYER)) return false;
-		var player = ctx.getParam(LootContextParams.LAST_DAMAGE_PLAYER);
-		return EntityUtils.getEffectCount(player, category) >= IntConfigValue.of(count).get();
-	}
+    @Override
+    public boolean test(LootContext ctx) {
+        if (!ctx.hasParam(LootContextParams.LAST_DAMAGE_PLAYER)) return false;
+        var player = ctx.getParam(LootContextParams.LAST_DAMAGE_PLAYER);
+        return EntityUtils.getEffectCount(player, category) >= IntConfigValue.of(count).get();
+    }
 
 }

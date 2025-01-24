@@ -15,23 +15,23 @@ import java.util.List;
 
 public class SakuraTool extends ExtraToolConfig {
 
-	private int time() {
-		return CCModConfig.COMMON.sakuraToolRecoveryTime.get();
-	}
+    private int time() {
+        return CCModConfig.COMMON.sakuraToolRecoveryTime.get();
+    }
 
-	@Override
-	public void addTooltip(ItemStack stack, List<Component> list) {
-		list.add(CCLangData.SAKURA_SERIES.get(CCLangData.num(time())).withStyle(ChatFormatting.GRAY));
-		super.addTooltip(stack, list);
-	}
+    @Override
+    public void addTooltip(ItemStack stack, List<Component> list) {
+        list.add(CCLangData.SAKURA_SERIES.get(CCLangData.num(time())).withStyle(ChatFormatting.GRAY));
+        super.addTooltip(stack, list);
+    }
 
-	@Override
-	public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
-		if (entity instanceof Player player) {
-			if (player.tickCount % (time() * 20) == 0) {
-				ItemUtils.repairStack(stack);
-			}
-		}
-		super.inventoryTick(stack, level, entity, slot, selected);
-	}
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        if (entity instanceof Player player) {
+            if (player.tickCount % (time() * 20) == 0) {
+                ItemUtils.repairStack(stack);
+            }
+        }
+        super.inventoryTick(stack, level, entity, slot, selected);
+    }
 }

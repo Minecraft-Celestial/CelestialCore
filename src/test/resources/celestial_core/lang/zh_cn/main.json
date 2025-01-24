@@ -1,5 +1,5 @@
 {
-	"itemGroup.celestial_core.materials": "星月核心 - 材料",
+	"itemGroup.celestial_core.main": "星月核心 - 杂项",
 	"itemGroup.celestial_core.tools": "星月核心 - 装备",
 	"effect.celestial_core": {
 		"hidden": "隐匿",
@@ -21,7 +21,9 @@
 		"arrow_damage": "箭矢增强",
 		"arrow_damage.description": "提升投掷物伤害",
 		"fear_curse": "恐惧诅咒",
-		"fear_curse.description": "攻击时自己承受部分伤害"
+		"fear_curse.description": "攻击时自己承受部分伤害",
+		"silent": "沉默",
+		"silent.description": "你不会再发出震动"
 	},
 	"attribute.celestial_core": {
 		"regen_rate": "治疗力",
@@ -45,7 +47,10 @@
 			"sakura_series": "每%s秒回复1点耐久",
 			"virtual_gold_nugget": "击杀着火的穿戴附魔金盔甲的生物时%s概率掉落",
 			"virtual_gold_tool": "每个附魔增加%s攻击伤害和挖掘速度",
-			"virtual_gold_general": "极高附魔亲和度"
+			"virtual_gold_general": "极高附魔亲和度",
+			"anvil_forge_info": "在铁砧上与物品进行锻造",
+			"amethyst_reinforce_plate": "加固后，每次扣除耐久时至多扣除1点耐久",
+			"copper_reinforce_plate": "加固后，降低50%耐久消耗"
 		}
 	}
 }

@@ -17,10 +17,12 @@
 		"guardian_ocean_ingot": "守护者锭",
 		"guardian_spike": "守护者尖刺",
 		"ocean_ingot": "海洋锭",
-		"ocean_nugget": "海洋粒",
+		"guardian_ocean_nugget": "守护者粒",
 		"sakura_steel": "樱花钢",
 		"virtual_gold_ingot": "虚金锭",
-		"virtual_gold_nugget": "虚金残骸"
+		"virtual_gold_nugget": "虚金残骸",
+		"amethyst_reinforce_plate": "紫水晶加固板",
+		"copper_reinforce_plate": "铜加固板"
 	},
 	"item.minecraft.tipped_arrow.effect": {
 		"crit_rate": "暴击增幅箭",

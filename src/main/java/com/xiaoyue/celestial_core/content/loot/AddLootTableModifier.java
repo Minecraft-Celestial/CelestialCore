@@ -16,32 +16,32 @@ import javax.annotation.Nonnull;
 import static net.minecraft.world.level.storage.loot.LootTable.createStackSplitter;
 
 public class AddLootTableModifier extends LootModifier {
-	public static final Codec<AddLootTableModifier> CODEC = RecordCodecBuilder.create(inst -> codecStart(inst)
-			.and(ResourceLocation.CODEC.fieldOf("lootTable").forGetter((m) -> m.lootTable))
-			.apply(inst, AddLootTableModifier::new));
+    public static final Codec<AddLootTableModifier> CODEC = RecordCodecBuilder.create(inst -> codecStart(inst)
+            .and(ResourceLocation.CODEC.fieldOf("lootTable").forGetter((m) -> m.lootTable))
+            .apply(inst, AddLootTableModifier::new));
 
-	private final ResourceLocation lootTable;
+    private final ResourceLocation lootTable;
 
-	protected AddLootTableModifier(LootItemCondition[] conditionsIn, ResourceLocation lootTable) {
-		super(conditionsIn);
-		this.lootTable = lootTable;
-	}
+    protected AddLootTableModifier(LootItemCondition[] conditionsIn, ResourceLocation lootTable) {
+        super(conditionsIn);
+        this.lootTable = lootTable;
+    }
 
-	public AddLootTableModifier(ResourceLocation lootTable, LootItemCondition... conditionsIn) {
-		super(conditionsIn);
-		this.lootTable = lootTable;
-	}
+    public AddLootTableModifier(ResourceLocation lootTable, LootItemCondition... conditionsIn) {
+        super(conditionsIn);
+        this.lootTable = lootTable;
+    }
 
-	@Nonnull
-	@Override
-	protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-		LootTable extraTable = context.getResolver().getLootTable(this.lootTable);
-		extraTable.getRandomItemsRaw(context, createStackSplitter(context.getLevel(), generatedLoot::add));
-		return generatedLoot;
-	}
+    @Nonnull
+    @Override
+    protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+        LootTable extraTable = context.getResolver().getLootTable(this.lootTable);
+        extraTable.getRandomItemsRaw(context, createStackSplitter(context.getLevel(), generatedLoot::add));
+        return generatedLoot;
+    }
 
-	@Override
-	public Codec<? extends IGlobalLootModifier> codec() {
-		return CODEC;
-	}
+    @Override
+    public Codec<? extends IGlobalLootModifier> codec() {
+        return CODEC;
+    }
 }

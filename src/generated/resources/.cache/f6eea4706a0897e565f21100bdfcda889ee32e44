@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-24T16:49:09.9659515	Global Loot Modifiers : celestial_core
+// 1.20.1	2025-01-20T11:34:40.514551	Global Loot Modifiers : celestial_core
 3831e5fac0df7d02e15a1ccfd00d1e2559f284f7 data/celestial_core/loot_modifiers/chests/abandoned_mineshaft.json
 02419c6cbf98c7e0627ebbf5001a4dceb170c157 data/celestial_core/loot_modifiers/chests/end_city_treasure.json
 3d18d26e877aae8f3509e11e48f408cef8e65dee data/celestial_core/loot_modifiers/drops/death_essence.json
@@ -6,8 +6,8 @@
 3615d0b5cd90efe517e7cf550e53fa80454108ed data/celestial_core/loot_modifiers/drops/fire_essence.json
 1d3482565f05b7a3df3d21d3d98da0afc12d355a data/celestial_core/loot_modifiers/drops/guardian_spike.json
 4228b6bcdd801e844062b64bb0d235898d6d63c6 data/celestial_core/loot_modifiers/drops/heart_fragment.json
-3e50a2ea61c076d201165946907210d5b97e9cd1 data/celestial_core/loot_modifiers/drops/light_fragment.json
-dd2a61dce89c5859dbed2598a6cd2e4d94fd2ab6 data/celestial_core/loot_modifiers/drops/midnight_fragment.json
+339f2061ed7ae1e86823eaf064e1cf7f74618d83 data/celestial_core/loot_modifiers/drops/light_fragment.json
+958f6793e4cf1424b271e8028dcf1e2b118d1306 data/celestial_core/loot_modifiers/drops/midnight_fragment.json
 04603655e9eb91055e072f28cb2de24b39836680 data/celestial_core/loot_modifiers/drops/ocean_essence.json
 ae7dee914b977314afcdeac17122d81d29e86590 data/celestial_core/loot_modifiers/drops/pure_nether_star.json
 f782827a429a522564babb9dd0eca03abb8223a3 data/celestial_core/loot_modifiers/drops/sakura_fragment.json

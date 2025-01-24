@@ -13,24 +13,24 @@ import net.minecraft.world.effect.MobEffects;
 
 public class CCL2ConfigGen extends ConfigDataProvider {
 
-	public CCL2ConfigGen(DataGenerator generator) {
-		super(generator, "Celestial Core L2 Config Gen");
-	}
+    public CCL2ConfigGen(DataGenerator generator) {
+        super(generator, "Celestial Core L2 Config Gen");
+    }
 
-	@Override
-	public void add(Collector collector) {
-		collector.add(L2Tabs.ATTRIBUTE_ENTRY, CelestialCore.loc(CelestialCore.MODID),
-				new AttributeDisplayConfig()
-						.add(CCAttributes.REPLY_POWER.get(), true, 22000, 0)
-						.add(CCAttributes.ARROW_SPEED.get(), true, 22300, 0)
-						.add(CCAttributes.ARROW_KNOCK.get(), false, 22500, 0)
-		);
-		collector.add(L2DamageTracker.ARMOR, CelestialCore.loc(CelestialCore.MODID),
-				new ArmorEffectConfig()
-						.add(CCMaterials.OCEAN.armorPrefix(), MobEffects.DIG_SLOWDOWN)
-						.add(CCMaterials.SAKURA.armorPrefix(), MobEffects.POISON)
-						.add(CCMaterials.VIRTUAL_GOLD.armorPrefix(), MobEffects.WITHER)
-		);
-	}
+    @Override
+    public void add(Collector collector) {
+        collector.add(L2Tabs.ATTRIBUTE_ENTRY, CelestialCore.loc(CelestialCore.MODID),
+                new AttributeDisplayConfig()
+                        .add(CCAttributes.REPLY_POWER.get(), true, 22000, 0)
+                        .add(CCAttributes.ARROW_SPEED.get(), true, 22300, 0)
+                        .add(CCAttributes.ARROW_KNOCK.get(), false, 22500, 0)
+        );
+        collector.add(L2DamageTracker.ARMOR, CelestialCore.loc(CelestialCore.MODID),
+                new ArmorEffectConfig()
+                        .add(CCMaterials.OCEAN.armorPrefix(), MobEffects.DIG_SLOWDOWN)
+                        .add(CCMaterials.SAKURA.armorPrefix(), MobEffects.POISON)
+                        .add(CCMaterials.VIRTUAL_GOLD.armorPrefix(), MobEffects.WITHER)
+        );
+    }
 
 }

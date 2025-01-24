@@ -11,7 +11,7 @@
     },
     {
       "condition": "celestial_core:player_flag",
-      "flag": "nether_stage"
+      "flag": "celestial_core:nether_stage"
     }
   ],
   "item": "celestial_core:midnight_fragment"
