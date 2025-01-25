@@ -12,6 +12,6 @@ public abstract class GameRenderMixin {
 
     @WrapOperation(method = "getNightVisionScale", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/effect/MobEffectInstance;endsWithin(I)Z"))
     private static boolean celestial_core$endsWithin$ambient(MobEffectInstance instance, int pDuration, Operation<Boolean> original) {
-        return !instance.isAmbient() && original.call(instance, pDuration);
+        return instance != null && !instance.isAmbient() && original.call(instance, pDuration);
     }
 }

@@ -22,7 +22,6 @@ import java.util.Locale;
 
 public enum CCLangData {
     BROKEN_TOTEM("%s chance to drop when triggering a totem", 1),
-    BIOMES_FISHING("Can be fished from corresponding biomes if player has appropriate equipments", 0),
     LOOT_BOX_INFO("This box may contain items from %s", 1),
     ANVIL_FORGE_INFO("Forge with item on the anvil", 0),
     SIMPLE_DROP("%s chance to drop from %s", 2),

@@ -1,7 +1,6 @@
 package com.xiaoyue.celestial_core.utils;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
-import com.xiaoyue.celestial_core.content.generic.SimpleMenuItem;
 import dev.xkmc.l2library.util.math.MathHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
@@ -13,7 +12,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
@@ -76,13 +74,6 @@ public class ItemUtils {
             return player.getItemInHand(hand).equals(stack);
         }
         return false;
-    }
-
-    public static SimpleContainer getSimpleInv(ItemStack stack, int orSize) {
-        if (stack.getItem() instanceof SimpleMenuItem item) {
-            return item.getSimpleInv(stack);
-        }
-        return new SimpleContainer(orSize);
     }
 
     public static String getPathAfterSlash(String path) {

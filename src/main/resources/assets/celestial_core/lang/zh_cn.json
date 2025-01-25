@@ -132,6 +132,5 @@
   "celestial_core.tooltip.virtual_gold_tool": "每个附魔增加%s攻击伤害和挖掘速度",
   "celestial_core.tooltip.virtual_gold_general": "极高附魔亲和度",
   "celestial_core.tooltip.anvil_forge_info": "在铁砧上与物品进行锻造",
-  "celestial_core.tooltip.loot_box_info": "打开后获取%s结构中的战利品",
-  "celestial_core.tooltip.biomes_fishing": "在对应结构的水域垂钓时概率获取"
+  "celestial_core.tooltip.loot_box_info": "打开后获取%s结构中的战利品"
 }

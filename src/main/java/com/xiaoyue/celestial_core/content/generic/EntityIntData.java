@@ -17,19 +17,19 @@ public class EntityIntData extends GeneralCapabilityTemplate<LivingEntity, Entit
 
     public static void addData(LivingEntity entity, String key, int value) {
         if (!entity.isDeadOrDying()) {
-            EntityIntData.HOLDER.get(entity).addData(key, value);
+            entity.getCapability(CAPABILITY).resolve().ifPresent(e -> e.addData(key, value));
         }
     }
 
     public static int getData(LivingEntity entity, String key) {
         if (!entity.isDeadOrDying()) {
-            return EntityIntData.HOLDER.get(entity).getData(key);
+            return entity.getCapability(CAPABILITY).resolve().map(e -> e.getData(key)).orElse(0);
         }
         return 0;
     }
 
     public static void removeData(LivingEntity entity, String key) {
-        EntityIntData.HOLDER.get(entity).removeData(key);
+        entity.getCapability(CAPABILITY).resolve().ifPresent(e -> e.removeData(key));
     }
 
     public static final Capability<EntityIntData> CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {

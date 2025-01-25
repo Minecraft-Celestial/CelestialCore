@@ -19,20 +19,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class LootTableBox extends Item {
-
     public final ResourceLocation lootTable;
-    public final boolean needFishing;
 
     public LootTableBox(Properties pProperties, ResourceLocation lootTable) {
         super(pProperties);
         this.lootTable = lootTable;
-        this.needFishing = true;
-    }
-
-    public LootTableBox(Properties pProperties, ResourceLocation lootTable, boolean needFishing) {
-        super(pProperties);
-        this.lootTable = lootTable;
-        this.needFishing = needFishing;
     }
 
     @Override
@@ -40,9 +31,6 @@ public class LootTableBox extends Item {
         String id = ItemUtils.getPathAfterSlash(lootTable.getPath());
         MutableComponent info = ItemUtils.getUSNameInfo(id).withStyle(ChatFormatting.AQUA);
         list.add(CCLangData.LOOT_BOX_INFO.get(info).withStyle(ChatFormatting.GRAY));
-        if (this.needFishing) {
-            //list.add(CCLangData.BIOMES_FISHING.get().withStyle(ChatFormatting.GRAY));
-        }
     }
 
     @Override

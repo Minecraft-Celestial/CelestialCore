@@ -4,7 +4,6 @@
   "attribute.celestial_core.regen_rate": "Regeneration Rate",
   "celestial_core.tooltip.after_wither_drop": "After defeating %s, %s chance to drop from %s",
   "celestial_core.tooltip.anvil_forge_info": "Forge with item on the anvil",
-  "celestial_core.tooltip.biomes_fishing": "Can be fished from corresponding biomes if player has appropriate equipments",
   "celestial_core.tooltip.broken_totem": "%s chance to drop when triggering a totem",
   "celestial_core.tooltip.death_essence": "%s chance to drop when mobs with at least %s health is killed by wither effect",
   "celestial_core.tooltip.full_set": "Full set effect: %s",
