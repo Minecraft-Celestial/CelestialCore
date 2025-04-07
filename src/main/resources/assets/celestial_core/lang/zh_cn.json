@@ -111,9 +111,11 @@
   "effect.celestial_core.silent.description": "你不会再发出震动",
   "effect.celestial_core.unyielding": "不屈",
   "effect.celestial_core.unyielding.description": "阻止你死亡",
-  "attribute.celestial_core.regen_rate": "治疗力",
+  "attribute.celestial_core.regen_rate": "再生力",
   "attribute.celestial_core.arrow_knock": "箭矢击退",
   "attribute.celestial_core.arrow_speed": "箭矢速度",
+  "attribute.celestial_core.armor_penetration": "护甲穿透",
+  "attribute.celestial_core.toughness_penetration": "韧性穿透",
   "celestial_core.tooltip.broken_totem": "使用图腾时%s概率获得",
   "celestial_core.tooltip.after_wither_drop": "击败%1$s后，玩家杀死%3$s时%2$s概率掉落",
   "celestial_core.tooltip.death_essence": "最大生命大于%2$s点的生物被凋零伤害杀死时%1$s概率掉落",
@@ -132,5 +134,6 @@
   "celestial_core.tooltip.virtual_gold_tool": "每个附魔增加%s攻击伤害和挖掘速度",
   "celestial_core.tooltip.virtual_gold_general": "极高附魔亲和度",
   "celestial_core.tooltip.anvil_forge_info": "在铁砧上与物品进行锻造",
-  "celestial_core.tooltip.loot_box_info": "打开后获取%s结构中的战利品"
+  "celestial_core.tooltip.loot_box_info": "打开后获取%s结构中的战利品",
+  "jei.transformation.title": "转化"
 }

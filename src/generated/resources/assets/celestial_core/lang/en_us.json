@@ -1,7 +1,9 @@
 {
+  "attribute.celestial_core.armor_penetration": "Armor penetration",
   "attribute.celestial_core.arrow_knock": "Arrow Knock Back",
   "attribute.celestial_core.arrow_speed": "Arrow Speed",
   "attribute.celestial_core.regen_rate": "Regeneration Rate",
+  "attribute.celestial_core.toughness_penetration": "Toughness penetration",
   "celestial_core.tooltip.after_wither_drop": "After defeating %s, %s chance to drop from %s",
   "celestial_core.tooltip.anvil_forge_info": "Forge with item on the anvil",
   "celestial_core.tooltip.broken_totem": "%s chance to drop when triggering a totem",
@@ -132,5 +134,6 @@
   "item.minecraft.tipped_arrow.effect.long_regen_rate": "Arrow of Regen Rate",
   "item.minecraft.tipped_arrow.effect.regen_rate": "Arrow of Regen Rate",
   "itemGroup.celestial_core.main": "Celestial Core Misc",
-  "itemGroup.celestial_core.tools": "Celestial Core Tools"
+  "itemGroup.celestial_core.tools": "Celestial Core Tools",
+  "jei.transformation.title": "Transformation"
 }

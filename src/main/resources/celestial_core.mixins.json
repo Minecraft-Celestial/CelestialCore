@@ -5,6 +5,7 @@
   "refmap": "celestial_core.refmap.json",
   "mixins": [
     "EntityMixin",
+    "ItemEntityMixin",
     "ItemStackMixin",
     "LivingEntityMixin"
   ],

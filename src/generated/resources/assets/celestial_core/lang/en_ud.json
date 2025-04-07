@@ -1,7 +1,9 @@
 {
+  "attribute.celestial_core.armor_penetration": "uoıʇɐɹʇǝuǝd ɹoɯɹⱯ",
   "attribute.celestial_core.arrow_knock": "ʞɔɐᗺ ʞɔouʞ ʍoɹɹⱯ",
   "attribute.celestial_core.arrow_speed": "pǝǝdS ʍoɹɹⱯ",
   "attribute.celestial_core.regen_rate": "ǝʇɐᴚ uoıʇɐɹǝuǝbǝᴚ",
+  "attribute.celestial_core.toughness_penetration": "uoıʇɐɹʇǝuǝd ssǝuɥbno⟘",
   "celestial_core.tooltip.after_wither_drop": "%s ɯoɹɟ doɹp oʇ ǝɔuɐɥɔ %s '%s buıʇɐǝɟǝp ɹǝʇɟⱯ",
   "celestial_core.tooltip.anvil_forge_info": "ןıʌuɐ ǝɥʇ uo ɯǝʇı ɥʇıʍ ǝbɹoℲ",
   "celestial_core.tooltip.broken_totem": "ɯǝʇoʇ ɐ buıɹǝbbıɹʇ uǝɥʍ doɹp oʇ ǝɔuɐɥɔ %s",
@@ -132,5 +134,6 @@
   "item.minecraft.tipped_arrow.effect.long_regen_rate": "ǝʇɐᴚ uǝbǝᴚ ɟo ʍoɹɹⱯ",
   "item.minecraft.tipped_arrow.effect.regen_rate": "ǝʇɐᴚ uǝbǝᴚ ɟo ʍoɹɹⱯ",
   "itemGroup.celestial_core.main": "ɔsıW ǝɹoƆ ןɐıʇsǝןǝƆ",
-  "itemGroup.celestial_core.tools": "sןoo⟘ ǝɹoƆ ןɐıʇsǝןǝƆ"
+  "itemGroup.celestial_core.tools": "sןoo⟘ ǝɹoƆ ןɐıʇsǝןǝƆ",
+  "jei.transformation.title": "uoıʇɐɯɹoɟsuɐɹ⟘"
 }

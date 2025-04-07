@@ -107,7 +107,7 @@ public class ItemUtils {
     }
 
     public static void toShrink(ItemStack stack, Player player) {
-        if (!player.getAbilities().instabuild || !player.isCreative()) {
+        if (!player.getAbilities().instabuild) {
             stack.shrink(1);
         }
     }
@@ -166,7 +166,7 @@ public class ItemUtils {
     }
 
     public static AttributeModifier addMod(String name, double amount, int operation) {
-        return new AttributeModifier(MathHelper.getUUIDFromString(name), name, amount, ItemUtils.getOperation(operation));
+        return addMod(name, amount, ItemUtils.getOperation(operation));
     }
 
     public static MutableComponent getUSNameInfo(String info) {

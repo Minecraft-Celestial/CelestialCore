@@ -1,6 +1,6 @@
-// 1.20.1	2025-01-24T18:13:25.703606	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (attributes)]
-786b83c7e999f2e3935d22b2bfb287d7dd3a2fe5 assets/celestial_core/lang/en_ud.json
-82ee6f3f6b221bc3da7a89d653efead18ae59e5f assets/celestial_core/lang/en_us.json
+// 1.20.1	2025-04-04T16:28:20.5826391	Registrate Provider for celestial_core [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (attributes)]
+ff091d712583ae65231f3dd9dd8d46bcaabe5861 assets/celestial_core/lang/en_ud.json
+d7a1d4828d9c7ecd073d606aeb112bdc62cfed44 assets/celestial_core/lang/en_us.json
 6338a37a04941a55b1db5117c1be6b8ed786a501 assets/celestial_core/models/item/broken_totem.json
 7f41b50a97308ba0064274589636f2485c882051 assets/celestial_core/models/item/death_essence.json
 f302631c6007b52c492e3e067143e2e7a016a18b assets/celestial_core/models/item/desert_pyramid_loot_box.json
@@ -71,7 +71,7 @@ e5f88a9821a76042446b9537c595dee9509e28c3 data/celestial_core/advancements/recipe
 24892721e9a931ff02e53984e628c76d93a623bf data/celestial_core/advancements/recipes/combat/generated_tools/virtual_gold/craft/virtual_gold_leggings.json
 e7f59ea9e78900a77276545009d1e24d802b3dbf data/celestial_core/advancements/recipes/combat/generated_tools/virtual_gold/craft/virtual_gold_sword.json
 b34755d9ed98cd0602e8762da6b273405de7b296 data/celestial_core/advancements/recipes/misc/earth_core.json
-4cfdb3afc3ad169ea52500aa0b9dd493c2222706 data/celestial_core/advancements/recipes/misc/guardian_ocean_ingot_misc.json
+f24c5e348ca33d7f29dee6338d917f3dd377b99f data/celestial_core/advancements/recipes/misc/guardian_ocean_ingot.json
 44ad2d67675b7adb34ea4feab0639c157b819424 data/celestial_core/advancements/recipes/misc/ocean_ingot.json
 d41157fb56a349d21809c8dcb9cea360e3d65dd2 data/celestial_core/advancements/recipes/misc/sakura_steel.json
 e846bf79de987fd42096c4713bbec4dd92d1cc0f data/celestial_core/advancements/recipes/misc/storage/guardian_ocean_ingot.json
@@ -91,6 +91,7 @@ ce3c08781392d9d5508f48975162d02c19e2f5bc data/celestial_core/advancements/recipe
 4fbe74fcc48f680615c84a716b4057933f7deed8 data/celestial_core/advancements/recipes/tools/generated_tools/virtual_gold/craft/virtual_gold_hoe.json
 c3920b3b1561ae3f77987224f00598f4b1481f1d data/celestial_core/advancements/recipes/tools/generated_tools/virtual_gold/craft/virtual_gold_pickaxe.json
 5b72b28bc7c7ed30b3a06c96d9f640050a1b3520 data/celestial_core/advancements/recipes/tools/generated_tools/virtual_gold/craft/virtual_gold_shovel.json
+8d16ad2a24ad1c0ba9af86903c5020b61a605447 data/celestial_core/advancements/recipes/transformation/heart_of_the_sea.json
 ca93038ba07b8941e3b5c2826238f0a2c872ba52 data/celestial_core/loot_tables/abandoned_mineshaft.json
 af2affc4b174ead1e89d3654dd93fa9b851b0065 data/celestial_core/loot_tables/end_city_treasure.json
 585c315606d7566781756a86af52f875bb2c1559 data/celestial_core/recipes/earth_core.json
@@ -121,7 +122,8 @@ ad21a5a413b8368df8a5a87a9b47f58a3fc47dbd data/celestial_core/recipes/generated_t
 4f62db657cda4183fec8b8b2ea813709ebe90603 data/celestial_core/recipes/generated_tools/virtual_gold/craft/virtual_gold_pickaxe.json
 3d389be1b19468e81d0db355e77dc9a1a8535bfb data/celestial_core/recipes/generated_tools/virtual_gold/craft/virtual_gold_shovel.json
 baa9b8f149565b9dc67d85afdb4b4fe571951a64 data/celestial_core/recipes/generated_tools/virtual_gold/craft/virtual_gold_sword.json
-d97020b6ceed5c0e6b80927bc5e63b4d4a8bc34d data/celestial_core/recipes/guardian_ocean_ingot_misc.json
+d97020b6ceed5c0e6b80927bc5e63b4d4a8bc34d data/celestial_core/recipes/guardian_ocean_ingot.json
+97ef7b930b255ad9a1247e5b4aba39058febea99 data/celestial_core/recipes/heart_of_the_sea.json
 c28043d2d7da4febea7f4e7e28f644f55aebff96 data/celestial_core/recipes/ocean_ingot.json
 c46b2b1fdd2238b8ecf3e8bda20cefd68ce71a60 data/celestial_core/recipes/sakura_steel.json
 8a20131cb689ba5cb3814488c8d980aa0e91e2ec data/celestial_core/recipes/storage/guardian_ocean_ingot.json
@@ -133,7 +135,15 @@ b07689e2a20bedf9fab83cc98ed8d1c0ebe3c458 data/forge/tags/items/armors/boots.json
 7d530226aa8aa7f54a245198741340a742503c73 data/forge/tags/items/armors/chestplates.json
 678b609676017c16db040f1725204641a6c57a36 data/forge/tags/items/armors/helmets.json
 8c842fcb8e5de16cb0b0a65b42cb9b4d8d665914 data/forge/tags/items/armors/leggings.json
-b25b408fcef40ad182171b4ca1eeb4d990d9a7d6 data/l2damagetracker/tags/attribute/percentage.json
+b2b083ff09477456b582180fa1fe56523b50b59b data/l2damagetracker/tags/attribute/percentage.json
+106852f87070a64773c2fa129fe6d2cd435f00ed data/minecraft/advancements/recipes/misc/crying_obsidian.json
+0e9657b0bfdbe32174c9112186cef1066c1b7770 data/minecraft/advancements/recipes/misc/experience_bottle.json
+8eeacf8c7fc96803e4b1494a056e496b20afb755 data/minecraft/advancements/recipes/misc/name_tag.json
+d7c270cd27871fee8a71fc73effb3b68f3c69a30 data/minecraft/advancements/recipes/misc/scute.json
+6086cc5daefb69423cf6c6984955a407513f3ada data/minecraft/recipes/crying_obsidian.json
+01ece3a2e1800c9ffcfa1ecab028f68dd43c6150 data/minecraft/recipes/experience_bottle.json
+283d573a8864f5c89588affeabbb2478f13ef383 data/minecraft/recipes/name_tag.json
+ff8cd9a017d7e591552d9e37e8282d4c4120079a data/minecraft/recipes/scute.json
 04b7ff7e16c3b5b4edbcb5095c5ebdc5db9b9e6e data/minecraft/tags/items/axes.json
 4b92b2f8007a984ef335629381c6d8f7665162d9 data/minecraft/tags/items/hoes.json
 7bd1e6d7648e33d3a3aa0496e51a9a635767655b data/minecraft/tags/items/pickaxes.json

@@ -39,11 +39,18 @@ public enum CCLangData {
     FULL_SET("Full set effect: %s", 1),
     SAKURA_SERIES("Restore 1 durability every %s seconds", 1),
     VIRTUAL_GOLD_TOOL("Increases attack damage and dig speed by %s for every enchantment it has", 1),
-    VIRTUAL_GOLD_GENERAL("High enchantment affinity", 0);
+    VIRTUAL_GOLD_GENERAL("High enchantment affinity", 0),
+    TRANSFORMATION_RECIPE_TITLE("jei.transformation.title", "Transformation", 0);
 
     final String id;
     final String def;
     final int count;
+
+    CCLangData(String id, String def, int count) {
+        this.id = id;
+        this.def = def;
+        this.count = count;
+    }
 
     CCLangData(String def, int count) {
         this.id = CelestialCore.MODID + ".tooltip." + name().toLowerCase(Locale.ROOT);

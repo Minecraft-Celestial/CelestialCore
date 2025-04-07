@@ -9,6 +9,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Endermite;
 import net.minecraft.world.entity.monster.Enemy;
@@ -35,6 +36,12 @@ public class EntityUtils {
             lightningBolt.moveTo(pos.getCenter());
             level.addFreshEntity(lightningBolt);
         }
+    }
+
+    public static void spawnItem(Level level, BlockPos pos, ItemStack stack) {
+        ItemEntity entity = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack, 0, 0.5, 0);
+        entity.setPickUpDelay(10);
+        level.addFreshEntity(entity);
     }
 
     public static void spawnThunder(Level level, BlockPos pos) {
@@ -179,10 +186,10 @@ public class EntityUtils {
     }
 
     public static void addEct(LivingEntity entity, MobEffect effect, int time, int level) {
-        entity.addEffect(new MobEffectInstance(effect, time, level, false, false, true), entity);
+        entity.addEffect(new MobEffectInstance(effect, time, level, false, false, true));
     }
 
     public static void addEct(LivingEntity entity, MobEffect effect, int time) {
-        entity.addEffect(new MobEffectInstance(effect, time, 0, false, false, true), entity);
+        entity.addEffect(new MobEffectInstance(effect, time, 0, false, false, true));
     }
 }

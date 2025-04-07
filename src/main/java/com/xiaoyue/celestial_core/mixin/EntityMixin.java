@@ -14,10 +14,8 @@ public abstract class EntityMixin {
     @Inject(at = @At("HEAD"), method = "dampensVibrations", cancellable = true)
     public void celestial_core$dampensVibrations(CallbackInfoReturnable<Boolean> cir) {
         Entity entity = (Entity) (Object) this;
-        if (entity instanceof LivingEntity le) {
-            if (le.hasEffect(CCEffects.SILENT.get())) {
-                cir.setReturnValue(true);
-            }
+        if (entity instanceof LivingEntity le && le.hasEffect(CCEffects.SILENT.get())) {
+            cir.setReturnValue(true);
         }
     }
 }

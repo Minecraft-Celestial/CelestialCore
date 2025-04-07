@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "celestial_core:guardian_ocean_ingot_misc"
+        "recipe": "celestial_core:guardian_ocean_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "celestial_core:guardian_ocean_ingot_misc"
+      "celestial_core:guardian_ocean_ingot"
     ]
   },
   "sends_telemetry_event": false

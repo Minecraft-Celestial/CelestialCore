@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_core.content.generic;
 
 import com.xiaoyue.celestial_core.CelestialCore;
+import com.xiaoyue.celestial_core.content.packet.EntityIntDataSyncPacket;
 import dev.xkmc.l2library.capability.entity.GeneralCapabilityHolder;
 import dev.xkmc.l2library.capability.entity.GeneralCapabilityTemplate;
 import dev.xkmc.l2serial.serialization.SerialClass;
@@ -15,9 +16,14 @@ import java.util.Map;
 @SerialClass
 public class EntityIntData extends GeneralCapabilityTemplate<LivingEntity, EntityIntData> {
 
+    public static void syncData(LivingEntity entity, String flag, int data) {
+        CelestialCore.HANDLER.toTrackingPlayers(new EntityIntDataSyncPacket(entity.getId(), flag, data), entity);
+    }
+
     public static void addData(LivingEntity entity, String key, int value) {
         if (!entity.isDeadOrDying()) {
             entity.getCapability(CAPABILITY).resolve().ifPresent(e -> e.addData(key, value));
+            syncData(entity, key, value);
         }
     }
 
@@ -30,6 +36,7 @@ public class EntityIntData extends GeneralCapabilityTemplate<LivingEntity, Entit
 
     public static void removeData(LivingEntity entity, String key) {
         entity.getCapability(CAPABILITY).resolve().ifPresent(e -> e.removeData(key));
+        syncData(entity, key, 0);
     }
 
     public static final Capability<EntityIntData> CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {

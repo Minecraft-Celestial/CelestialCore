@@ -8,8 +8,8 @@ import com.xiaoyue.celestial_core.register.CCAttributes;
 import com.xiaoyue.celestial_core.register.CCEffects;
 import com.xiaoyue.celestial_core.register.CCItems;
 import com.xiaoyue.celestial_core.register.CelestialFlags;
+import com.xiaoyue.celestial_core.utils.DelayUtils;
 import com.xiaoyue.celestial_core.utils.EntityUtils;
-import com.xiaoyue.celestial_core.utils.ScheduleUtils;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -49,21 +49,13 @@ public class CCGeneralEventHandler {
     }
 
     @SubscribeEvent
-    public static void onServerTick(TickEvent.ServerTickEvent event) {
-        if (event.phase.equals(TickEvent.Phase.END)) {
-            ScheduleUtils.serverTick();
-        }
-    }
-
-    @SubscribeEvent
     public static void onLivingTick(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.tickCount % 10 == 0) {
-            if (EntityUtils.onBlackFlame(entity)) {
-                int time = EntityUtils.getBlackFlameTime(entity);
-                EntityUtils.setBlackFlameTime(entity, Math.max(0, time - 10));
-                entity.hurt(CCDamageTypes.abyss(entity.level()), entity.getMaxHealth() * 0.01f);
-            }
+        if (entity.tickCount % 10 != 0) return;
+        if (EntityUtils.onBlackFlame(entity)) {
+            int time = EntityUtils.getBlackFlameTime(entity);
+            EntityUtils.setBlackFlameTime(entity, Math.max(0, time - 10));
+            entity.hurt(CCDamageTypes.abyss(entity.level()), entity.getMaxHealth() * 0.01f);
         }
     }
 
@@ -115,6 +107,13 @@ public class CCGeneralEventHandler {
                     data.addFlag(CelestialFlags.NETHER_STAGE);
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onServerTick(TickEvent.ServerTickEvent event) {
+        if (event.phase.equals(TickEvent.Phase.END)) {
+            DelayUtils.serverTick();
         }
     }
 }

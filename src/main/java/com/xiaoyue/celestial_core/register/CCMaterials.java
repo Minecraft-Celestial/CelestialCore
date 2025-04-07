@@ -2,7 +2,7 @@ package com.xiaoyue.celestial_core.register;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.xiaoyue.celestial_core.CelestialCore;
-import com.xiaoyue.celestial_core.content.items.VirtualGoldArmor;
+import com.xiaoyue.celestial_core.content.items.VirtualGoldArmorItem;
 import com.xiaoyue.celestial_core.content.series.*;
 import dev.xkmc.l2damagetracker.contents.materials.api.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraArmorConfig;
@@ -35,8 +35,8 @@ public enum CCMaterials implements IMatVanillaType {
     VIRTUAL_GOLD("virtual_gold", 3, SoundEvents.ARMOR_EQUIP_GOLD,
             new ToolStats(1200, 12, 7, 1, 30),
             new ArmorStats(22, new int[]{3, 6, 8, 3}, 2, 0, 30),
-            GenItemVanillaType.TOOL_GEN, VirtualGoldArmor.ARMOR_GEN,
-            new VirtualGoldTool().setStick(e -> CCItems.FIRE_ESSENCE.get(), false), new com.xiaoyue.celestial_core.content.series.VirtualGoldArmor()),
+            GenItemVanillaType.TOOL_GEN, VirtualGoldArmorItem.ARMOR_GEN,
+            new VirtualGoldTool().setStick(e -> CCItems.FIRE_ESSENCE.get(), false), new VirtualGoldArmor()),
     ;
 
     final String id;

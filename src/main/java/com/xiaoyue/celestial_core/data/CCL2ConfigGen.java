@@ -24,6 +24,8 @@ public class CCL2ConfigGen extends ConfigDataProvider {
                         .add(CCAttributes.REPLY_POWER.get(), true, 22000, 0)
                         .add(CCAttributes.ARROW_SPEED.get(), true, 22300, 0)
                         .add(CCAttributes.ARROW_KNOCK.get(), false, 22500, 0)
+                        .add(CCAttributes.ARMOR_PENETRATION.get(), true, 22700, 0)
+                        .add(CCAttributes.TOUGHNESS_PENETRATION.get(), true, 22900, 0)
         );
         collector.add(L2DamageTracker.ARMOR, CelestialCore.loc(CelestialCore.MODID),
                 new ArmorEffectConfig()

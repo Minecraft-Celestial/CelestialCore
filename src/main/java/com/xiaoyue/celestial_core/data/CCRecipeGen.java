@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.xiaoyue.celestial_core.CelestialCore;
+import com.xiaoyue.celestial_core.content.recipes.TransformationRecipeBuilder;
 import com.xiaoyue.celestial_core.register.CCItems;
 import com.xiaoyue.celestial_core.register.CCMaterials;
 import com.xiaoyue.celestial_core.utils.ItemUtils;
@@ -17,16 +18,22 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.function.BiFunction;
 
 public class CCRecipeGen {
 
-    private static String currentFolder = "";
+    public static String currentFolder = "";
 
     public static void onRecipeGen(RegistrateRecipeProvider pvd) {
+        unlock(pvd, new TransformationRecipeBuilder(List.of(Ingredient.of(Items.DIAMOND), Ingredient.of(CCItems.OCEAN_ESSENCE)), Blocks.WATER,
+                Items.HEART_OF_THE_SEA.getDefaultInstance())::unlockedBy, Items.DIAMOND).save(pvd, getID(Items.HEART_OF_THE_SEA));
+
         unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CCItems.EARTH_CORE, 1)::unlockedBy, Items.CRYING_OBSIDIAN)
                 .pattern("ABC").pattern("DEF").pattern("GHI")
                 .define('A', Items.AMETHYST_BLOCK)
@@ -48,6 +55,18 @@ public class CCRecipeGen {
                 .define('L', CCItems.LIGHT_FRAGMENT)
                 .save(pvd, getID(Items.TOTEM_OF_UNDYING));
 
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.NAME_TAG, 1)::unlockedBy, Items.PAPER)
+                .requires(Items.PAPER).requires(Items.STRING).requires(Items.IRON_INGOT)
+                .save(pvd);
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.CRYING_OBSIDIAN, 1)::unlockedBy, Items.OBSIDIAN)
+                .requires(Items.OBSIDIAN).requires(Items.GHAST_TEAR)
+                .save(pvd);
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.EXPERIENCE_BOTTLE, 3)::unlockedBy, Items.GLASS_BOTTLE)
+                .requires(Items.GLASS_BOTTLE).requires(CCItems.VIRTUAL_GOLD_NUGGET).requires(CCItems.LIGHT_FRAGMENT)
+                .save(pvd);
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.SCUTE, 2)::unlockedBy, CCItems.HEART_FRAGMENT.get())
+                .requires(CCItems.OCEAN_ESSENCE).requires(CCItems.HEART_FRAGMENT).requires(Items.SEAGRASS)
+                .save(pvd);
         unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CCItems.SAKURA_STEEL, 1)::unlockedBy, Items.IRON_INGOT)
                 .requires(Items.COPPER_INGOT).requires(Items.GOLD_INGOT).requires(CCItems.SAKURA_FRAGMENT).requires(CCItems.SAKURA_FRAGMENT)
                 .save(pvd);
@@ -58,7 +77,7 @@ public class CCRecipeGen {
         unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CCItems.GUARDIAN_OCEAN_INGOT, 1)::unlockedBy, CCItems.OCEAN_INGOT.get())
                 .requires(CCItems.OCEAN_INGOT).requires(CCItems.GUARDIAN_SPIKE).requires(CCItems.GUARDIAN_SPIKE).requires(CCItems.GUARDIAN_SPIKE)
                 .requires(CCItems.GUARDIAN_SPIKE)
-                .save(pvd, getID(CCItems.GUARDIAN_OCEAN_INGOT, "_misc"));
+                .save(pvd);
 
         genStorage(pvd, CCItems.GUARDIAN_OCEAN_INGOT.get(), CCItems.GUARDIAN_OCEAN_NUGGET.get());
         genStorage(pvd, CCItems.VIRTUAL_GOLD_INGOT.get(), CCItems.VIRTUAL_GOLD_NUGGET.get());
@@ -74,11 +93,11 @@ public class CCRecipeGen {
         return RecipeBuilder.getDefaultRecipeId(item) + id;
     }
 
-    public static ResourceLocation getID(String modId, Item item) {
-        return new ResourceLocation(modId, currentFolder + ItemUtils.getKey(item).getPath());
+    public static ResourceLocation getID(String modid, Item item) {
+        return new ResourceLocation(modid, currentFolder + ItemUtils.getKey(item).getPath());
     }
 
-    public static ResourceLocation getID(Item item) {
+    private static ResourceLocation getID(Item item) {
         return getID(CelestialCore.MODID, item);
     }
 

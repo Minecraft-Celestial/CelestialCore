@@ -5,12 +5,14 @@ import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.xiaoyue.celestial_core.content.generic.EntityIntData;
 import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
+import com.xiaoyue.celestial_core.content.packet.EntityIntDataSyncPacket;
 import com.xiaoyue.celestial_core.data.*;
 import com.xiaoyue.celestial_core.events.CCAttackListener;
 import com.xiaoyue.celestial_core.register.*;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2damagetracker.contents.materials.vanilla.GenItemVanillaType;
 import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -23,6 +25,7 @@ import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.network.NetworkDirection;
 import org.slf4j.Logger;
 
 @Mod(CelestialCore.MODID)
@@ -33,6 +36,8 @@ public class CelestialCore {
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
     public static final GenItemVanillaType MATS = new GenItemVanillaType(MODID, REGISTRATE);
+    public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(loc("main"), 1,
+            p -> p.create(EntityIntDataSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT));
 
     public static final RegistryEntry<CreativeModeTab> TAB =
             REGISTRATE.buildModCreativeTab("main", "Celestial Core Misc",
@@ -47,6 +52,7 @@ public class CelestialCore {
         CCEffects.register();
         CCLootModifier.register();
         CCAttributes.register();
+        CCRecipes.register();
         CCModConfig.init();
         PlayerFlagData.register();
         EntityIntData.register();
@@ -66,6 +72,8 @@ public class CelestialCore {
         event.add(EntityType.PLAYER, CCAttributes.REPLY_POWER.get(), 1);
         event.add(EntityType.PLAYER, CCAttributes.ARROW_SPEED.get(), 1);
         event.add(EntityType.PLAYER, CCAttributes.ARROW_KNOCK.get(), 0);
+        event.add(EntityType.PLAYER, CCAttributes.ARMOR_PENETRATION.get(), 0);
+        event.add(EntityType.PLAYER, CCAttributes.TOUGHNESS_PENETRATION.get(), 0);
     }
 
     @SubscribeEvent

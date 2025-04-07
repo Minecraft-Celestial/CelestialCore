@@ -1,3 +1,10 @@
+1.5.3
+- Add armor penetration attribute
+- Add a few recipes for vanilla items
+
+1.5.2
+- Fix compat with Origins
+
 1.5.1
 - Fix crash
 

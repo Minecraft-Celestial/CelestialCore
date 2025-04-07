@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_core.utils;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -13,8 +14,19 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
 
 import java.util.List;
+import java.util.UUID;
 
 public class CCUtils {
+
+    public static final UUID BYPASS_ARMOR_UUID = UUID.fromString("CB3F55D3-2213-B01A-A497-9C23A33DB5CF");
+    public static final UUID BYPASS_TOUGHNESS_UUID = UUID.fromString("CB3F55D3-2214-B024-A497-9C23A33DB5CF");
+
+    public static Vec3 getCenterOf(Vec3i pos) {
+        if (pos.equals(Vec3i.ZERO)) {
+            return new Vec3(.5, .5, .5);
+        }
+        return Vec3.atLowerCornerOf(pos).add(.5f, .5f, .5f);
+    }
 
     public static float getMoonFactor(Level level) {
         int moonPhase = ((int) (level.getDayTime() / 24000 % 8));

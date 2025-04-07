@@ -17,6 +17,18 @@
       "intrinsic": 0.0,
       "order": 22500,
       "usePercent": false
+    },
+    {
+      "id": "celestial_core:armor_penetration",
+      "intrinsic": 0.0,
+      "order": 22700,
+      "usePercent": true
+    },
+    {
+      "id": "celestial_core:toughness_penetration",
+      "intrinsic": 0.0,
+      "order": 22900,
+      "usePercent": true
     }
   ]
 }

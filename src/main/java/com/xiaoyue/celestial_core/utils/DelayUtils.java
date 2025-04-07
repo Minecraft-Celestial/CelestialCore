@@ -1,15 +1,14 @@
 package com.xiaoyue.celestial_core.utils;
 
-import com.xiaoyue.celestial_core.CelestialCore;
 import net.minecraft.resources.ResourceLocation;
 
-import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
-public class ScheduleUtils {
+public class DelayUtils {
 
-    private static final Map<ResourceLocation, ScheduleUtils> MAP = new HashMap<>();
+    private static final Map<ResourceLocation, DelayUtils> MAP = new HashMap<>();
 
     public int runTick;
     public int runCount;
@@ -18,7 +17,7 @@ public class ScheduleUtils {
     public final Runnable action;
     public boolean isEnd;
 
-    public ScheduleUtils(int singleRunTick, Runnable action) {
+    public DelayUtils(int singleRunTick, Runnable action) {
         this.runTick = 0;
         this.runCount = 0;
         this.needRunTick = singleRunTick;
@@ -26,7 +25,7 @@ public class ScheduleUtils {
         this.action = action;
     }
 
-    public ScheduleUtils(int needRunTick, int needRunCount, Runnable action) {
+    public DelayUtils(int needRunTick, int needRunCount, Runnable action) {
         this.runTick = 0;
         this.runCount = 0;
         this.needRunTick = needRunTick;
@@ -34,10 +33,8 @@ public class ScheduleUtils {
         this.action = action;
     }
 
-    @Nullable
-    public static ScheduleUtils getUtils(ResourceLocation id) {
-        if (!MAP.isEmpty()) return MAP.get(id);
-        return null;
+    public static Optional<DelayUtils> getUtils(ResourceLocation id) {
+        return Optional.ofNullable(MAP.get(id));
     }
 
     public static void serverTick() {
@@ -48,11 +45,9 @@ public class ScheduleUtils {
                 utils.runCount++;
                 if (utils.runCount >= utils.needRunCount) {
                     utils.isEnd = true;
-                    CelestialCore.LOGGER.info("{}: schedule end", key.toString());
                 } else {
                     utils.runTick = 0;
                     utils.isEnd = false;
-                    CelestialCore.LOGGER.info("{}: {} time schedule completion", key.toString(), utils.runCount);
                 }
             } else {
                 utils.runTick++;
@@ -63,12 +58,12 @@ public class ScheduleUtils {
     }
 
     public static void schedule(ResourceLocation id, int needRunTick, Runnable action) {
-        ScheduleUtils utils = new ScheduleUtils(needRunTick, action);
+        DelayUtils utils = new DelayUtils(needRunTick, action);
         MAP.put(id, utils);
     }
 
     public static void schedule(ResourceLocation id, int needRunTick, int needRunCount, Runnable action) {
-        ScheduleUtils utils = new ScheduleUtils(needRunTick, needRunCount, action);
+        DelayUtils utils = new DelayUtils(needRunTick, needRunCount, action);
         MAP.put(id, utils);
     }
 }

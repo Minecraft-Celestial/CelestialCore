@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "celestial_core:ocean_essence"
+    },
+    {
+      "item": "celestial_core:heart_fragment"
+    },
+    {
+      "item": "minecraft:seagrass"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:scute"
+  }
+}
