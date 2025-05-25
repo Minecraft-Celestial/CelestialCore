@@ -22,10 +22,7 @@ import java.util.Optional;
 public class CCAttackListener implements AttackListener {
 
     private Optional<AttributeInstance> getAttr(LivingEntity entity, Attribute attr) {
-        if (entity instanceof Player player) {
-            return Optional.ofNullable(player.getAttribute(attr));
-        }
-        return Optional.empty();
+        return Optional.ofNullable(entity.getAttribute(attr));
     }
 
     @Override
@@ -43,16 +40,20 @@ public class CCAttackListener implements AttackListener {
         LivingEntity attacker = cache.getAttacker();
         if (attacker == null) return;
         this.getAttr(target, Attributes.ARMOR).ifPresent(ins -> {
-            double ap = attacker.getAttributeValue(CCAttributes.ARMOR_PENETRATION.get());
-            ins.removeModifier(CCUtils.BYPASS_ARMOR_UUID);
-            var modifier = new AttributeModifier(CCUtils.BYPASS_ARMOR_UUID, "celestial_bypass_armor", -ap, ItemUtils.getOperation(2));
-            ins.addTransientModifier(modifier);
+            if (attacker instanceof Player player) {
+                double ap = player.getAttributeValue(CCAttributes.ARMOR_PENETRATION.get());
+                ins.removeModifier(CCUtils.BYPASS_ARMOR_UUID);
+                var modifier = new AttributeModifier(CCUtils.BYPASS_ARMOR_UUID, "celestial_bypass_armor", -ap, ItemUtils.getOperation(2));
+                ins.addTransientModifier(modifier);
+            }
         });
         this.getAttr(target, Attributes.ARMOR_TOUGHNESS).ifPresent(ins -> {
-            double tp = attacker.getAttributeValue(CCAttributes.TOUGHNESS_PENETRATION.get());
-            ins.removeModifier(CCUtils.BYPASS_TOUGHNESS_UUID);
-            var modifier = new AttributeModifier(CCUtils.BYPASS_TOUGHNESS_UUID, "celestial_bypass_toughness", -tp, ItemUtils.getOperation(2));
-            ins.addTransientModifier(modifier);
+            if (attacker instanceof Player player) {
+                double tp = player.getAttributeValue(CCAttributes.TOUGHNESS_PENETRATION.get());
+                ins.removeModifier(CCUtils.BYPASS_TOUGHNESS_UUID);
+                var modifier = new AttributeModifier(CCUtils.BYPASS_TOUGHNESS_UUID, "celestial_bypass_toughness", -tp, ItemUtils.getOperation(2));
+                ins.addTransientModifier(modifier);
+            }
         });
     }
 

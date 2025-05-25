@@ -1,6 +1,7 @@
 package com.xiaoyue.celestial_core.content.items;
 
 import com.xiaoyue.celestial_core.data.CCLangData;
+import com.xiaoyue.celestial_core.utils.EntityUtils;
 import com.xiaoyue.celestial_core.utils.ItemUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -39,7 +40,9 @@ public class LootTableBox extends Item {
         if (pPlayer instanceof ServerPlayer serverPlayer) {
             List<ItemStack> stacks = ItemUtils.getDefaultLootStacks(lootTable, serverPlayer);
             for (ItemStack stack : stacks) {
-                serverPlayer.addItem(stack);
+                if (!serverPlayer.addItem(stack)) {
+                    EntityUtils.spawnItem(pLevel, pPlayer.getOnPos(), stack);
+                }
             }
             ItemUtils.toShrink(box, serverPlayer);
             return InteractionResultHolder.consume(box);

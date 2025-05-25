@@ -1,3 +1,6 @@
+1.5.4
+- Fix loot box not dropping item when inventory is full
+
 1.5.3
 - Add armor penetration attribute
 - Add a few recipes for vanilla items
