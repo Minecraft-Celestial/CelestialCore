@@ -51,7 +51,7 @@ public class CCGeneralEventHandler {
     @SubscribeEvent
     public static void onLivingTick(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.tickCount % 10 != 0) return;
+        if (entity.tickCount % 10 != 0 || entity.level().isClientSide()) return;
         if (EntityUtils.onBlackFlame(entity)) {
             int time = EntityUtils.getBlackFlameTime(entity);
             EntityUtils.setBlackFlameTime(entity, Math.max(0, time - 10));

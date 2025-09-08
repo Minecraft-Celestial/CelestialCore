@@ -5,7 +5,7 @@ import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.xiaoyue.celestial_core.content.generic.EntityIntData;
 import com.xiaoyue.celestial_core.content.generic.PlayerFlagData;
-import com.xiaoyue.celestial_core.content.packet.EntityIntDataSyncPacket;
+import com.xiaoyue.celestial_core.content.network.EntityIntDataSyncPacket;
 import com.xiaoyue.celestial_core.data.*;
 import com.xiaoyue.celestial_core.events.CCAttackListener;
 import com.xiaoyue.celestial_core.register.*;
