@@ -1,3 +1,7 @@
+1.5.6
+- JEI display fix
+- Blackflame crash fix
+
 1.5.5
 - Fix loot box not dropping item when inventory is full
 

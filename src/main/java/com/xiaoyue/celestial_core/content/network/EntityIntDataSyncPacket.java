@@ -1,4 +1,4 @@
-package com.xiaoyue.celestial_core.content.packet;
+package com.xiaoyue.celestial_core.content.network;
 
 import com.xiaoyue.celestial_core.content.generic.EntityIntData;
 import dev.xkmc.l2library.util.Proxy;
@@ -38,5 +38,6 @@ public class EntityIntDataSyncPacket extends SerialPacketBase {
         Entity e = level.getEntity(entityId);
         if (!(e instanceof LivingEntity le)) return;
         le.getCapability(EntityIntData.CAPABILITY).ifPresent(data -> data.addData(flag, this.data));
+        context.setPacketHandled(true);
     }
 }

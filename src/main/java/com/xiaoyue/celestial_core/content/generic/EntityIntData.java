@@ -1,7 +1,7 @@
 package com.xiaoyue.celestial_core.content.generic;
 
 import com.xiaoyue.celestial_core.CelestialCore;
-import com.xiaoyue.celestial_core.content.packet.EntityIntDataSyncPacket;
+import com.xiaoyue.celestial_core.content.network.EntityIntDataSyncPacket;
 import dev.xkmc.l2library.capability.entity.GeneralCapabilityHolder;
 import dev.xkmc.l2library.capability.entity.GeneralCapabilityTemplate;
 import dev.xkmc.l2serial.serialization.SerialClass;
@@ -17,6 +17,7 @@ import java.util.Map;
 public class EntityIntData extends GeneralCapabilityTemplate<LivingEntity, EntityIntData> {
 
     public static void syncData(LivingEntity entity, String flag, int data) {
+        if (entity.level().isClientSide()) return;
         CelestialCore.HANDLER.toTrackingPlayers(new EntityIntDataSyncPacket(entity.getId(), flag, data), entity);
     }
 

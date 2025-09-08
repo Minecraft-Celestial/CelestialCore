@@ -45,8 +45,12 @@ public class GuiRenderHandler {
     public static void renderInfoFromMouse(GuiGraphics graphics, List<Component> info, double mx, double my, double x, double y, double ex, double ey, double ox, double oy) {
         Font font = Minecraft.getInstance().font;
         if (mx > x && mx < x + ex && my > y && my < y + ey) {
-            graphics.renderComponentTooltip(font, info, (int) (x + ox), (int) ( y + oy));
+            graphics.renderComponentTooltip(font, info, (int) (mx + ox), (int) (my + oy));
         }
+    }
+
+    public static void renderInfoFromMouse(GuiGraphics graphics, List<Component> info, double mx, double my, double x, double y, double ex, double ey) {
+        renderInfoFromMouse(graphics, info, mx, my, x, y, ex, ey, 0, 0);
     }
 
     public static GuiRenderBuilder of(ItemStack stack) {

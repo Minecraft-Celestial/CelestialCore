@@ -47,7 +47,7 @@ public class TransformationRecipeCategory extends BaseRecipeCategory<Transformat
     }
 
     private void renderInfo(GuiGraphics guiGraphics, List<Component> info, double mx, double my, double x, double y) {
-        GuiRenderHandler.renderInfoFromMouse(guiGraphics, info, mx, my, x, y, 18, 18, 10, 10);
+        GuiRenderHandler.renderInfoFromMouse(guiGraphics, info, mx, my, x, y, 18, 18);
     }
 
     @Override
@@ -60,17 +60,17 @@ public class TransformationRecipeCategory extends BaseRecipeCategory<Transformat
         if (recipe.stat.defaultBlockState().getFluidState().isEmpty()) {
             GuiRenderHandler.of(recipe.stat)
                     .rotateBlock(12.5, 202.5, 0)
-                    .scale(14)
+                    .scale(12)
                     .lighting(GuiRenderHandler.BLOCK_LIGHTING)
-                    .atLocal(0, 0.2, 0)
+                    .atLocal(0.1, 0.1, 0)
                     .at(90, 22)
                     .render(guiGraphics);
         } else {
             GuiRenderHandler.of(recipe.stat.defaultBlockState().getFluidState().getType())
                     .rotateBlock(12.5, 202.5, 0)
-                    .scale(13)
+                    .scale(12)
                     .lighting(GuiRenderHandler.BLOCK_LIGHTING)
-                    .atLocal(0, 0.2, 0)
+                    .atLocal(0.1, 0.2, 0)
                     .at(90, 22)
                     .render(guiGraphics);
         }
@@ -80,18 +80,18 @@ public class TransformationRecipeCategory extends BaseRecipeCategory<Transformat
             if (recipe.after.defaultBlockState().getFluidState().isEmpty()) {
                 GuiRenderHandler.of(recipe.after)
                         .rotateBlock(12.5, 202.5, 0)
-                        .scale(14)
+                        .scale(12)
                         .lighting(GuiRenderHandler.BLOCK_LIGHTING)
-                        .atLocal(0, 0.2, 0)
-                        .at(142, 31)
+                        .atLocal(0.1, 0.1, 0)
+                        .at(141, 33)
                         .render(guiGraphics);
             } else {
                 GuiRenderHandler.of(recipe.after.defaultBlockState().getFluidState().getType())
                         .rotateBlock(12.5, 202.5, 0)
-                        .scale(13)
+                        .scale(12)
                         .lighting(GuiRenderHandler.BLOCK_LIGHTING)
-                        .atLocal(0, 0.2, 0)
-                        .at(142, 31)
+                        .atLocal(0.1, 0.2, 0)
+                        .at(141, 31)
                         .render(guiGraphics);
             }
         }
