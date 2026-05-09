@@ -15,9 +15,9 @@ public class CCAttributes {
     public static final RegistryEntry<WrappedAttribute> ARROW_KNOCK = L2DamageTracker.regWrapped(CelestialCore.REGISTRATE,
             "arrow_knock", 0, 0, 64, "Arrow Knock Back");
     public static final RegistryEntry<WrappedAttribute> ARMOR_PENETRATION = L2DamageTracker.regWrapped(CelestialCore.REGISTRATE,
-            "armor_penetration", 0, 0, 1, "Armor penetration", L2DamageTracker.PERCENTAGE);
+            "armor_penetration", 0, 0, 1, "Armor Penetration", L2DamageTracker.PERCENTAGE);
     public static final RegistryEntry<WrappedAttribute> TOUGHNESS_PENETRATION = L2DamageTracker.regWrapped(CelestialCore.REGISTRATE,
-            "toughness_penetration", 0, 0, 1, "Toughness penetration", L2DamageTracker.PERCENTAGE);
+            "toughness_penetration", 0, 0, 1, "Toughness Penetration", L2DamageTracker.PERCENTAGE);
 
     public static void register() {
 

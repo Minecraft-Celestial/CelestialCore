@@ -14,15 +14,26 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public class CCAttackListener implements AttackListener {
 
     private Optional<AttributeInstance> getAttr(LivingEntity entity, Attribute attr) {
         return Optional.ofNullable(entity.getAttribute(attr));
+    }
+
+    private void attrOptional(LivingEntity entity, Attribute attr, LivingEntity attacker, Attribute penetration, UUID uuid, String name) {
+        this.getAttr(entity, attr).ifPresent(ins -> {
+            AttributeInstance ap = attacker.getAttribute(penetration);
+            if (ap == null) return;
+            ins.removeModifier(uuid);
+            var modifier = new AttributeModifier(uuid, name, -ap.getValue(), ItemUtils.getOperation(2));
+            ins.addTransientModifier(modifier);
+        });
     }
 
     @Override
@@ -39,22 +50,13 @@ public class CCAttackListener implements AttackListener {
         LivingEntity target = cache.getAttackTarget();
         LivingEntity attacker = cache.getAttacker();
         if (attacker == null) return;
-        this.getAttr(target, Attributes.ARMOR).ifPresent(ins -> {
-            if (attacker instanceof Player player) {
-                double ap = player.getAttributeValue(CCAttributes.ARMOR_PENETRATION.get());
-                ins.removeModifier(CCUtils.BYPASS_ARMOR_UUID);
-                var modifier = new AttributeModifier(CCUtils.BYPASS_ARMOR_UUID, "celestial_bypass_armor", -ap, ItemUtils.getOperation(2));
-                ins.addTransientModifier(modifier);
-            }
-        });
-        this.getAttr(target, Attributes.ARMOR_TOUGHNESS).ifPresent(ins -> {
-            if (attacker instanceof Player player) {
-                double tp = player.getAttributeValue(CCAttributes.TOUGHNESS_PENETRATION.get());
-                ins.removeModifier(CCUtils.BYPASS_TOUGHNESS_UUID);
-                var modifier = new AttributeModifier(CCUtils.BYPASS_TOUGHNESS_UUID, "celestial_bypass_toughness", -tp, ItemUtils.getOperation(2));
-                ins.addTransientModifier(modifier);
-            }
-        });
+        if (attacker.getMainHandItem().is(Items.DIAMOND)) {
+            EntityUtils.startAddBlackFlame(target, 100);
+        }
+        this.attrOptional(target, Attributes.ARMOR, attacker, CCAttributes.ARMOR_PENETRATION.get(),
+                CCUtils.BYPASS_ARMOR_UUID, "celestial_bypass_armor");
+        this.attrOptional(target, Attributes.ARMOR_TOUGHNESS, attacker, CCAttributes.TOUGHNESS_PENETRATION.get(),
+                CCUtils.BYPASS_TOUGHNESS_UUID, "celestial_bypass_toughness");
     }
 
     @Override

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "celestial_core:block/virtual_gold_block"
+    }
+  }
+}

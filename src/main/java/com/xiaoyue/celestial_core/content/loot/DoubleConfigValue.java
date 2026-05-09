@@ -13,6 +13,7 @@ public record DoubleConfigValue(String path, List<String> line) {
     }
 
     public static DoubleConfigValue of(String data) {
+        if (!data.contains("/")) return new DoubleConfigValue(data, List.of());
         int last = data.lastIndexOf('/');
         var line = data.substring(last + 1).split("\\.");
         return new DoubleConfigValue(data.substring(0, last), List.of(line));
@@ -23,7 +24,7 @@ public record DoubleConfigValue(String path, List<String> line) {
         if (file != null && file.getConfigData().get(this.line()) instanceof Number val) {
             return val.doubleValue();
         }
-        return 0;
+        return Double.parseDouble(path);
     }
 
     public String toData() {

@@ -25,19 +25,19 @@ public class AddItemModifier extends LootModifier {
             ForgeRegistries.ITEMS.getCodec().optionalFieldOf("fail")
                     .forGetter(m -> m.fail == Items.AIR ? Optional.empty() : Optional.of(m.fail)),
             Codec.STRING.optionalFieldOf("chance")
-                    .forGetter(m -> Optional.ofNullable(m.chance).map(DoubleConfigValue::toData))
+                    .forGetter(m -> Optional.ofNullable(m.chance))
     )).apply(i, AddItemModifier::new));
 
     public final Item item, fail;
 
     @Nullable
-    public final DoubleConfigValue chance;
+    public final String chance;
 
     protected AddItemModifier(LootItemCondition[] conditionsIn, Item item, Optional<Item> fail, Optional<String> chance) {
         super(conditionsIn);
         this.item = item;
         this.fail = fail.orElse(Items.AIR);
-        this.chance = chance.map(DoubleConfigValue::of).orElse(null);
+        this.chance = chance.orElse(null);
     }
 
     public AddItemModifier(Item item, @Nullable DoubleConfigValue chance, LootItemCondition... conditionsIn) {
@@ -48,7 +48,7 @@ public class AddItemModifier extends LootModifier {
         super(conditionsIn);
         this.item = item;
         this.fail = fail;
-        this.chance = chance;
+        this.chance = chance == null ? null : chance.toData();
     }
 
     @Override
@@ -56,7 +56,7 @@ public class AddItemModifier extends LootModifier {
         if (!context.hasParam(LootContextParams.DAMAGE_SOURCE)) {
             return generatedLoot;
         }
-        if (chance == null || context.getRandom().nextDouble() <= chance.get()) {
+        if (chance == null || context.getRandom().nextDouble() <= DoubleConfigValue.of(chance).get()) {
             generatedLoot.add(new ItemStack(item));
         } else {
             generatedLoot.add(new ItemStack(fail));

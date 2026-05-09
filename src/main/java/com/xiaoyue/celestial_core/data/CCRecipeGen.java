@@ -78,9 +78,13 @@ public class CCRecipeGen {
                 .requires(CCItems.OCEAN_INGOT).requires(CCItems.GUARDIAN_SPIKE).requires(CCItems.GUARDIAN_SPIKE).requires(CCItems.GUARDIAN_SPIKE)
                 .requires(CCItems.GUARDIAN_SPIKE)
                 .save(pvd);
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PINK_PETALS, 4)::unlockedBy, CCItems.SAKURA_FRAGMENT.get())
+                .requires(CCItems.SAKURA_FRAGMENT).requires(CCItems.SAKURA_FRAGMENT)
+                .save(pvd);
 
-        genStorage(pvd, CCItems.GUARDIAN_OCEAN_INGOT.get(), CCItems.GUARDIAN_OCEAN_NUGGET.get());
-        genStorage(pvd, CCItems.VIRTUAL_GOLD_INGOT.get(), CCItems.VIRTUAL_GOLD_NUGGET.get());
+        genMetalStorage(pvd, CCItems.SAKURA_STEEL.get(), CCItems.SAKURA_STEEL_NUGGET.get(), CCItems.SAKURA_STEEL_BLOCK.asItem());
+        genMetalStorage(pvd, CCItems.GUARDIAN_OCEAN_INGOT.get(), CCItems.GUARDIAN_OCEAN_NUGGET.get(), CCItems.GUARDIAN_OCEAN_BLOCK.asItem());
+        genMetalStorage(pvd, CCItems.VIRTUAL_GOLD_INGOT.get(), CCItems.VIRTUAL_GOLD_NUGGET.get(), CCItems.VIRTUAL_GOLD_BLOCK.asItem());
 
         for (int i = 0; i < CCMaterials.values().length; i++) {
             CCMaterials mat = CCMaterials.values()[i];
@@ -101,12 +105,19 @@ public class CCRecipeGen {
         return getID(CelestialCore.MODID, item);
     }
 
-    public static void genStorage(RegistrateRecipeProvider pvd, Item ingot, Item nugget) {
+    public static void genMetalStorage(RegistrateRecipeProvider pvd, Item ingot, Item nugget, Item block) {
         currentFolder = "storage/";
+        unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, block, 1)::unlockedBy, ingot)
+                .pattern("BBB").pattern("BBB").pattern("BBB")
+                .define('B', ingot)
+                .save(pvd, getID(block));
+        unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ingot, 9)::unlockedBy, block)
+                .requires(block)
+                .save(pvd, getID(ingot, "from_block"));
         unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ingot, 1)::unlockedBy, nugget)
                 .pattern("BBB").pattern("BBB").pattern("BBB")
                 .define('B', nugget)
-                .save(pvd, getID(ingot));
+                .save(pvd, getID(ingot, "from_nugget"));
         unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, nugget, 9)::unlockedBy, ingot)
                 .requires(ingot)
                 .save(pvd, getID(nugget));

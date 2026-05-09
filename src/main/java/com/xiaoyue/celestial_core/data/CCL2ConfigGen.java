@@ -29,7 +29,7 @@ public class CCL2ConfigGen extends ConfigDataProvider {
         );
         collector.add(L2DamageTracker.ARMOR, CelestialCore.loc(CelestialCore.MODID),
                 new ArmorEffectConfig()
-                        .add(CCMaterials.OCEAN.armorPrefix(), MobEffects.DIG_SLOWDOWN)
+                        .add(CCMaterials.GUARDIAN_OCEAN.armorPrefix(), MobEffects.DIG_SLOWDOWN)
                         .add(CCMaterials.SAKURA.armorPrefix(), MobEffects.POISON)
                         .add(CCMaterials.VIRTUAL_GOLD.armorPrefix(), MobEffects.WITHER)
         );

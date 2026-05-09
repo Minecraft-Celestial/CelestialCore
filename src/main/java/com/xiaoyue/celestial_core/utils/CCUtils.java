@@ -29,7 +29,7 @@ public class CCUtils {
     }
 
     public static float getMoonFactor(Level level) {
-        int moonPhase = ((int) (level.getDayTime() / 24000 % 8));
+        int moonPhase = level.getMoonPhase();
         float moonPhaseFactor;
         if (moonPhase == 0) {
             moonPhaseFactor = 1.0f;
@@ -46,7 +46,7 @@ public class CCUtils {
     }
 
     public static boolean isFullMoon(Level level) {
-        return getMoonFactor(level) == 1f;
+        return level.getMoonPhase() == 0;
     }
 
     public static void addFlySpeed(LivingEntity entity, float speed) {

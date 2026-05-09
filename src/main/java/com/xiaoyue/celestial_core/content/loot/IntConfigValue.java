@@ -13,6 +13,7 @@ public record IntConfigValue(String path, List<String> line) {
     }
 
     public static IntConfigValue of(String data) {
+        if (!data.contains("/")) return new IntConfigValue(data, List.of());
         int last = data.lastIndexOf('/');
         var line = data.substring(last + 1).split("\\.");
         return new IntConfigValue(data.substring(0, last), List.of(line));
@@ -23,7 +24,7 @@ public record IntConfigValue(String path, List<String> line) {
         if (file != null && file.getConfigData().get(this.line()) instanceof Number val) {
             return val.intValue();
         }
-        return 0;
+        return Integer.parseInt(path);
     }
 
     public String toData() {

@@ -1,9 +1,10 @@
 package com.xiaoyue.celestial_core.register;
 
+import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.xiaoyue.celestial_core.CelestialCore;
 import com.xiaoyue.celestial_core.content.items.VirtualGoldArmorItem;
-import com.xiaoyue.celestial_core.content.series.*;
+import com.xiaoyue.celestial_core.content.items.series.*;
 import dev.xkmc.l2damagetracker.contents.materials.api.*;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraArmorConfig;
 import dev.xkmc.l2damagetracker.contents.materials.generic.ExtraToolConfig;
@@ -16,13 +17,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeTier;
 
 import java.util.function.Supplier;
 
 public enum CCMaterials implements IMatVanillaType {
-    OCEAN("ocean", 3, SoundEvents.ARMOR_EQUIP_GOLD,
+    GUARDIAN_OCEAN("guardian_ocean", 3, SoundEvents.ARMOR_EQUIP_GOLD,
             new ToolStats(1200, 8, 6, 1, 12),
             new ArmorStats(30, new int[]{3, 6, 8, 3}, 2, 0, 12),
             GenItemVanillaType.TOOL_GEN, GenItemVanillaType.ARMOR_GEN,
@@ -49,7 +51,7 @@ public enum CCMaterials implements IMatVanillaType {
     final ExtraArmorConfig armor_extra;
 
     CCMaterials(String name, int level, SoundEvent equip_sound, IToolStats tool, ArmorStats armor, ToolConfig tool_config, ArmorConfig armor_config, ExtraToolConfig tool_extra, ExtraArmorConfig armor_extra) {
-        Supplier<Ingredient> ing = () -> Ingredient.of(CCItems.INGOTS[ordinal()]);
+        Supplier<Ingredient> ing = () -> Ingredient.of(INGOTS[ordinal()]);
         this.id = name;
         this.tier = new ForgeTier(level, tool.durability(), tool.speed(), 0, tool.enchant(), tool_extra.getTier(level), ing);
         this.mat = new ArmorMat(armorPrefix(), armor.durability(), armor.protection(), armor.enchant(), equip_sound, armor.tough(), armor.kb(), ing);
@@ -60,19 +62,23 @@ public enum CCMaterials implements IMatVanillaType {
         this.armor_extra = armor_extra;
     }
 
+    final ItemLike[] INGOTS = {CCItems.GUARDIAN_OCEAN_INGOT, CCItems.SAKURA_STEEL, CCItems.VIRTUAL_GOLD_INGOT};
+    final ItemLike[] NUGGETS = {CCItems.GUARDIAN_OCEAN_NUGGET, CCItems.SAKURA_STEEL_NUGGET, CCItems.VIRTUAL_GOLD_NUGGET};
+    final BlockEntry<?>[] BLOCKS = {CCItems.GUARDIAN_OCEAN_BLOCK, CCItems.SAKURA_STEEL_BLOCK, CCItems.VIRTUAL_GOLD_BLOCK};
+
     @Override
     public Item getIngot() {
-        return CCItems.INGOTS[ordinal()].asItem();
+        return INGOTS[ordinal()].asItem();
     }
 
     @Override
     public Item getNugget() {
-        return CCItems.NUGGETS[ordinal()].asItem();
+        return NUGGETS[ordinal()].asItem();
     }
 
     @Override
     public Block getBlock() {
-        return null;
+        return BLOCKS[ordinal()].get();
     }
 
     @Override

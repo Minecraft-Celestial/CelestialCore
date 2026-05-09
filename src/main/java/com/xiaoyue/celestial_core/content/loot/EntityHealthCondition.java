@@ -23,6 +23,10 @@ public class EntityHealthCondition implements LootItemCondition {
         this.min = min.toData();
     }
 
+    public EntityHealthCondition(String min) {
+        this.min = min;
+    }
+
     @Override
     public LootItemConditionType getType() {
         return CCLootModifier.ENTITY_HEALTH.get();

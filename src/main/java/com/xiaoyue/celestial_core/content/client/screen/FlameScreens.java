@@ -82,8 +82,8 @@ public class FlameScreens {
         pMatrixStack.translate(0.0F, 0.0F, -0.3F + (float) ((int) f3) * 0.02F);
         float f5 = 0.0F;
         int i = 0;
-        VertexConsumer vertexconsumer = pBuffer.getBuffer(Sheets.cutoutBlockSheet());
-        for (PoseStack.Pose posestack$pose = pMatrixStack.last(); f3 > 0.0F; ++i) {
+        VertexConsumer consumer = pBuffer.getBuffer(Sheets.cutoutBlockSheet());
+        for (PoseStack.Pose pose = pMatrixStack.last(); f3 > 0.0F; ++i) {
             TextureAtlasSprite fire_3 = i % 2 == 0 ? fire_1 : fire_2;
             float f6 = fire_3.getU0();
             float f7 = fire_3.getV0();
@@ -94,10 +94,10 @@ public class FlameScreens {
                 f8 = f6;
                 f6 = f10;
             }
-            fireVertex(posestack$pose, vertexconsumer, f1 - 0.0F, 0.0F - f4, f5, f8, f9);
-            fireVertex(posestack$pose, vertexconsumer, -f1 - 0.0F, 0.0F - f4, f5, f6, f9);
-            fireVertex(posestack$pose, vertexconsumer, -f1 - 0.0F, 1.4F - f4, f5, f6, f7);
-            fireVertex(posestack$pose, vertexconsumer, f1 - 0.0F, 1.4F - f4, f5, f8, f7);
+            fireVertex(pose, consumer, f1 - 0.0F, 0.0F - f4, f5, f8, f9);
+            fireVertex(pose, consumer, -f1 - 0.0F, 0.0F - f4, f5, f6, f9);
+            fireVertex(pose, consumer, -f1 - 0.0F, 1.4F - f4, f5, f6, f7);
+            fireVertex(pose, consumer, f1 - 0.0F, 1.4F - f4, f5, f8, f7);
             f3 -= 0.45F;
             f4 -= 0.45F;
             f1 *= 0.9F;

@@ -1,7 +1,6 @@
 package com.xiaoyue.celestial_core.content.generic;
 
 import com.xiaoyue.celestial_core.CelestialCore;
-import com.xiaoyue.celestial_core.content.network.EntityIntDataSyncPacket;
 import dev.xkmc.l2library.capability.entity.GeneralCapabilityHolder;
 import dev.xkmc.l2library.capability.entity.GeneralCapabilityTemplate;
 import dev.xkmc.l2serial.serialization.SerialClass;
@@ -24,7 +23,6 @@ public class EntityIntData extends GeneralCapabilityTemplate<LivingEntity, Entit
     public static void addData(LivingEntity entity, String key, int value) {
         if (!entity.isDeadOrDying()) {
             entity.getCapability(CAPABILITY).resolve().ifPresent(e -> e.addData(key, value));
-            syncData(entity, key, value);
         }
     }
 
@@ -44,7 +42,7 @@ public class EntityIntData extends GeneralCapabilityTemplate<LivingEntity, Entit
     });
 
     public static final GeneralCapabilityHolder<LivingEntity, EntityIntData> HOLDER =
-            new GeneralCapabilityHolder<>(CelestialCore.loc("fire_data"), CAPABILITY, EntityIntData.class,
+            new GeneralCapabilityHolder<>(CelestialCore.loc("int_data"), CAPABILITY, EntityIntData.class,
                     EntityIntData::new, LivingEntity.class, LivingEntity::isAlive);
 
     @SerialClass.SerialField

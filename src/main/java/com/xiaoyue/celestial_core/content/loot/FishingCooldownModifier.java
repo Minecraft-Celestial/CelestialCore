@@ -22,24 +22,20 @@ public class FishingCooldownModifier extends LootModifier {
     public static final Codec<FishingCooldownModifier> CODEC = RecordCodecBuilder.create(inst -> codecStart(inst)
             .and(ForgeRegistries.ITEMS.getCodec().fieldOf("condition").forGetter((m) -> m.condition))
             .and(ForgeRegistries.ITEMS.getCodec().fieldOf("result").forGetter((m) -> m.result))
-            .and(Codec.STRING.optionalFieldOf("cooldown").forGetter((m) -> Optional.ofNullable(m.cooldown)
-                    .map(IntConfigValue::toData)))
-            .and(Codec.STRING.optionalFieldOf("chance").forGetter((m) -> Optional.ofNullable(m.chance)
-                    .map(DoubleConfigValue::toData)))
+            .and(Codec.STRING.optionalFieldOf("cooldown").forGetter((m) -> Optional.ofNullable(m.cooldown)))
+            .and(Codec.STRING.optionalFieldOf("chance").forGetter((m) -> Optional.ofNullable(m.chance)))
             .apply(inst, FishingCooldownModifier::new));
 
     private final Item condition, result;
     @Nullable
-    private final IntConfigValue cooldown;
-    @Nullable
-    private final DoubleConfigValue chance;
+    private final String cooldown, chance;
 
     protected FishingCooldownModifier(LootItemCondition[] conditionsIn, Item condition, Item result, Optional<String> cooldown, Optional<String> chance) {
         super(conditionsIn);
         this.condition = condition;
         this.result = result;
-        this.cooldown = cooldown.map(IntConfigValue::of).orElse(null);
-        this.chance = chance.map(DoubleConfigValue::of).orElse(null);
+        this.cooldown = cooldown.orElse(null);
+        this.chance = chance.orElse(null);
     }
 
     public FishingCooldownModifier(Item condition, Item result, LootItemCondition... conditionsIn) {
@@ -54,8 +50,8 @@ public class FishingCooldownModifier extends LootModifier {
         super(conditionsIn);
         this.condition = condition;
         this.result = result;
-        this.cooldown = cooldown;
-        this.chance = chance;
+        this.cooldown = cooldown.toData();
+        this.chance = chance.toData();
     }
 
     @Override
@@ -66,8 +62,8 @@ public class FishingCooldownModifier extends LootModifier {
         if (context.getParam(LootContextParams.THIS_ENTITY) instanceof FishingHook hook) {
             Player player = hook.getPlayerOwner();
             if (player != null && !player.getCooldowns().isOnCooldown(condition)) {
-                if (chance == null || context.getRandom().nextDouble() <= chance.get()) {
-                    int cooldownTime = cooldown == null ? 0 : cooldown.get();
+                if (chance == null || context.getRandom().nextDouble() <= DoubleConfigValue.of(chance).get()) {
+                    int cooldownTime = cooldown == null ? 0 : IntConfigValue.of(cooldown).get();
                     player.getCooldowns().addCooldown(condition, cooldownTime);
                     return ObjectArrayList.of(new ItemStack(result));
                 }

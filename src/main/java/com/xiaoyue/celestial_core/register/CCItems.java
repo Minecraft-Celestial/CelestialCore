@@ -1,5 +1,6 @@
 package com.xiaoyue.celestial_core.register;
 
+import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.xiaoyue.celestial_core.CelestialCore;
@@ -9,18 +10,21 @@ import com.xiaoyue.celestial_core.data.CCLangData;
 import com.xiaoyue.celestial_core.data.CCModConfig;
 import com.xiaoyue.celestial_core.utils.IRarityUtils;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
 public class CCItems {
+
+    public static final BlockEntry<Block> SAKURA_STEEL_BLOCK, GUARDIAN_OCEAN_BLOCK, VIRTUAL_GOLD_BLOCK;
 
     public static final ItemEntry<CCTooltipItem> TREASURE_FRAGMENT, VOID_ESSENCE, FIRE_ESSENCE, OCEAN_ESSENCE,
             WARDEN_SCLERITE, LIGHT_FRAGMENT, MIDNIGHT_FRAGMENT, DEATH_ESSENCE, PURE_NETHER_STAR, SHULKER_SCRAP,
             SOARING_WINGS, HEART_FRAGMENT, SAKURA_FRAGMENT, GUARDIAN_SPIKE, BROKEN_TOTEM;
 
-    public static final ItemEntry<Item> EARTH_CORE, SAKURA_STEEL, OCEAN_INGOT, GUARDIAN_OCEAN_INGOT,
+    public static final ItemEntry<Item> EARTH_CORE, SAKURA_STEEL, SAKURA_STEEL_NUGGET, OCEAN_INGOT, GUARDIAN_OCEAN_INGOT,
             GUARDIAN_OCEAN_NUGGET, VIRTUAL_GOLD_INGOT, VIRTUAL_GOLD_NUGGET;
 
     public static final ItemEntry<LootTableBox> JUNGLE_PYRAMID_LOOT_BOX, DESERT_PYRAMID_LOOT_BOX,
@@ -30,9 +34,16 @@ public class CCItems {
 
     static {
         CelestialCore.REGISTRATE.defaultCreativeTab(CelestialCore.TAB.getKey());
+        SAKURA_STEEL_BLOCK = CelestialCore.REGISTRATE.block("sakura_steel_block", p -> new Block(p.strength(5f)))
+                .item((b, p) -> new BlockItem(b, p.rarity(IRarityUtils.PINK))).build().defaultLoot().defaultLang().register();
+        GUARDIAN_OCEAN_BLOCK = CelestialCore.REGISTRATE.block("guardian_ocean_block", p -> new Block(p.strength(6f)))
+                .item((b, p) -> new BlockItem(b, p.rarity(IRarityUtils.BLUE))).build().defaultLoot().defaultLang().register();
+        VIRTUAL_GOLD_BLOCK = CelestialCore.REGISTRATE.block("virtual_gold_block", p -> new Block(p.strength(7f)))
+                .item((b, p) -> new BlockItem(b, p.rarity(IRarityUtils.DARK_PURPLE))).build().defaultLoot().defaultLang().register();
         GUARDIAN_OCEAN_INGOT = material("guardian_ocean_ingot", p -> new Item(p.rarity(IRarityUtils.BLUE)));
         OCEAN_INGOT = material("ocean_ingot", p -> new Item(p.rarity(IRarityUtils.BLUE)));
         SAKURA_STEEL = material("sakura_steel", p -> new Item(p.rarity(IRarityUtils.PINK)));
+        SAKURA_STEEL_NUGGET = material("sakura_steel_nugget", p -> new Item(p.rarity(IRarityUtils.PINK)));
         VIRTUAL_GOLD_INGOT = material("virtual_gold_ingot", p -> new Item(p.rarity(IRarityUtils.DARK_PURPLE)));
         EARTH_CORE = material("earth_core", p -> new Item(p.rarity(IRarityUtils.DARK_GREEN)));
         GUARDIAN_OCEAN_NUGGET = material("guardian_ocean_nugget", p -> new Item(p.rarity(IRarityUtils.BLUE)));
@@ -71,13 +82,9 @@ public class CCItems {
         IGLOO_LOOT_BOX = item("igloo_loot_box", p -> new LootTableBox(p.rarity(IRarityUtils.BLUE), BuiltInLootTables.IGLOO_CHEST));
         MANSON_LOOT_BOX = item("manson_loot_box", p -> new LootTableBox(p.rarity(Rarity.EPIC), BuiltInLootTables.WOODLAND_MANSION));
         PILLAGER_OUTPOST_LOOT_BOX = item("pillager_outpost_loot_box", p -> new LootTableBox(p.rarity(Rarity.EPIC), BuiltInLootTables.PILLAGER_OUTPOST));
-
         CelestialCore.REGISTRATE.defaultCreativeTab(CelestialCore.TOOL_TAB.getKey());
         GEN_ITEM = CelestialCore.MATS.genItem(CCMaterials.values());
     }
-
-    public static final ItemLike[] INGOTS = {CCItems.GUARDIAN_OCEAN_INGOT, CCItems.SAKURA_STEEL, CCItems.VIRTUAL_GOLD_INGOT};
-    public static final ItemLike[] NUGGETS = {CCItems.GUARDIAN_OCEAN_NUGGET, CCItems.SAKURA_FRAGMENT, CCItems.VIRTUAL_GOLD_NUGGET};
 
     public static <T extends Item> ItemEntry<T> material(String id, NonNullFunction<Item.Properties, T> factory) {
         return CelestialCore.REGISTRATE.item(id, factory)

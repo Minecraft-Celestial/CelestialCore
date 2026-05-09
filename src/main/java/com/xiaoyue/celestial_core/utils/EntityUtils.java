@@ -4,6 +4,7 @@ import com.xiaoyue.celestial_core.content.generic.EntityIntData;
 import com.xiaoyue.celestial_core.register.CelestialFlags;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatVanillaType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -83,6 +84,12 @@ public class EntityUtils {
             return attackAngleVector.dot(lookingVector) < -0.5D;
         }
         return false;
+    }
+
+    public static void startAddBlackFlame(LivingEntity entity, int time) {
+        setBlackFlameTime(entity, time);
+        EntityIntData.syncData(entity, CelestialFlags.BLACK_FLAME, time);
+        DelayUtils.schedule(new ResourceLocation(CelestialFlags.BLACK_FLAME), time, () -> clearBlackFlame(entity));
     }
 
     public static boolean onBlackFlame(LivingEntity entity) {

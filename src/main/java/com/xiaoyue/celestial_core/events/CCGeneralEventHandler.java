@@ -51,10 +51,10 @@ public class CCGeneralEventHandler {
     @SubscribeEvent
     public static void onLivingTick(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.tickCount % 10 != 0 || entity.level().isClientSide()) return;
+        if (entity.level().isClientSide() || entity.tickCount % 10 != 0) return;
         if (EntityUtils.onBlackFlame(entity)) {
             int time = EntityUtils.getBlackFlameTime(entity);
-            EntityUtils.setBlackFlameTime(entity, Math.max(0, time - 10));
+            EntityUtils.setBlackFlameTime(entity, Math.max(0, time - 1));
             entity.hurt(CCDamageTypes.abyss(entity.level()), entity.getMaxHealth() * 0.01f);
         }
     }

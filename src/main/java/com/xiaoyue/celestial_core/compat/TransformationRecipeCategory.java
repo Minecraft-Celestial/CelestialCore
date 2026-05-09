@@ -63,15 +63,15 @@ public class TransformationRecipeCategory extends BaseRecipeCategory<Transformat
                     .scale(12)
                     .lighting(GuiRenderHandler.BLOCK_LIGHTING)
                     .atLocal(0.1, 0.1, 0)
-                    .at(90, 22)
+                    .at(91, 22)
                     .render(guiGraphics);
         } else {
             GuiRenderHandler.of(recipe.stat.defaultBlockState().getFluidState().getType())
                     .rotateBlock(12.5, 202.5, 0)
                     .scale(12)
                     .lighting(GuiRenderHandler.BLOCK_LIGHTING)
-                    .atLocal(0.1, 0.2, 0)
-                    .at(90, 22)
+                    .atLocal(0, 0.2, 0)
+                    .at(91, 22)
                     .render(guiGraphics);
         }
         if (recipe.after != null) {

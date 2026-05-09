@@ -28,6 +28,11 @@ public class PlayerEffectCondition implements LootItemCondition {
         this.count = count.toData();
     }
 
+    public PlayerEffectCondition(MobEffectCategory category, String count) {
+        this.category = category;
+        this.count = count;
+    }
+
     @Override
     public LootItemConditionType getType() {
         return CCLootModifier.PLAYER_EFFECT.get();
