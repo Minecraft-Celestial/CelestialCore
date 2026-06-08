@@ -1,3 +1,6 @@
+1.5.8
+- Fix compatibility with some op boss mods
+
 1.5.7
 - fix ocean guardian armor set model
 
