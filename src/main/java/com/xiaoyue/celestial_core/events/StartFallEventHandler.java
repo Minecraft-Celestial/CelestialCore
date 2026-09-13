@@ -23,29 +23,26 @@ public class StartFallEventHandler {
 
     @SubscribeEvent
     public static void onServerTick(TickEvent.ServerTickEvent event) {
-        if (!event.phase.equals(TickEvent.Phase.END)) return;
         MinecraftServer server = event.getServer();
-        for (ServerLevel level : server.getAllLevels()) {
-            if (level.isDay()) {
-                if (!wasDay) {
-                    destroyFallStars(level);
-                    timer = 0;
-                    wasDay = true;
-                }
-                continue;
+        ServerLevel overworld = server.overworld();
+        if (overworld.isDay()) {
+            if (!wasDay) {
+                destroyFallStars(overworld);
+                timer = 0;
+                wasDay = true;
             }
-            wasDay = false;
-            timer++;
-            if (timer < CCModConfig.COMMON.celestialFragmentInterval.get()) continue;
-            for (ServerPlayer player : server.getPlayerList().getPlayers()) {
-                if (player.level() != level) continue;
-                if (level.random.nextDouble() <= CCModConfig.COMMON.celestialFragmentChance.get()) {
-                    spawnFallStart(player);
-                    timer = 0;
-                    break;
-                }
-            }
+            return;
         }
+        wasDay = false;
+        timer++;
+        if (timer < CCModConfig.COMMON.celestialFragmentInterval.get()) return;
+        timer = 0;
+        if (overworld.random.nextDouble() > CCModConfig.COMMON.celestialFragmentChance.get()) return;
+        var players = server.getPlayerList().getPlayers().stream()
+                .filter(p -> p.serverLevel() == overworld)
+                .toList();
+        if (players.isEmpty()) return;
+        spawnFallStart(players.get(overworld.random.nextInt(players.size())));
     }
 
     private static void destroyFallStars(ServerLevel level) {

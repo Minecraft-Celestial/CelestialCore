@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ocean_chestplate": {
+    "has_reinforced_ocean_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "celestial_core:ocean_chestplate"
+              "celestial_core:reinforced_ocean_ingot"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_ocean_chestplate",
+      "has_reinforced_ocean_ingot",
       "has_the_recipe"
     ]
   ],

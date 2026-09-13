@@ -50,9 +50,6 @@ public class CCAttackListener implements AttackListener {
         LivingEntity target = cache.getAttackTarget();
         LivingEntity attacker = cache.getAttacker();
         if (attacker == null) return;
-        if (attacker.getMainHandItem().is(Items.DIAMOND)) {
-            EntityUtils.startAddBlackFlame(target, 100);
-        }
         this.attrOptional(target, Attributes.ARMOR, attacker, CCAttributes.ARMOR_PENETRATION.get(),
                 CCUtils.BYPASS_ARMOR_UUID, "celestial_bypass_armor");
         this.attrOptional(target, Attributes.ARMOR_TOUGHNESS, attacker, CCAttributes.TOUGHNESS_PENETRATION.get(),

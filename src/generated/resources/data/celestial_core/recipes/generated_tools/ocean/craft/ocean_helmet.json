@@ -1,17 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "A": {
-      "item": "celestial_core:reinforced_ocean_ingot"
-    }
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "celestial_core:reinforced_ocean_ingot"
   },
-  "pattern": [
-    "AAA",
-    "A A"
-  ],
+  "base": {
+    "item": "minecraft:iron_helmet"
+  },
   "result": {
     "item": "celestial_core:ocean_helmet"
   },
-  "show_notification": true
+  "template": {
+    "item": "celestial_core:ocean_essence"
+  }
 }

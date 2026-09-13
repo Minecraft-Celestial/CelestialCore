@@ -53,7 +53,7 @@ public class CCGLMProvider extends GlobalLootModifierProvider {
                 new EntityHealthCondition(IntConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.deathEssenceMinHealth))));
         add("drops/cursed_essence", new AddItemModifier(CCItems.CURSED_ESSENCE.get(),
                 DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.cursedEssenceChance),
-                damage(CCDamageTypes.WITHER), new CurseEnchCondition(EquipmentSlot.MAINHAND)));
+                new PlayerFlagCondition(CelestialFlags.NETHER_STAGE), new CurseEnchCondition(EquipmentSlot.MAINHAND)));
         add("drops/warden_sclerite", new AddItemModifier(CCItems.WARDEN_SCLERITE.get(),
                 DoubleConfigValue.of(CCModConfig.COMMON_PATH, CCModConfig.COMMON.wardenScleriteChance),
                 entityType(EntityType.WARDEN), LootTableTemplate.byPlayer().build()));

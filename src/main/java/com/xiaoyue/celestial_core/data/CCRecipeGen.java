@@ -10,10 +10,7 @@ import com.xiaoyue.celestial_core.register.CCMaterials;
 import com.xiaoyue.celestial_core.utils.ItemUtils;
 import dev.xkmc.l2damagetracker.contents.materials.api.IMatVanillaType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.recipes.RecipeBuilder;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
@@ -91,6 +88,12 @@ public class CCRecipeGen {
             ItemEntry<?>[] arr = CCItems.GEN_ITEM[i];
             genTools(pvd, mat, arr);
         }
+
+        currentFolder = "generated_tools/" + CCMaterials.OCEAN.getID().toLowerCase(Locale.ROOT) + "/craft/";
+        genOceanSmithing(pvd, Items.IRON_HELMET, CCItems.GEN_ITEM[0][3].asItem());
+        genOceanSmithing(pvd, Items.IRON_CHESTPLATE, CCItems.GEN_ITEM[0][2].asItem());
+        genOceanSmithing(pvd, Items.IRON_LEGGINGS, CCItems.GEN_ITEM[0][1].asItem());
+        genOceanSmithing(pvd, Items.IRON_BOOTS, CCItems.GEN_ITEM[0][0].asItem());
     }
 
     public static String getID(ItemLike item, String id) {
@@ -103,6 +106,12 @@ public class CCRecipeGen {
 
     private static ResourceLocation getID(Item item) {
         return getID(CelestialCore.MODID, item);
+    }
+
+    public static void genOceanSmithing(RegistrateRecipeProvider pvd, Item input, Item result) {
+        unlock(pvd, SmithingTransformRecipeBuilder.smithing(Ingredient.of(CCItems.OCEAN_ESSENCE), Ingredient.of(input),
+                Ingredient.of(CCItems.REINFORCED_OCEAN_INGOT), RecipeCategory.COMBAT, result)::unlocks, CCItems.REINFORCED_OCEAN_INGOT.get())
+                .save(pvd, getID(result));
     }
 
     public static void genMetalStorage(RegistrateRecipeProvider pvd, Item ingot, Item nugget, Item block) {
@@ -126,17 +135,6 @@ public class CCRecipeGen {
     public static void genTools(RegistrateRecipeProvider pvd, IMatVanillaType mat, ItemEntry<?>[] arr) {
         currentFolder = "generated_tools/" + mat.getID().toLowerCase(Locale.ROOT) + "/craft/";
         {
-            Item ingot = mat.getIngot();
-            unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[0].get(), 1)::unlockedBy, arr[0].get())
-                    .pattern("A A").pattern("A A").define('A', ingot).save(pvd, getID(arr[0].get()));
-            unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[1].get(), 1)::unlockedBy, arr[1].get())
-                    .pattern("AAA").pattern("A A").pattern("A A").define('A', ingot).save(pvd, getID(arr[1].get()));
-            unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[2].get(), 1)::unlockedBy, arr[2].get())
-                    .pattern("A A").pattern("AAA").pattern("AAA").define('A', ingot).save(pvd, getID(arr[2].get()));
-            unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[3].get(), 1)::unlockedBy, arr[3].get())
-                    .pattern("AAA").pattern("A A").define('A', ingot).save(pvd, getID(arr[3].get()));
-        }
-        {
             Item ingot = mat.getToolIngot();
             Item stick = mat.getToolStick();
             unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[4].get(), 1)::unlockedBy, arr[4].get())
@@ -149,6 +147,17 @@ public class CCRecipeGen {
                     .pattern("AAA").pattern(" B ").pattern(" B ").define('A', ingot).define('B', stick).save(pvd, getID(arr[7].get()));
             unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.TOOLS, arr[8].get(), 1)::unlockedBy, arr[8].get())
                     .pattern("AA").pattern(" B").pattern(" B").define('A', ingot).define('B', stick).save(pvd, getID(arr[8].get()));
+        }
+        if (mat != CCMaterials.OCEAN) {
+            Item ingot = mat.getIngot();
+            unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[0].get(), 1)::unlockedBy, arr[0].get())
+                    .pattern("A A").pattern("A A").define('A', ingot).save(pvd, getID(arr[0].get()));
+            unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[1].get(), 1)::unlockedBy, arr[1].get())
+                    .pattern("AAA").pattern("A A").pattern("A A").define('A', ingot).save(pvd, getID(arr[1].get()));
+            unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[2].get(), 1)::unlockedBy, arr[2].get())
+                    .pattern("A A").pattern("AAA").pattern("AAA").define('A', ingot).save(pvd, getID(arr[2].get()));
+            unlock(pvd, new ShapedRecipeBuilder(RecipeCategory.COMBAT, arr[3].get(), 1)::unlockedBy, arr[3].get())
+                    .pattern("AAA").pattern("A A").define('A', ingot).save(pvd, getID(arr[3].get()));
         }
     }
 

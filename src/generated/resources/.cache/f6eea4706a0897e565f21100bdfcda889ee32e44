@@ -1,8 +1,8 @@
-// 1.20.1	2026-08-13T00:00:40.1228995	Global Loot Modifiers : celestial_core
+// 1.20.1	2026-09-13T21:08:42.7631245	Global Loot Modifiers : celestial_core
 3831e5fac0df7d02e15a1ccfd00d1e2559f284f7 data/celestial_core/loot_modifiers/chests/abandoned_mineshaft.json
 02419c6cbf98c7e0627ebbf5001a4dceb170c157 data/celestial_core/loot_modifiers/chests/end_city_treasure.json
 14ebbe10d6d14a22ac63a4ae5ba815c7568145b3 data/celestial_core/loot_modifiers/chests/igloo_chest.json
-8a74f53c86df8420ba940eca64e01f7fe02ae8a1 data/celestial_core/loot_modifiers/drops/cursed_essence.json
+cfb6f0f1951938365568235511e747ef5c00b58a data/celestial_core/loot_modifiers/drops/cursed_essence.json
 3d18d26e877aae8f3509e11e48f408cef8e65dee data/celestial_core/loot_modifiers/drops/death_essence.json
 398d85d60a151cb37d73b027a7e3beaea00abf9e data/celestial_core/loot_modifiers/drops/elder_guardian_spike.json
 3615d0b5cd90efe517e7cf550e53fa80454108ed data/celestial_core/loot_modifiers/drops/fire_essence.json
