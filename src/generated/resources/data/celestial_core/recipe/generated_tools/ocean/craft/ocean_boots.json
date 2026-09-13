@@ -1,17 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "A": {
-      "item": "celestial_core:reinforced_ocean_ingot"
-    }
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "celestial_core:reinforced_ocean_ingot"
   },
-  "pattern": [
-    "A A",
-    "A A"
-  ],
+  "base": {
+    "item": "minecraft:iron_boots"
+  },
   "result": {
     "count": 1,
     "id": "celestial_core:ocean_boots"
+  },
+  "template": {
+    "item": "celestial_core:ocean_essence"
   }
 }

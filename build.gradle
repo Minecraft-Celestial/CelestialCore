@@ -102,7 +102,7 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
-    implementation jarJar("xiaoyue.celestial_invoker:celestial_invoker:[21nf10cd7,)")
+    implementation jarJar("xiaoyue.celestial_invoker:celestial_invoker:[21nf10ce3,)")
 
     implementation jarJar("dev.xkmc:l2serial:[3.0.9,)")
     implementation jarJar("dev.xkmc:l2core:[3.0.8+18,)")

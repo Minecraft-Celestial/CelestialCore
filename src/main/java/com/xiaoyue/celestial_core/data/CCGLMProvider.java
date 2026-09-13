@@ -46,7 +46,7 @@ public class CCGLMProvider {
                 new EntityHealthCondition(IntConfigValue.of(CCModConfig.SERVER.getPath(), CCModConfig.SERVER.deathEssenceMinHealth))));
         pvd.add("drops/cursed_essence", new AddItemModifier(CCItems.CURSED_ESSENCE.get(),
                 DoubleConfigValue.of(CCModConfig.SERVER.getPath(), CCModConfig.SERVER.cursedEssenceChance),
-                damage(CCDamageTypes.WITHER), new CurseEnchCondition(EquipmentSlot.MAINHAND)));
+                new PlayerFlagCondition(CelestialFlags.NETHER_STAGE), new CurseEnchCondition(EquipmentSlot.MAINHAND)));
         pvd.add("drops/warden_sclerite", new AddItemModifier(CCItems.WARDEN_SCLERITE.get(),
                 DoubleConfigValue.of(CCModConfig.SERVER.getPath(), CCModConfig.SERVER.wardenScleriteChance),
                 entityType(EntityType.WARDEN), LootTableTemplate.byPlayer().build()));

@@ -1,4 +1,4 @@
-// 1.21.1	2026-08-17T19:09:14.091247	Registrate Provider for celestial_core [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Global Loot Modifier Registrate Provider]
+// 1.21.1	2026-09-13T20:05:59.1755919	Registrate Provider for celestial_core [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (mob_effect), Tags (attribute), Tags (enchantment), Tags (damage_type), Global Loot Modifier Registrate Provider]
 99a7f3d69907dceaaaddc26110aab9bac11e9293 assets/celestial_core/blockstates/reinforced_ocean_block.json
 bf54a41af3f10b2efc158f6b2b934fd7f8bc5a7a assets/celestial_core/blockstates/sakura_steel_block.json
 f8145523e76e04d3259ae16718d09990eab9035b assets/celestial_core/blockstates/virtual_gold_block.json
@@ -69,10 +69,10 @@ bfdbefd99f7c01fc70c8dd3bdeeaeeb075ee720d assets/celestial_core/models/item/virtu
 1e757dde4449021bd631a30f542a2a2d1027a2fe assets/celestial_core/models/item/void_essence.json
 04a54e9a766a895213dbcd56b28c288ef8cec815 assets/celestial_core/models/item/warden_sclerite.json
 864660f335d94272a3b83993f490fa5e9e024169 data/celestial_core/advancement/fluid_transformation/heart_of_the_sea.json
-4c3f987e060675a41571854e04a194d0c04638f0 data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_boots.json
-e17a88929e51077a531c937eb8b9ada6314ca91c data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_chestplate.json
-d7a1a1a2b66afd953aad3d8920524833054db201 data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_helmet.json
-a06ec296cf2e38f64b733959a0eea0811eec0789 data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_leggings.json
+69ff219a0a170411a10f160aa487c910c314fe0c data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_boots.json
+6e9c35b80876cc1ccaaab450695dcddf3af0bfff data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_chestplate.json
+50ddd7172def2a22c83204f0bf49cd53d92cce15 data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_helmet.json
+1702325d0042af593f42cb47f0b65bdac4529bf5 data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_leggings.json
 5bd06af778345a7652f33176a6c45e9ad210da7d data/celestial_core/advancement/recipes/combat/generated_tools/ocean/craft/ocean_sword.json
 a68a1db69f4dd737656c3a52a1b8d5a785063c48 data/celestial_core/advancement/recipes/combat/generated_tools/sakura/craft/sakura_boots.json
 b2fd7dfc90946b9913a7db4f184aa9b7c7789410 data/celestial_core/advancement/recipes/combat/generated_tools/sakura/craft/sakura_chestplate.json
@@ -118,7 +118,7 @@ fb90b4babed4eb8dd88228f8203852b71d11817b data/celestial_core/damage_type/magic.j
 5a91070f8c58f5c48e1690b5155d366114f359a5 data/celestial_core/loot_modifiers/chests/abandoned_mineshaft.json
 212f60ae0f715a8c6c26f3becf8d560d0c7ec25f data/celestial_core/loot_modifiers/chests/end_city_treasure.json
 aee50eaa30863302b63481846a7e725d00973900 data/celestial_core/loot_modifiers/chests/igloo_chest.json
-7f4e532cc3eb89cff95a46af31007b5e8db84ce1 data/celestial_core/loot_modifiers/drops/cursed_essence.json
+9652067bd36fe3844d1464416ead357d22fcfa3c data/celestial_core/loot_modifiers/drops/cursed_essence.json
 55c5c4ec79ac3b8bb3281517426a5d8a7723b02e data/celestial_core/loot_modifiers/drops/death_essence.json
 d2763d3456faf80244228d32a887e8c308ad9be0 data/celestial_core/loot_modifiers/drops/elder_guardian_spike.json
 a6be57e754e36691af7af6ae37616f0b17f10a26 data/celestial_core/loot_modifiers/drops/fire_essence.json
@@ -145,11 +145,11 @@ d4250c8a8490b7f552b061e0b7f914805c2edfbf data/celestial_core/loot_table/igloo_ch
 8f76d32466ca1bd700050e2c66b3993261bdc003 data/celestial_core/recipe/earth_core.json
 cc0fad405f3f52200489e763094cbc7778b25af7 data/celestial_core/recipe/fluid_transformation/heart_of_the_sea.json
 323539729b86dd7c25ccb5025535579647d5bd12 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_axe.json
-3665d86049e0c939129ae2a9b35895fc5e7e9a9d data/celestial_core/recipe/generated_tools/ocean/craft/ocean_boots.json
-faa8f21f5b6f72544b38a2039364f666385108d7 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_chestplate.json
-40a39b1fe63126303473f3aa09c7eef8619b7fbc data/celestial_core/recipe/generated_tools/ocean/craft/ocean_helmet.json
+2f0149395865b0d11a99222298c383bcb8d043a6 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_boots.json
+faa7003a2f7f903d3b63394c5e8a05c251a36f9c data/celestial_core/recipe/generated_tools/ocean/craft/ocean_chestplate.json
+9d4e1a42016dd91166eca51fc5501b188ba1bbe2 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_helmet.json
 6c4b8f89e16423d33d42aee2eb2f803725b7a685 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_hoe.json
-04cd2a950e148cd5c8055534c4fce301afe1f400 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_leggings.json
+849d1d342c45451254d1e661c2f349ac1eeb78d1 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_leggings.json
 f46eb63c283b9cf94ba72ac5a58ee34162ba0ae9 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_pickaxe.json
 48efea51740ff205c602b12ac28c500ef2154f30 data/celestial_core/recipe/generated_tools/ocean/craft/ocean_shovel.json
 2d601ad6f980e76bb112f0a1336f5f626adc7ebe data/celestial_core/recipe/generated_tools/ocean/craft/ocean_sword.json

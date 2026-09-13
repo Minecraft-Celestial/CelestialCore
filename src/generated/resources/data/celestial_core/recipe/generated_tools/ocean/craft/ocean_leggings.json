@@ -1,18 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "A": {
-      "item": "celestial_core:reinforced_ocean_ingot"
-    }
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "celestial_core:reinforced_ocean_ingot"
   },
-  "pattern": [
-    "AAA",
-    "A A",
-    "A A"
-  ],
+  "base": {
+    "item": "minecraft:iron_leggings"
+  },
   "result": {
     "count": 1,
     "id": "celestial_core:ocean_leggings"
+  },
+  "template": {
+    "item": "celestial_core:ocean_essence"
   }
 }
